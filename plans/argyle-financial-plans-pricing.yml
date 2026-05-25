@@ -1,0 +1,194 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Argyle
+providerId: argyle-financial
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Employment Data
+  - Income Verification
+  - Payroll
+  - Mortgage
+  - Lending
+  - Gig Economy
+description: >-
+  Machine-readable plans and pricing scaffold for Argyle. Argyle does not
+  publish a public price list; commercial terms are negotiated per customer
+  based on verification volume, mix of payroll / banking / document paths,
+  Day 1 Certainty / AIM eligibility, and LOS integration. The tiers below
+  scaffold the dimensions Argyle is known to meter against — verifications,
+  reports, and document processing — and should be overlaid with contracted
+  numbers when known.
+plans:
+  - id: argyle-sandbox
+    name: Sandbox
+    type: freemium
+    description: >-
+      Free Argyle Console sandbox environment at api-sandbox.argyle.com.
+      Provides synthetic users, payroll, gig, and banking data plus the full
+      webhook event stream for integration development.
+    entries:
+      - label: Sandbox API Requests
+        description: Requests against the sandbox host
+        name: sandbox_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains:
+          - https://api-sandbox.argyle.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Sandbox Rate Limit
+        description: 50 requests per second on the sandbox surface
+        name: sandbox_rate
+        type: rate
+        metric: requests_per_second
+        limit: 50
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api-sandbox.argyle.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Argyle Console
+      - name: Link SDK (Web, iOS, Android, React Native, Flutter)
+      - name: Hosted Link
+      - name: Full Webhook Event Stream
+      - name: Synthetic Payroll / Gig / Banking Data
+  - id: argyle-production
+    name: Production
+    type: paid
+    description: >-
+      Production tier for Argyle. Pricing is negotiated per integration and
+      typically metered on completed verifications and generated reports.
+      Argyle publicly cites 60-80% cost reduction versus traditional
+      verification methods such as The Work Number.
+    entries:
+      - label: Verification of Income / Employment
+        description: Per-verification charge for payroll-direct VOI / VOE / VOIE workflows
+        name: verification_voie
+        type: metered
+        metric: verifications
+        limit: -1
+        timeFrame: month
+        geo: us
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Verification of Assets
+        description: Per-verification charge for banking VOA / VOAI workflows
+        name: verification_voa
+        type: metered
+        metric: verifications
+        limit: -1
+        timeFrame: month
+        geo: us
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Document Processing
+        description: Per-document charge for OCR and authenticity-checked uploads
+        name: document_processing
+        type: metered
+        metric: documents
+        limit: -1
+        timeFrame: month
+        geo: us
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Underwriter Report
+        description: Per-report charge for consolidated PDF / JSON deliverables
+        name: report
+        type: metered
+        metric: reports
+        limit: -1
+        timeFrame: month
+        geo: us
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Production Rate Limit
+        description: 50 requests per second per integration
+        name: production_rate
+        type: rate
+        metric: requests_per_second
+        limit: 50
+        timeFrame: second
+        geo: global
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All Production Endpoints
+      - name: Payroll-Direct VOI / VOE / VOIE
+      - name: Banking VOA / VOAI
+      - name: Document Processing With OCR
+      - name: Day 1 Certainty Eligibility
+      - name: Freddie Mac AIM Eligibility
+      - name: Ongoing Refresh
+      - name: Webhook Subscriptions
+      - name: Argyle Console
+      - name: Encompass / nCino / Empower / Byte Integrations
+  - id: argyle-enterprise
+    name: Enterprise
+    type: enterprise
+    description: >-
+      Negotiated enterprise tier for large lenders, GSE-aligned mortgage
+      originators, and reseller partners. Includes contractual SLAs,
+      Verifications Partners API access, custom flow configurations, and
+      named technical account management.
+    entries:
+      - label: Verification Volume
+        description: Negotiated verification volume across all kinds
+        name: verification_volume
+        type: quota
+        metric: verifications
+        limit: -1
+        timeFrame: month
+        geo: configurable
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Negotiated Rate Limit
+        description: Custom request-rate ceiling above the 50 RPS default
+        name: enterprise_rate
+        type: rate
+        metric: requests_per_second
+        limit: -1
+        timeFrame: second
+        geo: configurable
+        domains:
+          - https://api.argyle.com
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Verifications Partners API
+      - name: Custom Flow Configuration
+      - name: Contractual SLA
+      - name: Security & Compliance Review
+      - name: Dedicated Technical Account Manager
+      - name: Multi-Tenant Reseller Access
+      - name: Day 1 Certainty / AIM Partnership
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

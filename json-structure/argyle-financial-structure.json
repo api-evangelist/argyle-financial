@@ -1,0 +1,60 @@
+{
+  "name": "Argyle Financial",
+  "description": "Top-level structure of the Argyle employment and income data platform — anchor resources and the relationships between them.",
+  "version": "2",
+  "entities": {
+    "User": {
+      "description": "Consumer record. Root of every downstream data set.",
+      "has_many": ["Account", "Identity", "Employment", "Paystub", "PayrollDocument", "DepositDestination", "Shift", "Gig", "Vehicle", "Rating", "Report", "Verification", "UserUpload", "UserForm", "BankAccount"]
+    },
+    "UserToken": {
+      "description": "Short-lived credential used to initialize a Link SDK or hosted flow.",
+      "belongs_to": ["User"]
+    },
+    "Account": {
+      "description": "Live connection to a payroll, gig, or banking source.",
+      "belongs_to": ["User", "Item"],
+      "has_many": ["Identity", "Employment", "Paystub", "Shift", "Gig", "DepositDestination", "PayrollDocument"]
+    },
+    "Item": {
+      "description": "Employer, payroll provider, gig platform, or financial institution catalog entry.",
+      "has_many": ["Account"]
+    },
+    "ItemFilter": {
+      "description": "Constraint set determining which Items appear in a Link flow.",
+      "belongs_to": ["User"]
+    },
+    "Identity": {"belongs_to": ["Account", "User"]},
+    "Employment": {"belongs_to": ["Account", "User"]},
+    "Paystub": {"belongs_to": ["Account", "User", "Employment"]},
+    "PayrollDocument": {"belongs_to": ["Account", "User"]},
+    "DepositDestination": {"belongs_to": ["Account", "User"]},
+    "Shift": {"belongs_to": ["Account", "User"]},
+    "Gig": {"belongs_to": ["Account", "User"]},
+    "Vehicle": {"belongs_to": ["Account", "User"]},
+    "Rating": {"belongs_to": ["Account", "User"]},
+    "UserUpload": {"belongs_to": ["User"]},
+    "UserForm": {"belongs_to": ["User"]},
+    "Verification": {"belongs_to": ["User"], "has_many": ["Report"]},
+    "Report": {"belongs_to": ["User", "Verification"]},
+    "BankAccount": {"belongs_to": ["User", "FinancialInstitution"]},
+    "FinancialInstitution": {"has_many": ["BankAccount"]},
+    "Receipt": {"belongs_to": ["Verification"]}
+  },
+  "webhooks": {
+    "user_events": ["users.fully_synced"],
+    "account_events": ["accounts.added", "accounts.updated", "accounts.connected", "accounts.failed", "accounts.removed"],
+    "item_events": ["items.updated", "items.removed"],
+    "identity_events": ["identities.added", "identities.updated"],
+    "paystub_events": ["paystubs.added", "paystubs.updated", "paystubs.partially_synced", "paystubs.fully_synced"],
+    "payroll_document_events": ["payroll_documents.added", "payroll_documents.updated", "payroll_documents.removed", "payroll_documents.ocr_completed", "payroll_documents.ocr_failed"],
+    "shift_events": ["shifts.added", "shifts.updated", "shifts.removed", "shifts.partially_synced", "shifts.fully_synced"],
+    "gig_events": ["gigs.added", "gigs.updated", "gigs.removed", "gigs.partially_synced", "gigs.fully_synced"],
+    "vehicle_events": ["vehicles.added", "vehicles.updated", "vehicles.removed"],
+    "rating_events": ["ratings.added", "ratings.updated"],
+    "report_events": ["reports.ready", "reports.generated"],
+    "upload_events": ["user_uploads.added", "user_uploads.removed", "user_uploads.ocr_completed", "user_uploads.ocr_failed", "user_uploads.ocr_authenticity"],
+    "form_events": ["user_forms.submitted", "user_forms.removed"],
+    "verification_events": ["verifications.updated", "verifications.creation_failed", "verifications.partners.updated", "verifications.partners.creation_failed"]
+  }
+}

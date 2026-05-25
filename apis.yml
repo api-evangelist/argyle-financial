@@ -1,0 +1,568 @@
+aid: argyle-financial
+name: Argyle
+description: >-
+  Argyle is a consumer-permissioned employment and income data platform. The
+  REST API and Link SDK let lenders, mortgage originators, background-check
+  firms, gig marketplaces, and government benefits programs verify a worker's
+  identity, employment, income, paystubs, deposits, shifts, gigs, and ratings
+  directly from the source payroll, gig, and banking systems. Verification
+  workflows ship as a single API surface that can be embedded through hosted
+  Link, web/iOS/Android/React Native/Flutter SDKs, or driven entirely server
+  side. Argyle covers approximately 90% of the U.S. workforce and is used by
+  partners including Checkr, NFM Lending, Regional Finance, and LMCU, with
+  loan-origination integrations into Encompass, nCino, Empower, and Byte.
+type: Index
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://docs.argyle.com/
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.19'
+tags:
+  - Employment Data
+  - Income Verification
+  - Payroll
+  - Identity Verification
+  - Financial Data
+  - Banking
+  - Gig Economy
+  - Mortgage
+  - Lending
+  - Background Checks
+apis:
+  - aid: argyle-financial:argyle-users-api
+    name: Argyle Users API
+    description: >-
+      Manages the lifecycle of Argyle users — the consumers who connect their
+      payroll, gig, or banking accounts. Supports creation, retrieval, update,
+      deletion, and listing of users, plus generation of short-lived user
+      tokens for initializing the Link SDK in browser, mobile, or hosted flows.
+    humanURL: https://docs.argyle.com/api-reference/users
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Users
+      - User Tokens
+      - Link
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/users
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-users-openapi.yml
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-user-tokens-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-invites-api
+    name: Argyle Invites API
+    description: >-
+      Programmatic creation, listing, re-sending, and revocation of email or
+      SMS invitations that take a consumer through a hosted Link flow. Used by
+      lenders, background-check vendors, and benefits programs to launch
+      consumer-permissioned verifications without embedding the SDK.
+    humanURL: https://docs.argyle.com/api-reference/invites
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Invitations
+      - Hosted Link
+      - Notifications
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/invites
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-invites-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-accounts-api
+    name: Argyle Accounts API
+    description: >-
+      Represents a connection between an Argyle user and a single payroll, gig
+      platform, or banking institution. The Accounts API lets you retrieve,
+      list, disable updates for, or delete those connections — and is the
+      anchor point for downstream data sets such as identities, paystubs,
+      employments, shifts, gigs, and bank accounts.
+    humanURL: https://docs.argyle.com/api-reference/accounts
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Accounts
+      - Connections
+      - Link
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/accounts
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-accounts-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-items-api
+    name: Argyle Items API
+    description: >-
+      Catalog of the employers, payroll providers, gig platforms, and financial
+      institutions Argyle supports. Items can be retrieved or listed, filtered
+      with item filters that constrain which sources are exposed in Link, and
+      migrated when a consumer's account moves between platforms.
+    humanURL: https://docs.argyle.com/api-reference/items
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Items
+      - Employers
+      - Payroll Providers
+      - Filters
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/items
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-items-openapi.yml
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-item-filters-openapi.yml
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-employer-search-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-identities-api
+    name: Argyle Identities API
+    description: >-
+      Returns the worker's identity record as captured from the source payroll
+      or gig platform — full name, addresses, contact details, employment
+      type, tenure, and demographic data fields. Critical for KYC, mortgage
+      borrower verification, tenant screening, and background-check use cases.
+    humanURL: https://docs.argyle.com/api-reference/identities
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Identity
+      - Identity Verification
+      - KYC
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/identities
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-identities-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-employments-api
+    name: Argyle Employments API
+    description: >-
+      Returns employment records associated with a user — employer name,
+      status (active, terminated), job title, hire date, pay cycle, and
+      employment type. The primary data set for verification of employment
+      (VOE) flows used by mortgage and consumer lending originators.
+    humanURL: https://docs.argyle.com/api-reference/employments
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Employment
+      - VOE
+      - Verification of Employment
+      - Lending
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/employments
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-employments-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-paystubs-api
+    name: Argyle Paystubs API
+    description: >-
+      Detailed pay statement records pulled directly from connected payroll
+      systems: gross and net pay, earnings, deductions, taxes, period dates,
+      and YTD totals. The core data set powering verification of income (VOI)
+      and combined VOIE workflows.
+    humanURL: https://docs.argyle.com/api-reference/paystubs
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Paystubs
+      - Income
+      - VOI
+      - Earnings
+      - Deductions
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/paystubs
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-paystubs-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-payroll-documents-api
+    name: Argyle Payroll Documents API
+    description: >-
+      Retrieves and lists payroll source documents — W-2s, 1099s, pay stubs,
+      tax forms — captured directly from the payroll provider or uploaded by
+      the consumer. Includes OCR completion and authenticity-check webhook
+      events for document-processing workflows.
+    humanURL: https://docs.argyle.com/api-reference/payroll-documents
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Payroll Documents
+      - W-2
+      - 1099
+      - OCR
+      - Document Processing
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/payroll-documents
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-payroll-documents-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-deposit-destinations-api
+    name: Argyle Deposit Destinations API
+    description: >-
+      Returns the bank accounts on file at the payroll provider where wages
+      land — used for deposit switch flows that route a portion or all of a
+      paycheck to a new account such as a neobank, savings vehicle, or
+      employer-sponsored benefit.
+    humanURL: https://docs.argyle.com/api-reference/deposit-destinations
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Deposit Switch
+      - Direct Deposit
+      - Bank Accounts
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/deposit-destinations
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-deposit-destinations-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-shifts-api
+    name: Argyle Shifts API
+    description: >-
+      Detailed shift-level work records for hourly workers — clock-in/out
+      timestamps, hours worked, rate, premiums, and tips. Powers lender
+      affordability models, scheduling analytics, and worker-finance products
+      that need granular hourly visibility.
+    humanURL: https://docs.argyle.com/api-reference/shifts
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Shifts
+      - Hourly
+      - Time Tracking
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/shifts
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-shifts-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-gigs-api
+    name: Argyle Gigs API
+    description: >-
+      Trip- and job-level records for gig workers on rideshare, delivery,
+      freelance, and on-demand platforms. Returns gig identifiers, type,
+      duration, pay, tips, distance, and source platform — the data set
+      mortgage and lending platforms use to underwrite 1099 income.
+    humanURL: https://docs.argyle.com/api-reference/gigs
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Gigs
+      - Gig Economy
+      - 1099
+      - Rideshare
+      - Delivery
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/gigs
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-gigs-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-vehicles-api
+    name: Argyle Vehicles API
+    description: >-
+      Lists vehicles a gig worker uses on platforms such as Uber, Lyft, and
+      delivery services — make, model, license plate, and inspection metadata.
+      Useful for fleet, insurance, and background-check workflows.
+    humanURL: https://docs.argyle.com/api-reference/vehicles
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Vehicles
+      - Gig Economy
+      - Fleet
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/vehicles
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-vehicles-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-ratings-api
+    name: Argyle Ratings API
+    description: >-
+      Performance ratings and review summaries for gig workers across their
+      source platforms — useful for background checks, marketplace
+      onboarding, and worker-quality scoring.
+    humanURL: https://docs.argyle.com/api-reference/ratings
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Ratings
+      - Gig Economy
+      - Background Checks
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/ratings
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-ratings-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-reports-api
+    name: Argyle Reports API
+    description: >-
+      Generates and retrieves consolidated PDF/JSON reports summarizing a
+      user's verified employment, income, paystubs, and supporting documents.
+      Reports are the primary deliverable handed to underwriters, GSEs, and
+      compliance reviewers — and the unit of pricing for many Argyle
+      verification products.
+    humanURL: https://docs.argyle.com/api-reference/reports
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Reports
+      - VOI
+      - VOE
+      - Mortgage
+      - Underwriting
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/reports
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-reports-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-user-uploads-api
+    name: Argyle User Uploads API
+    description: >-
+      Endpoints for uploading, listing, and retrieving documents the consumer
+      attaches to their Argyle user — pay stubs, tax forms, bank statements.
+      Triggers OCR completion and authenticity-verification webhooks that
+      feed downstream lender workflows.
+    humanURL: https://docs.argyle.com/api-reference/user-uploads
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Uploads
+      - Documents
+      - OCR
+      - Document Authenticity
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/user-uploads
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-user-uploads-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-user-forms-api
+    name: Argyle User Forms API
+    description: >-
+      Returns user-submitted form responses gathered through Link or hosted
+      flows — typically used when a payroll source is unavailable and the
+      consumer manually attests to income or employment.
+    humanURL: https://docs.argyle.com/api-reference/user-forms
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Forms
+      - User Attestation
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/user-forms
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-user-forms-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-verifications-api
+    name: Argyle Verifications API
+    description: >-
+      The unified API surface for ordering, refreshing, updating, retrieving,
+      and cancelling Argyle Verifications — a single product that combines
+      payroll-direct VOI/VOE, banking (VOA/VOAI), and document-processing
+      paths, then returns a verification record and report. Used by mortgage
+      lenders for Fannie Mae Day 1 Certainty and Freddie Mac AIM workflows.
+    humanURL: https://docs.argyle.com/api-reference/verifications-guide
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Verifications
+      - VOIE
+      - VOI
+      - VOE
+      - VOA
+      - Day 1 Certainty
+      - AIM
+      - Mortgage
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/verifications-guide
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-verifications-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-verifications-partners-api
+    name: Argyle Verifications Partners API
+    description: >-
+      Partner-facing variant of the Verifications API used by Argyle resellers
+      and integration partners. Adds partner-scoped user creation,
+      verification ordering, session management, and cancellation against
+      end-customer tenants.
+    humanURL: https://docs.argyle.com/api-reference/verifications-partners-guide
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Verifications
+      - Partners
+      - Reseller
+      - Multi-Tenant
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/verifications-partners-guide
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-verifications-partners-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-banking-api
+    name: Argyle Banking API
+    description: >-
+      Open-finance surface that pulls direct-from-bank account, balance,
+      transaction, and institution metadata for verification of assets (VOA)
+      and verification of assets and income (VOAI). Includes Connect URL
+      generation, banking report generation, bank account retrieval, and
+      financial-institution catalog endpoints. Documented in the Argyle docs
+      under api-reference/banking-overview.
+    humanURL: https://docs.argyle.com/api-reference/banking-overview
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Banking
+      - Open Finance
+      - VOA
+      - VOAI
+      - Bank Accounts
+      - Institutions
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/banking-overview
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+  - aid: argyle-financial:argyle-receipts-api
+    name: Argyle Receipts API
+    description: >-
+      Returns receipts that document Argyle's billable verification events —
+      used for reconciliation, chargeback, and FinOps reporting on the
+      consumer side of the platform.
+    humanURL: https://docs.argyle.com/api-reference/receipts
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Receipts
+      - Billing
+      - FinOps
+    properties:
+      - type: Documentation
+        url: https://docs.argyle.com/api-reference/receipts
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/openapi/argyle-receipts-openapi.yml
+    contact:
+      - FN: Argyle Support
+        url: https://argyle.com/support
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/argylesystems
+  - url: https://github.com/argyle-systems
+    type: GitHubOrganization
+  - url: https://www.argyle.com/
+    type: Website
+  - url: https://docs.argyle.com/
+    type: Portal
+  - url: https://docs.argyle.com/api-guide/overview
+    type: Documentation
+  - url: https://docs.argyle.com/api-guide/postman
+    type: Postman Collection
+  - url: https://docs.argyle.com/api-guide/webhooks
+    type: Webhooks
+  - url: https://docs.argyle.com/overview/sandbox-testing
+    type: Sandbox
+  - url: https://console.argyle.com/sign-up
+    type: SignUp
+  - url: https://console.argyle.com/
+    type: Login
+  - url: https://docs.argyle.com/link/overview
+    type: SDK
+  - url: https://docs.argyle.com/link/initialization/web
+    type: WebSDK
+  - url: https://docs.argyle.com/link/initialization/mobile-sdks
+    type: MobileSDK
+  - url: https://docs.argyle.com/link/initialization/hosted-link
+    type: HostedFlow
+  - url: https://changelog.argyle.com/
+    type: ChangeLog
+  - url: https://trustcenter.argyle.com/
+    type: TrustCenter
+  - url: https://www.argyle.com/blog
+    type: Blog
+  - url: https://www.argyle.com/pricing
+    type: Pricing
+  - url: https://www.argyle.com/customers
+    type: Customers
+  - url: https://www.argyle.com/about
+    type: About
+  - url: https://www.argyle.com/careers
+    type: Careers
+  - url: https://www.argyle.com/contact
+    type: Contact
+  - url: https://www.argyle.com/legal/privacy-policy
+    type: PrivacyPolicy
+  - url: https://www.argyle.com/legal/terms-of-service
+    type: TermsOfService
+  - url: https://docs.argyle.com/api-reference/account-connection-errors
+    type: Errors
+  - url: https://docs.argyle.com/overview/data-security
+    type: Security
+  - url: https://docs.argyle.com/overview/ongoing-refresh
+    type: Webhooks
+  - type: Features
+    data:
+      - Consumer-permissioned payroll-direct VOI / VOE verifications
+      - Combined VOIE workflow in a single API call
+      - Direct-from-bank VOA and VOAI through the Banking API
+      - Document processing path for W-2, 1099, and paystub uploads with OCR and authenticity checks
+      - Fannie Mae Day 1 Certainty reps-and-warrants relief
+      - Freddie Mac Asset and Income Modeler (AIM) eligibility
+      - Coverage of ~90% of the U.S. workforce across payroll, gig, and banking sources
+      - Hosted Link flow plus Web, iOS, Android, React Native, and Flutter SDKs
+      - Shareable URLs and email/SMS invitation flows for non-embedded use
+      - Reports endpoint that emits underwriter-ready PDF and JSON deliverables
+      - Webhook-driven event model covering accounts, paystubs, documents, gigs, shifts, verifications
+      - Encompass, nCino, Empower, and Byte LOS/POS plugins
+      - Ocrolus integration for document authenticity
+      - Console no-code tooling for flow configuration and member management
+      - HTTP basic authentication with api_key_id / api_key_secret pairs
+      - 50 requests-per-second documented platform rate limit
+      - Sandbox at api-sandbox.argyle.com with synthetic payroll, gig, and banking data
+      - Variable per-verification pricing customized by volume; vendor cites 60-80% savings vs The Work Number
+    sources:
+      - https://docs.argyle.com/api-guide/overview
+      - https://docs.argyle.com/llms.txt
+      - https://www.argyle.com/
+      - https://changelog.argyle.com/
+    updated: '2026-05-25'
+  - type: SDK
+    data:
+      - iOS Link SDK
+      - Android Link SDK
+      - React Native Link SDK
+      - Flutter Link SDK
+      - Web Link SDK
+    sources:
+      - https://github.com/argyle-systems
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

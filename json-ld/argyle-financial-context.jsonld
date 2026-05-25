@@ -1,0 +1,148 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "argyle": "https://docs.argyle.com/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "Provider": {
+      "@id": "schema:Organization",
+      "@context": {
+        "name": "schema:name",
+        "url": "schema:url",
+        "logo": "schema:logo",
+        "sameAs": "schema:sameAs"
+      }
+    },
+    "User": {
+      "@id": "argyle:User",
+      "@context": {
+        "id": "@id",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "email": "schema:email",
+        "phoneNumber": "schema:telephone",
+        "externalId": "argyle:externalId",
+        "createdAt": "schema:dateCreated"
+      }
+    },
+    "Account": {
+      "@id": "argyle:Account",
+      "@context": {
+        "id": "@id",
+        "user": {"@id": "argyle:user", "@type": "@id"},
+        "item": {"@id": "argyle:item", "@type": "@id"},
+        "connection": "argyle:connection",
+        "lastSyncedAt": "schema:dateModified"
+      }
+    },
+    "Item": {
+      "@id": "argyle:Item",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "kind": "argyle:kind",
+        "logo": "schema:logo",
+        "supportedDataSets": "argyle:supportedDataSets"
+      }
+    },
+    "Identity": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": "@id",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "email": "schema:email",
+        "phoneNumber": "schema:telephone",
+        "address": "schema:address",
+        "birthDate": "schema:birthDate",
+        "employerName": "argyle:employerName",
+        "employmentType": "argyle:employmentType"
+      }
+    },
+    "Employment": {
+      "@id": "schema:EmployeeRole",
+      "@context": {
+        "id": "@id",
+        "employer": "schema:worksFor",
+        "jobTitle": "schema:roleName",
+        "status": "argyle:employmentStatus",
+        "hireDate": "schema:startDate",
+        "terminationDate": "schema:endDate",
+        "payCycle": "argyle:payCycle"
+      }
+    },
+    "Paystub": {
+      "@id": "argyle:Paystub",
+      "@context": {
+        "id": "@id",
+        "account": {"@id": "argyle:account", "@type": "@id"},
+        "grossPay": {"@id": "argyle:grossPay", "@type": "schema:MonetaryAmount"},
+        "netPay": {"@id": "argyle:netPay", "@type": "schema:MonetaryAmount"},
+        "payPeriodStart": "schema:startDate",
+        "payPeriodEnd": "schema:endDate",
+        "payDate": "schema:datePosted",
+        "earnings": "argyle:earnings",
+        "deductions": "argyle:deductions",
+        "taxes": "argyle:taxes",
+        "ytdGrossPay": "argyle:ytdGrossPay"
+      }
+    },
+    "PayrollDocument": {
+      "@id": "argyle:PayrollDocument",
+      "@context": {
+        "id": "@id",
+        "documentType": "argyle:documentType",
+        "documentNumber": "argyle:documentNumber",
+        "url": "schema:contentUrl",
+        "ocrCompletedAt": "argyle:ocrCompletedAt"
+      }
+    },
+    "Gig": {
+      "@id": "argyle:Gig",
+      "@context": {
+        "id": "@id",
+        "platform": "argyle:platform",
+        "type": "argyle:gigType",
+        "startDate": "schema:startTime",
+        "endDate": "schema:endTime",
+        "duration": "schema:duration",
+        "income": "argyle:income",
+        "tips": "argyle:tips",
+        "distance": "schema:distance"
+      }
+    },
+    "Shift": {
+      "@id": "argyle:Shift",
+      "@context": {
+        "id": "@id",
+        "startDate": "schema:startTime",
+        "endDate": "schema:endTime",
+        "hoursWorked": "argyle:hoursWorked",
+        "earnings": "argyle:earnings"
+      }
+    },
+    "Verification": {
+      "@id": "argyle:Verification",
+      "@context": {
+        "id": "@id",
+        "type": "argyle:verificationType",
+        "status": "argyle:verificationStatus",
+        "createdAt": "schema:dateCreated",
+        "updatedAt": "schema:dateModified",
+        "user": {"@id": "argyle:user", "@type": "@id"},
+        "report": {"@id": "argyle:report", "@type": "@id"}
+      }
+    },
+    "Report": {
+      "@id": "argyle:Report",
+      "@context": {
+        "id": "@id",
+        "user": {"@id": "argyle:user", "@type": "@id"},
+        "format": "schema:fileFormat",
+        "url": "schema:contentUrl",
+        "generatedAt": "schema:dateCreated"
+      }
+    }
+  }
+}

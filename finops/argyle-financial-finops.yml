@@ -1,0 +1,168 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Argyle
+providerId: argyle-financial
+publisherName: Argyle
+serviceCategory: API
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Employment Data
+  - Income Verification
+  - Payroll
+  - Mortgage
+  - Lending
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: >-
+  FOCUS-aligned FinOps definition for the Argyle employment and income data
+  platform. Argyle bills against verifications, reports, and processed
+  documents rather than raw API calls; this file maps those billable events to
+  FOCUS columns so finance, lending operations, and engineering can allocate
+  Argyle spend across loan files, products, and lines of business.
+principles:
+  - name: Visibility
+    description: Make every billable verification, report, and processed document visible to engineering, operations, and finance in near real-time.
+  - name: Allocation
+    description: Tag every chargeable Argyle event with the consuming business unit, product, lender, and loan or applicant identifier so cost can be allocated per file.
+  - name: Optimization
+    description: Continuously evaluate path mix (payroll-direct vs document vs banking) and reuse of already-completed verifications to reduce cost per funded loan.
+  - name: Accountability
+    description: Establish budget owners per product line, with chargeback or showback to lending, background-check, and benefits teams.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Budgeting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Rate Optimization
+      - Workload Optimization
+      - Licensing and SaaS
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Invoicing and Chargeback
+      - Onboarding Workloads
+      - Intersecting Disciplines
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  chargeFrequency: Recurring
+focusColumns:
+  ServiceName: Argyle Verifications
+  ServiceCategory: Identity / Verification API
+  ProviderName: Argyle
+  PublisherName: Argyle
+  InvoiceIssuerName: Argyle
+  PricingCategory: Usage-Based
+  PricingUnit: verification
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: verifications_voie
+    description: Count of completed VOI / VOE / VOIE verifications
+    unit: verification
+    aggregation: sum
+    dimensions:
+      - lender
+      - product
+      - loan_id
+      - source_platform
+  - name: verifications_voa
+    description: Count of completed VOA / VOAI banking verifications
+    unit: verification
+    aggregation: sum
+    dimensions:
+      - lender
+      - product
+      - loan_id
+      - institution
+  - name: documents_processed
+    description: Count of W-2, 1099, paystub, or statement documents processed by OCR / authenticity
+    unit: document
+    aggregation: sum
+    dimensions:
+      - document_type
+      - loan_id
+      - lender
+  - name: reports_generated
+    description: Count of consolidated underwriter reports generated
+    unit: report
+    aggregation: sum
+    dimensions:
+      - report_kind
+      - lender
+      - loan_id
+  - name: api_requests
+    description: Count of REST API requests issued against api.argyle.com
+    unit: request
+    aggregation: sum
+    dimensions:
+      - api
+      - endpoint
+      - environment
+apis:
+  - name: Argyle Verifications API
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Verifications
+      - VOIE
+      - Mortgage
+    serviceName: Argyle Verifications
+    serviceCategory: API
+  - name: Argyle Payroll Data Surface
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Paystubs
+      - Employments
+      - Identities
+      - Payroll Documents
+    serviceName: Argyle Payroll
+    serviceCategory: API
+  - name: Argyle Banking API
+    baseURL: https://api.argyle.com/v2
+    tags:
+      - Banking
+      - VOA
+      - Open Finance
+    serviceName: Argyle Banking
+    serviceCategory: API
+unitEconomics:
+  - name: Cost Per Funded Loan
+    metric: billed_cost / funded_loans
+    target: TBD
+  - name: Cost Per Completed Verification
+    metric: billed_cost / verifications_completed
+    target: TBD
+  - name: Cost Per Decisioned Applicant
+    metric: billed_cost / decisioned_applicants
+    target: TBD
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

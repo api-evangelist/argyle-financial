@@ -1,0 +1,57 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.argyle.com/v2/paystubs?user=8d0a3a08-3a47-4d2a-9fcd-12c0fcbf7a01&limit=2",
+    "auth": "Basic api_key_id:api_key_secret"
+  },
+  "response": {
+    "results": [
+      {
+        "id": "c9e07c0b-1f3a-43a1-bc6c-2efd72a91b30",
+        "account": "27d1aa86-5e9a-4f86-bbe6-1f0a55c40d18",
+        "employer": "Globex Corporation",
+        "gross_pay": "3250.00",
+        "net_pay": "2412.55",
+        "currency": "USD",
+        "pay_period_start_date": "2026-05-04",
+        "pay_period_end_date": "2026-05-17",
+        "pay_date": "2026-05-22",
+        "paystub_period": "biweekly",
+        "hours": 80,
+        "earnings": [
+          {"name": "Regular", "type": "regular", "rate": "40.625", "hours": 80, "amount": "3250.00", "ytd_amount": "32500.00"}
+        ],
+        "deductions": [
+          {"name": "401(k)", "amount": "162.50", "ytd_amount": "1625.00", "pre_tax": true, "tax": false},
+          {"name": "Medical", "amount": "75.00", "ytd_amount": "750.00", "pre_tax": true, "tax": false}
+        ],
+        "taxes": [
+          {"name": "Federal", "amount": "412.45", "ytd_amount": "4124.50"},
+          {"name": "FICA", "amount": "187.50", "ytd_amount": "1875.00"}
+        ],
+        "gross_pay_ytd": "32500.00",
+        "net_pay_ytd": "24125.50",
+        "created_at": "2026-05-22T22:07:31Z",
+        "updated_at": "2026-05-22T22:07:31Z"
+      },
+      {
+        "id": "f2a9d24e-1bcd-4f6d-9cb2-7f6c0c44c7a1",
+        "account": "27d1aa86-5e9a-4f86-bbe6-1f0a55c40d18",
+        "employer": "Globex Corporation",
+        "gross_pay": "3250.00",
+        "net_pay": "2412.55",
+        "currency": "USD",
+        "pay_period_start_date": "2026-04-20",
+        "pay_period_end_date": "2026-05-03",
+        "pay_date": "2026-05-08",
+        "paystub_period": "biweekly",
+        "hours": 80,
+        "gross_pay_ytd": "29250.00",
+        "net_pay_ytd": "21712.95",
+        "created_at": "2026-05-08T22:05:11Z",
+        "updated_at": "2026-05-08T22:05:11Z"
+      }
+    ],
+    "next": null
+  }
+}

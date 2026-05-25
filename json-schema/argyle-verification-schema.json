@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/json-schema/argyle-verification-schema.json",
+  "title": "Argyle Verification",
+  "description": "A verification record produced by the Argyle Verifications API. Represents an ordered VOI / VOE / VOIE / VOA workflow against a connected user.",
+  "type": "object",
+  "required": ["id", "user", "status", "type"],
+  "properties": {
+    "id": {"type": "string", "format": "uuid"},
+    "user": {"type": "string", "format": "uuid"},
+    "type": {"type": "string", "enum": ["payroll", "banking", "documents"]},
+    "verification_kind": {"type": "string", "enum": ["voi", "voe", "voie", "voa", "voai"]},
+    "status": {"type": "string", "enum": ["pending", "in_progress", "completed", "failed", "cancelled"]},
+    "session_id": {"type": "string"},
+    "report": {"type": "string", "format": "uuid"},
+    "ordered_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "metadata": {"type": "object", "additionalProperties": true},
+    "failure_reason": {"type": "string"},
+    "day1_certainty_eligible": {"type": "boolean"},
+    "aim_eligible": {"type": "boolean"}
+  }
+}

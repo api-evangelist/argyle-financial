@@ -1,0 +1,182 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Argyle VOIE Workflow
+  description: >-
+    Combined Verification of Income and Employment (VOIE) workflow for Argyle.
+    Creates a user, issues a Link token, orders a verification once the user
+    has connected a payroll source, retrieves the resulting verification, and
+    generates a downloadable underwriter report. Self-contained Naftiko
+    capability composed against the live Argyle REST API.
+  tags:
+    - Argyle
+    - VOIE
+    - VOI
+    - VOE
+    - Income Verification
+    - Employment Verification
+    - Mortgage
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      ARGYLE_API_KEY_ID: ARGYLE_API_KEY_ID
+      ARGYLE_API_KEY_SECRET: ARGYLE_API_KEY_SECRET
+capability:
+  consumes:
+    - type: http
+      namespace: argyle-voie
+      baseUri: https://api.argyle.com/v2
+      description: Argyle production REST API surface used by the VOIE workflow.
+      auth:
+        type: basic
+        username: env.ARGYLE_API_KEY_ID
+        password: env.ARGYLE_API_KEY_SECRET
+      resources:
+        - name: users
+          path: /users
+          operations:
+            - name: createUser
+              method: POST
+              description: Create an Argyle user (returns a user token).
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: userTokens
+          path: /user-tokens
+          operations:
+            - name: createUserToken
+              method: POST
+              description: Issue a fresh user token for initializing Link.
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: verificationsOrder
+          path: /verifications
+          operations:
+            - name: orderVerification
+              method: POST
+              description: Order a VOIE verification against a connected user.
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: verificationById
+          path: /verifications/{id}
+          operations:
+            - name: retrieveVerification
+              method: GET
+              description: Retrieve a verification by id, including status and result data.
+              outputRawFormat: json
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: reportsGenerate
+          path: /reports
+          operations:
+            - name: generateReport
+              method: POST
+              description: Generate an underwriter-facing report for a verification.
+              outputRawFormat: json
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: mcp
+      namespace: argyle-voie-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter exposing the Argyle VOIE workflow as discrete tools.
+      tools:
+        - name: argyle-create-user
+          description: Create an Argyle user record.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: argyle-voie.createUser
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-create-user-token
+          description: Issue a fresh user token for Link.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: argyle-voie.createUserToken
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-order-verification
+          description: Order a VOIE verification.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: argyle-voie.orderVerification
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-retrieve-verification
+          description: Retrieve a verification by id.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: argyle-voie.retrieveVerification
+          with:
+            id: tools.id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-generate-report
+          description: Generate an underwriter report.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: argyle-voie.generateReport
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

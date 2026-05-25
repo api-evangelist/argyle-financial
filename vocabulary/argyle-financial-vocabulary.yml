@@ -1,0 +1,92 @@
+aid: argyle-financial
+name: Argyle Vocabulary
+description: >-
+  Canonical vocabulary for the Argyle employment-and-income data platform.
+  Maps domain concepts, capability dimensions, and data-set terminology used
+  across the REST API, Link SDK, hosted flows, and verifications product.
+modified: '2026-05-25'
+domains:
+  - name: Income Verification
+    description: Verification that a consumer earns the income they claim, sourced from payroll, gig, or document records.
+  - name: Employment Verification
+    description: Verification that a consumer is or was employed at a declared employer with a given status and tenure.
+  - name: Asset Verification
+    description: Verification of bank account balances, ownership, and transactions for VOA / VOAI workflows.
+  - name: Document Processing
+    description: OCR and authenticity-check workflow over uploaded W-2s, 1099s, paystubs, and bank statements.
+  - name: Mortgage Origination
+    description: Underwriting use case that consumes Argyle outputs against Fannie Mae Day 1 Certainty and Freddie Mac AIM programs.
+  - name: Consumer Lending
+    description: Personal-loan and revolving-credit underwriting workflows that consume payroll-direct income data.
+  - name: Gig Economy
+    description: Rideshare, delivery, and on-demand worker data sets — gigs, shifts, vehicles, ratings, 1099 income.
+  - name: Background Checks
+    description: Identity, employment-history, and platform-ratings workflows for vendors such as Checkr.
+  - name: Government Benefits
+    description: Income and employment verification flows for benefits programs and public-sector agencies.
+concepts:
+  - name: User
+    description: A consumer record in Argyle. Anchor for every downstream data set.
+  - name: User Token
+    description: Short-lived credential used to initialize the Link SDK or hosted flow on the client side.
+  - name: Account
+    description: A live connection between a user and a single payroll, gig, or banking source.
+  - name: Item
+    description: A payroll provider, employer, gig platform, or financial institution that Argyle supports.
+  - name: Identity
+    description: Worker identity record returned by the source platform — name, address, contact, demographics.
+  - name: Employment
+    description: An employer-employee relationship record with status, title, tenure, pay cycle.
+  - name: Paystub
+    description: A single pay-statement record — gross, net, earnings, deductions, taxes, period dates.
+  - name: Payroll Document
+    description: A source document such as a W-2 or 1099 captured from the payroll provider or uploaded.
+  - name: Deposit Destination
+    description: The bank account where wages currently land in the payroll provider.
+  - name: Shift
+    description: A clock-in/clock-out record for an hourly worker.
+  - name: Gig
+    description: A trip or task completed by a gig worker on a delivery, rideshare, or on-demand platform.
+  - name: Vehicle
+    description: A vehicle registered against a gig worker's account.
+  - name: Rating
+    description: Performance rating for a gig worker from a source platform.
+  - name: Report
+    description: A consolidated deliverable PDF / JSON summarizing verified income, employment, paystubs.
+  - name: Verification
+    description: A unified Argyle product call ordering VOIE, VOA, or document processing in one workflow.
+  - name: Bank Account
+    description: A consumer bank account exposed under the Banking API surface.
+  - name: Financial Institution
+    description: A bank or credit union catalog record exposed via the Banking API.
+  - name: Receipt
+    description: Billing event documenting a chargeable verification.
+flows:
+  - name: VOI
+    description: Verification of Income — paystub-based income proof.
+  - name: VOE
+    description: Verification of Employment — employer-and-status proof.
+  - name: VOIE
+    description: Combined VOI + VOE in a single Argyle workflow.
+  - name: VOA
+    description: Verification of Assets — bank balance proof from the Banking surface.
+  - name: VOAI
+    description: Combined VOA + VOI through the Banking and Payroll surfaces.
+  - name: Day 1 Certainty
+    description: Fannie Mae reps-and-warrants relief program for income, employment, and asset verifications.
+  - name: AIM
+    description: Freddie Mac Asset and Income Modeler program eligible for Argyle-sourced verifications.
+delivery:
+  - name: REST API
+    description: HTTP / JSON surface at api.argyle.com/v2.
+  - name: Link SDK
+    description: Embeddable web, iOS, Android, React Native, and Flutter SDKs for consumer connection flows.
+  - name: Hosted Link
+    description: Argyle-hosted browser experience launched via shareable URL or email/SMS invite.
+  - name: Webhooks
+    description: Resource.action signed event stream over HTTPS.
+  - name: LOS / POS Integrations
+    description: Native plugins for Encompass, nCino, Empower, Byte, and other loan-origination systems.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

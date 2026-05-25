@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.argyle.com/v2/users",
+    "auth": "Basic api_key_id:api_key_secret",
+    "body": {
+      "external_id": "borrower-7401",
+      "first_name": "Alex",
+      "last_name": "Garcia",
+      "email": "alex.garcia@example.com",
+      "phone_number": "+15551231234"
+    }
+  },
+  "response": {
+    "id": "8d0a3a08-3a47-4d2a-9fcd-12c0fcbf7a01",
+    "external_id": "borrower-7401",
+    "first_name": "Alex",
+    "last_name": "Garcia",
+    "email": "alex.garcia@example.com",
+    "phone_number": "+15551231234",
+    "user_token": "ut_live_5e6d2c0f3b2c4f4e9c33fde0eb6e0ab8",
+    "created_at": "2026-05-25T14:08:21Z"
+  }
+}

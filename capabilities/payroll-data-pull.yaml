@@ -1,0 +1,150 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Argyle Payroll Data Pull
+  description: >-
+    Pulls the core payroll data sets for a connected Argyle user — identity,
+    employments, paystubs, and payroll documents — into a single workflow.
+    Intended for lenders, fintech platforms, and worker-finance products that
+    need the raw payroll record rather than a packaged verification report.
+  tags:
+    - Argyle
+    - Payroll
+    - Paystubs
+    - Identity
+    - Employment
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      ARGYLE_API_KEY_ID: ARGYLE_API_KEY_ID
+      ARGYLE_API_KEY_SECRET: ARGYLE_API_KEY_SECRET
+capability:
+  consumes:
+    - type: http
+      namespace: argyle-payroll
+      baseUri: https://api.argyle.com/v2
+      auth:
+        type: basic
+        username: env.ARGYLE_API_KEY_ID
+        password: env.ARGYLE_API_KEY_SECRET
+      resources:
+        - name: identities
+          path: /identities
+          operations:
+            - name: listIdentities
+              method: GET
+              description: List identities for a user.
+              outputRawFormat: json
+              inputParameters:
+                - name: user
+                  in: query
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: employments
+          path: /employments
+          operations:
+            - name: listEmployments
+              method: GET
+              description: List employments for a user.
+              outputRawFormat: json
+              inputParameters:
+                - name: user
+                  in: query
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: paystubs
+          path: /paystubs
+          operations:
+            - name: listPaystubs
+              method: GET
+              description: List paystubs for a user.
+              outputRawFormat: json
+              inputParameters:
+                - name: user
+                  in: query
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: payrollDocuments
+          path: /payroll-documents
+          operations:
+            - name: listPayrollDocuments
+              method: GET
+              description: List payroll documents (W-2s, 1099s, paystubs) for a user.
+              outputRawFormat: json
+              inputParameters:
+                - name: user
+                  in: query
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: mcp
+      namespace: argyle-payroll-mcp
+      port: 9091
+      transport: http
+      description: MCP adapter exposing the Argyle payroll data pull workflow.
+      tools:
+        - name: argyle-list-identities
+          description: List a user's identity records pulled from payroll sources.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: argyle-payroll.listIdentities
+          with:
+            user: tools.user
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-list-employments
+          description: List a user's employments.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: argyle-payroll.listEmployments
+          with:
+            user: tools.user
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-list-paystubs
+          description: List a user's paystubs.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: argyle-payroll.listPaystubs
+          with:
+            user: tools.user
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: argyle-list-payroll-documents
+          description: List a user's source payroll documents.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: argyle-payroll.listPayrollDocuments
+          with:
+            user: tools.user
+          outputParameters:
+            - type: object
+              mapping: $.

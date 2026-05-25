@@ -1,0 +1,127 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Argyle
+providerId: argyle-financial
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Employment Data
+  - Income Verification
+  - Payroll
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: >-
+  Rate limit definitions for the Argyle REST API. Argyle publishes a single
+  request-rate ceiling of 50 requests per second across the integration;
+  consumer-permissioned data sets are additionally bounded by source-platform
+  refresh windows and ongoing-refresh schedules.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: sandbox
+    name: Sandbox Default
+    scope: api-key
+    metric: requests_per_second
+    limit: 50
+    burst: 50
+    timeFrame: second
+    applies:
+      - Argyle Users API
+      - Argyle Invites API
+      - Argyle Accounts API
+      - Argyle Items API
+      - Argyle Identities API
+      - Argyle Employments API
+      - Argyle Paystubs API
+      - Argyle Payroll Documents API
+      - Argyle Deposit Destinations API
+      - Argyle Shifts API
+      - Argyle Gigs API
+      - Argyle Vehicles API
+      - Argyle Ratings API
+      - Argyle Reports API
+      - Argyle User Uploads API
+      - Argyle User Forms API
+      - Argyle Verifications API
+      - Argyle Verifications Partners API
+      - Argyle Banking API
+      - Argyle Receipts API
+  - tier: production
+    name: Production Default
+    scope: api-key
+    metric: requests_per_second
+    limit: 50
+    burst: 50
+    timeFrame: second
+    applies:
+      - Argyle Users API
+      - Argyle Invites API
+      - Argyle Accounts API
+      - Argyle Items API
+      - Argyle Identities API
+      - Argyle Employments API
+      - Argyle Paystubs API
+      - Argyle Payroll Documents API
+      - Argyle Deposit Destinations API
+      - Argyle Shifts API
+      - Argyle Gigs API
+      - Argyle Vehicles API
+      - Argyle Ratings API
+      - Argyle Reports API
+      - Argyle User Uploads API
+      - Argyle User Forms API
+      - Argyle Verifications API
+      - Argyle Verifications Partners API
+      - Argyle Banking API
+      - Argyle Receipts API
+  - tier: enterprise
+    name: Enterprise Negotiated Limit
+    scope: contract
+    metric: requests_per_second
+    limit: -1
+    timeFrame: second
+    applies:
+      - All Argyle production APIs
+  - tier: production
+    name: Ongoing Refresh Cadence
+    scope: account
+    metric: refresh_per_day
+    limit: 1
+    timeFrame: day
+    applies:
+      - Argyle Accounts API
+      - Argyle Paystubs API
+      - Argyle Employments API
+      - Argyle Identities API
+policies:
+  - name: 429 Throttling
+    description: >-
+      Exceeding the documented 50 RPS ceiling returns HTTP 429. Clients should
+      implement exponential backoff with jitter and honor the Retry-After
+      response header when present.
+  - name: Webhook Backpressure
+    description: >-
+      Failed webhook deliveries are retried with backoff. Endpoints that
+      consistently return 5xx may be disabled — subscribers must monitor
+      delivery state through Argyle Console.
+  - name: Ongoing Refresh Windows
+    description: >-
+      Source payroll, gig, and banking platforms enforce their own refresh
+      windows. Even on enterprise tiers, data freshness is bounded by the
+      source platform; Argyle does not bypass these limits.
+  - name: Sandbox Isolation
+    description: >-
+      Sandbox traffic is metered separately and never consumes production
+      capacity. Production keys must not be used against the sandbox host.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

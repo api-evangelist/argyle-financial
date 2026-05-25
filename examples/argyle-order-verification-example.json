@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.argyle.com/v2/verifications",
+    "auth": "Basic api_key_id:api_key_secret",
+    "body": {
+      "user": "8d0a3a08-3a47-4d2a-9fcd-12c0fcbf7a01",
+      "type": "payroll",
+      "verification_kind": "voie",
+      "metadata": {
+        "loan_id": "MTG-2026-00091",
+        "lender": "NFM Lending"
+      }
+    }
+  },
+  "response": {
+    "id": "f4ce0a90-9d44-4d61-a02e-83c08fbb0e21",
+    "user": "8d0a3a08-3a47-4d2a-9fcd-12c0fcbf7a01",
+    "type": "payroll",
+    "verification_kind": "voie",
+    "status": "in_progress",
+    "session_id": "ses_27c1d3b54f944fa48f1c5a3aa3a9b5e2",
+    "ordered_at": "2026-05-25T14:09:01Z",
+    "day1_certainty_eligible": true,
+    "aim_eligible": true
+  }
+}

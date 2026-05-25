@@ -1,0 +1,85 @@
+aid: argyle-financial
+name: Argyle API Conventions
+description: >-
+  Operational and design conventions derived from the public Argyle API
+  surface (api.argyle.com/v2) and the docs.argyle.com developer area. Intended
+  as a Spectral-friendly ruleset capturing the provider's consumer-permissioned
+  posture, authentication model, identifier style, pagination, and webhook
+  contract.
+rules:
+  - id: base-url-versioning
+    name: Versioned Base URL
+    description: >-
+      All endpoints live under https://api.argyle.com/v2 (production) or
+      https://api-sandbox.argyle.com/v2 (sandbox). The major version is part
+      of the path and must not be elided.
+  - id: http-basic-auth
+    name: HTTP Basic Auth With API Key Pair
+    description: >-
+      Authentication is HTTP Basic with the username set to api_key_id and the
+      password set to api_key_secret, both issued through Argyle Console.
+      Bearer tokens, OAuth, and session cookies are not used for server-side
+      calls.
+  - id: link-user-tokens
+    name: Short-Lived User Tokens For Client SDKs
+    description: >-
+      Web, iOS, Android, React Native, Flutter, and hosted Link surfaces must
+      be initialized with a short-lived user token obtained from
+      POST /v2/user-tokens — never with the api_key_secret.
+  - id: consumer-permissioned-data
+    name: Consumer-Permissioned Data Access
+    description: >-
+      Every account, paystub, identity, employment, gig, shift, and document
+      record returned by Argyle is sourced under explicit consumer permission
+      granted in the Link flow. Implementations must not store, redistribute,
+      or process this data outside the disclosed purpose.
+  - id: identifiers-uuid
+    name: UUID Identifiers
+    description: >-
+      Resource identifiers (user id, account id, paystub id, verification id,
+      report id) are UUIDs. Clients should treat them as opaque strings.
+  - id: pagination-cursor
+    name: Cursor-Style Pagination
+    description: >-
+      List endpoints paginate via limit and from_start_date / from_id style
+      parameters with a next-page indicator returned in the body. Clients must
+      follow the cursor until exhausted.
+  - id: rate-limit-50-rps
+    name: 50 Requests Per Second Default
+    description: >-
+      The platform allows 50 requests per second per integration. 429 responses
+      indicate throttling; clients must implement exponential backoff with
+      jitter and respect Retry-After when present.
+  - id: webhook-signing
+    name: Signed Webhook Deliveries
+    description: >-
+      Webhook deliveries are signed; consumers must verify the signature header
+      against the configured shared secret before processing the event payload.
+  - id: webhook-event-naming
+    name: Dotted Event Names
+    description: >-
+      Webhook event names follow a resource.action convention — for example
+      paystubs.added, accounts.connected, verifications.updated, and
+      reports.ready. Subscribers should match on the prefix to handle related
+      events.
+  - id: data-set-naming
+    name: Plural Resource Naming
+    description: >-
+      Collection endpoints are plural (/users, /paystubs, /verifications) and
+      singular resources nest by id (/users/{id}, /paystubs/{id}).
+  - id: sandbox-isolation
+    name: Sandbox Isolation
+    description: >-
+      Sandbox keys must not call the production host, and production keys must
+      not call the sandbox host. Synthetic users in sandbox emit the full
+      webhook event stream against a separate signing secret.
+  - id: pii-minimization
+    name: PII Minimization
+    description: >-
+      Identity, paystub, document, and bank-account responses carry sensitive
+      PII. Stored copies must be encrypted at rest, scoped by purpose, and
+      subject to the consumer's revocation through the Argyle dashboard.
+maintainer:
+  name: Kin Lane
+  email: kin@apievangelist.com
+modified: '2026-05-25'

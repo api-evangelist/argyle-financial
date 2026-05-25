@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/json-schema/argyle-identity-schema.json",
+  "title": "Argyle Identity",
+  "description": "Worker identity record returned by the Argyle Identities API as captured from the connected payroll, gig, or banking source.",
+  "type": "object",
+  "required": ["id", "account", "first_name", "last_name"],
+  "properties": {
+    "id": {"type": "string", "format": "uuid"},
+    "account": {"type": "string", "format": "uuid"},
+    "first_name": {"type": "string"},
+    "last_name": {"type": "string"},
+    "full_name": {"type": "string"},
+    "email": {"type": "string", "format": "email"},
+    "phone_number": {"type": "string"},
+    "birth_date": {"type": "string", "format": "date"},
+    "ssn": {"type": "string", "description": "Sourced SSN where available; subject to consumer permission and data-handling controls."},
+    "address": {
+      "type": "object",
+      "properties": {
+        "line1": {"type": "string"},
+        "line2": {"type": "string"},
+        "city": {"type": "string"},
+        "state": {"type": "string"},
+        "postal_code": {"type": "string"},
+        "country": {"type": "string"}
+      }
+    },
+    "employer": {"type": "string"},
+    "job_title": {"type": "string"},
+    "employment_status": {"type": "string", "enum": ["active", "inactive", "terminated"]},
+    "employment_type": {"type": "string", "enum": ["full_time", "part_time", "contractor", "gig", "other"]},
+    "hire_date": {"type": "string", "format": "date"},
+    "termination_date": {"type": "string", "format": "date"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

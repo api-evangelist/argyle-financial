@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/argyle-financial/main/json-schema/argyle-paystub-schema.json",
+  "title": "Argyle Paystub",
+  "description": "A single pay statement record returned by the Argyle Paystubs API. Captures earnings, deductions, taxes, and pay-period metadata sourced directly from a connected payroll provider.",
+  "type": "object",
+  "required": ["id", "account", "employer", "gross_pay", "net_pay", "pay_period_start_date", "pay_period_end_date", "pay_date"],
+  "properties": {
+    "id": {"type": "string", "format": "uuid"},
+    "account": {"type": "string", "format": "uuid", "description": "Argyle account id this paystub belongs to."},
+    "employer": {"type": "string"},
+    "gross_pay": {"type": "string", "description": "Gross pay for the period as a string-encoded decimal."},
+    "net_pay": {"type": "string"},
+    "currency": {"type": "string", "default": "USD"},
+    "pay_period_start_date": {"type": "string", "format": "date"},
+    "pay_period_end_date": {"type": "string", "format": "date"},
+    "pay_date": {"type": "string", "format": "date"},
+    "paystub_period": {"type": "string", "enum": ["weekly", "biweekly", "semimonthly", "monthly"]},
+    "hours": {"type": "number"},
+    "earnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "amount"],
+        "properties": {
+          "name": {"type": "string"},
+          "type": {"type": "string"},
+          "rate": {"type": "string"},
+          "hours": {"type": "number"},
+          "amount": {"type": "string"},
+          "ytd_amount": {"type": "string"}
+        }
+      }
+    },
+    "deductions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "amount": {"type": "string"},
+          "ytd_amount": {"type": "string"},
+          "tax": {"type": "boolean"},
+          "pre_tax": {"type": "boolean"}
+        }
+      }
+    },
+    "taxes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "amount": {"type": "string"},
+          "ytd_amount": {"type": "string"}
+        }
+      }
+    },
+    "gross_pay_ytd": {"type": "string"},
+    "net_pay_ytd": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}
