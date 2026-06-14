@@ -1,0 +1,957 @@
+# Argyle Financial — Conceptual GraphQL Schema
+# Covers employment verification, income data, gig economy, banking,
+# documents, and platform administration domains.
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Date
+scalar JSON
+scalar URL
+scalar UUID
+scalar Decimal
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum EmploymentStatus {
+  ACTIVE
+  TERMINATED
+  ON_LEAVE
+  PROBATIONARY
+  SEASONAL
+  UNKNOWN
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  SEASONAL
+  GIG
+  TEMPORARY
+  INTERNSHIP
+}
+
+enum PayCycle {
+  WEEKLY
+  BIWEEKLY
+  SEMI_MONTHLY
+  MONTHLY
+  DAILY
+  IRREGULAR
+}
+
+enum GigType {
+  RIDE
+  DELIVERY
+  ERRAND
+  TASK
+  FREELANCE
+  RENTAL
+  OTHER
+}
+
+enum GigStatus {
+  COMPLETED
+  CANCELLED
+  IN_PROGRESS
+}
+
+enum DocumentType {
+  W2
+  FORM_1099
+  FORM_1099_NEC
+  FORM_1099_K
+  PAYSTUB
+  BANK_STATEMENT
+  TAX_RETURN
+  OFFER_LETTER
+  OTHER
+}
+
+enum DocumentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REQUIRES_REVIEW
+}
+
+enum VerificationStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+  EXPIRED
+  CANCELLED
+}
+
+enum VerificationType {
+  VOE
+  VOI
+  VOIE
+  VOA
+  VOAI
+}
+
+enum AccountStatus {
+  CONNECTED
+  DISCONNECTED
+  ERROR
+  SYNCING
+  PENDING_MFA
+}
+
+enum InviteStatus {
+  PENDING
+  SENT
+  OPENED
+  COMPLETED
+  EXPIRED
+  REVOKED
+}
+
+enum InviteChannel {
+  EMAIL
+  SMS
+}
+
+enum EarningType {
+  REGULAR
+  OVERTIME
+  BONUS
+  COMMISSION
+  TIP
+  REIMBURSEMENT
+  SEVERANCE
+  VACATION_PAYOUT
+  HOLIDAY
+  OTHER
+}
+
+enum DeductionType {
+  FEDERAL_TAX
+  STATE_TAX
+  LOCAL_TAX
+  SOCIAL_SECURITY
+  MEDICARE
+  HEALTH_INSURANCE
+  DENTAL_INSURANCE
+  VISION_INSURANCE
+  RETIREMENT_401K
+  FSA
+  HSA
+  LIFE_INSURANCE
+  GARNISHMENT
+  OTHER
+}
+
+enum ReportStatus {
+  GENERATING
+  READY
+  EXPIRED
+  FAILED
+}
+
+enum ReportFormat {
+  PDF
+  JSON
+}
+
+enum ShiftStatus {
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum BankAccountType {
+  CHECKING
+  SAVINGS
+  MONEY_MARKET
+  OTHER
+}
+
+enum InstitutionType {
+  BANK
+  CREDIT_UNION
+  NEOBANK
+  OTHER
+}
+
+enum UploadStatus {
+  PENDING
+  UPLOADING
+  PROCESSING
+  COMPLETE
+  FAILED
+}
+
+enum RatingSource {
+  PLATFORM
+  CUSTOMER
+  PEER
+}
+
+enum FormResponseStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+}
+
+# ─── Core Identity & User Types ─────────────────────────────────────────────
+
+type ArgyleUser {
+  id: UUID!
+  externalId: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  accounts: [Account!]!
+  identity: Identity
+  employments: [Employment!]!
+  paystubs(limit: Int, offset: Int): PaystubConnection!
+  verifications: [Verification!]!
+  uploads: [UserUpload!]!
+  forms: [UserForm!]!
+  invites: [Invite!]!
+  reports: [Report!]!
+  bankAccounts: [BankAccount!]!
+  depositDestinations: [DepositDestination!]!
+}
+
+type UserToken {
+  token: String!
+  userId: UUID!
+  expiresAt: DateTime!
+}
+
+type Identity {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  firstName: String
+  lastName: String
+  fullName: String
+  email: String
+  phone: String
+  dateOfBirth: Date
+  ssn: String
+  ssnLastFour: String
+  address: Address
+  employmentType: EmploymentType
+  hireDate: Date
+  terminationDate: Date
+  employerName: String
+  jobTitle: String
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Address {
+  line1: String
+  line2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  fullAddress: String
+}
+
+# ─── Account & Item Types ────────────────────────────────────────────────────
+
+type Account {
+  id: UUID!
+  userId: UUID!
+  itemId: String!
+  item: Item
+  status: AccountStatus!
+  connectedAt: DateTime!
+  updatedAt: DateTime!
+  scannedAt: DateTime
+  disconnectedAt: DateTime
+  errorCode: String
+  errorMessage: String
+  availableDatasets: [String!]!
+  identities: [Identity!]!
+  employments: [Employment!]!
+  paystubs(limit: Int, offset: Int): PaystubConnection!
+  shifts(limit: Int, offset: Int): ShiftConnection!
+  gigs(limit: Int, offset: Int): GigConnection!
+  vehicles: [Vehicle!]!
+  ratings: [Rating!]!
+  depositDestinations: [DepositDestination!]!
+  payrollDocuments: [PayrollDocument!]!
+}
+
+type Item {
+  id: String!
+  name: String!
+  type: String!
+  logoUrl: URL
+  categories: [String!]!
+  isActive: Boolean!
+  supportedDatasets: [String!]!
+  searchTerms: [String!]!
+}
+
+type ItemFilter {
+  id: UUID!
+  name: String
+  includedItems: [String!]!
+  excludedItems: [String!]!
+  categories: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Employment Types ────────────────────────────────────────────────────────
+
+type Employment {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  employerName: String!
+  employerAddress: Address
+  jobTitle: String
+  status: EmploymentStatus!
+  type: EmploymentType!
+  hireDate: Date
+  terminationDate: Date
+  payCycle: PayCycle
+  payRate: Decimal
+  payRateCurrency: String
+  hoursPerWeek: Decimal
+  department: String
+  managerId: String
+  workLocation: Address
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  paystubs(limit: Int, offset: Int): PaystubConnection!
+  shifts(limit: Int, offset: Int): ShiftConnection!
+}
+
+# ─── Paystub & Earnings Types ────────────────────────────────────────────────
+
+type Paystub {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  employmentId: UUID
+  payPeriodStart: Date!
+  payPeriodEnd: Date!
+  payDate: Date!
+  grossPay: Decimal!
+  netPay: Decimal!
+  currency: String!
+  hoursWorked: Decimal
+  regularHours: Decimal
+  overtimeHours: Decimal
+  earnings: [Earning!]!
+  deductions: [Deduction!]!
+  taxes: [TaxWithholding!]!
+  ytdGross: Decimal
+  ytdNet: Decimal
+  ytdTaxes: Decimal
+  ytdDeductions: Decimal
+  employerName: String
+  checkNumber: String
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PaystubConnection {
+  nodes: [Paystub!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type Earning {
+  type: EarningType!
+  description: String
+  amount: Decimal!
+  hours: Decimal
+  rate: Decimal
+  currency: String!
+  ytd: Decimal
+}
+
+type Deduction {
+  type: DeductionType!
+  description: String
+  amount: Decimal!
+  currency: String!
+  ytd: Decimal
+  employerContribution: Decimal
+}
+
+type TaxWithholding {
+  jurisdiction: String!
+  taxType: String!
+  amount: Decimal!
+  currency: String!
+  ytd: Decimal
+  filingStatus: String
+  exemptions: Int
+}
+
+# ─── Payroll Document Types ──────────────────────────────────────────────────
+
+type PayrollDocument {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  type: DocumentType!
+  status: DocumentStatus!
+  taxYear: Int
+  documentUrl: URL
+  ocrData: JSON
+  authenticityScore: Decimal
+  authenticityFlags: [String!]!
+  uploadedAt: DateTime!
+  processedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Shift Types ─────────────────────────────────────────────────────────────
+
+type Shift {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  employmentId: UUID
+  status: ShiftStatus!
+  startTime: DateTime!
+  endTime: DateTime
+  durationMinutes: Int
+  regularHours: Decimal
+  overtimeHours: Decimal
+  breakMinutes: Int
+  baseRate: Decimal
+  regularPay: Decimal
+  overtimePay: Decimal
+  bonusPay: Decimal
+  tips: Decimal
+  totalPay: Decimal
+  currency: String!
+  location: GeoPoint
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ShiftConnection {
+  nodes: [Shift!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type GeoPoint {
+  latitude: Decimal
+  longitude: Decimal
+  address: String
+}
+
+# ─── Gig Types ───────────────────────────────────────────────────────────────
+
+type Gig {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  type: GigType!
+  status: GigStatus!
+  platform: String!
+  startTime: DateTime!
+  endTime: DateTime
+  durationMinutes: Int
+  distanceMiles: Decimal
+  basePay: Decimal
+  tips: Decimal
+  bonuses: Decimal
+  totalPay: Decimal
+  currency: String!
+  surgeMultiplier: Decimal
+  pickupLocation: GeoPoint
+  dropoffLocation: GeoPoint
+  customerRating: Decimal
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GigConnection {
+  nodes: [Gig!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+# ─── Vehicle Types ───────────────────────────────────────────────────────────
+
+type Vehicle {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  make: String
+  model: String
+  year: Int
+  color: String
+  licensePlate: String
+  vin: String
+  state: String
+  inspectionStatus: String
+  inspectionExpiry: Date
+  insuranceExpiry: Date
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Rating Types ────────────────────────────────────────────────────────────
+
+type Rating {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  platform: String!
+  score: Decimal!
+  maxScore: Decimal!
+  source: RatingSource!
+  ratingCount: Int
+  periodStart: Date
+  periodEnd: Date
+  categories: [RatingCategory!]!
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type RatingCategory {
+  name: String!
+  score: Decimal!
+  weight: Decimal
+}
+
+# ─── Banking & Deposit Types ─────────────────────────────────────────────────
+
+type BankAccount {
+  id: UUID!
+  userId: UUID!
+  institutionId: String
+  institution: FinancialInstitution
+  accountType: BankAccountType!
+  accountNumber: String
+  routingNumber: String
+  accountNumberLastFour: String
+  currency: String!
+  currentBalance: Decimal
+  availableBalance: Decimal
+  balanceAsOf: DateTime
+  accountName: String
+  ownerName: String
+  isVerified: Boolean!
+  transactions(limit: Int, offset: Int): TransactionConnection!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type FinancialInstitution {
+  id: String!
+  name: String!
+  type: InstitutionType!
+  logoUrl: URL
+  routingNumber: String
+  website: URL
+  supportPhone: String
+}
+
+type DepositDestination {
+  id: UUID!
+  userId: UUID!
+  accountId: UUID!
+  bankName: String
+  routingNumber: String
+  accountNumber: String
+  accountNumberLastFour: String
+  accountType: BankAccountType
+  allocationAmount: Decimal
+  allocationPercent: Decimal
+  isFullDeposit: Boolean
+  currency: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Transaction {
+  id: UUID!
+  bankAccountId: UUID!
+  date: Date!
+  postedDate: Date
+  amount: Decimal!
+  currency: String!
+  description: String
+  merchantName: String
+  category: String
+  subcategory: String
+  isCredit: Boolean!
+  isPending: Boolean!
+  balance: Decimal
+  metadata: JSON
+}
+
+type TransactionConnection {
+  nodes: [Transaction!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+# ─── Verification Types ──────────────────────────────────────────────────────
+
+type Verification {
+  id: UUID!
+  userId: UUID!
+  type: VerificationType!
+  status: VerificationStatus!
+  requestedAt: DateTime!
+  completedAt: DateTime
+  expiresAt: DateTime
+  cancelledAt: DateTime
+  reportId: UUID
+  report: Report
+  employmentData: Employment
+  incomeData: IncomeSnapshot
+  assetData: AssetSnapshot
+  gseEligibility: GseEligibility
+  metadata: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type IncomeSnapshot {
+  annualizedGross: Decimal!
+  monthlyGross: Decimal!
+  currency: String!
+  calculationBasis: String
+  periodStart: Date
+  periodEnd: Date
+  paystubCount: Int
+  baseIncome: Decimal
+  variableIncome: Decimal
+  bonusIncome: Decimal
+  overtimeIncome: Decimal
+}
+
+type AssetSnapshot {
+  totalBalance: Decimal!
+  currency: String!
+  accountCount: Int!
+  asOf: DateTime!
+  breakdown: [AssetBreakdown!]!
+}
+
+type AssetBreakdown {
+  accountType: BankAccountType!
+  balance: Decimal!
+  institutionName: String
+}
+
+type GseEligibility {
+  fannieMaeDay1Certainty: Boolean!
+  freddieMacAim: Boolean!
+  certificationDate: Date
+  representationsAndWarranties: Boolean!
+  notes: String
+}
+
+# ─── Report Types ────────────────────────────────────────────────────────────
+
+type Report {
+  id: UUID!
+  userId: UUID!
+  verificationId: UUID
+  status: ReportStatus!
+  format: ReportFormat!
+  types: [VerificationType!]!
+  generatedAt: DateTime
+  expiresAt: DateTime
+  downloadUrl: URL
+  summary: ReportSummary
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ReportSummary {
+  employerName: String
+  jobTitle: String
+  employmentStatus: EmploymentStatus
+  hireDate: Date
+  annualizedIncome: Decimal
+  currency: String
+  verificationDate: Date
+  paystubsAnalyzed: Int
+}
+
+# ─── Invite Types ────────────────────────────────────────────────────────────
+
+type Invite {
+  id: UUID!
+  userId: UUID
+  recipientEmail: String
+  recipientPhone: String
+  channel: InviteChannel!
+  status: InviteStatus!
+  linkUrl: URL
+  expiresAt: DateTime
+  sentAt: DateTime
+  openedAt: DateTime
+  completedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Upload Types ────────────────────────────────────────────────────────────
+
+type UserUpload {
+  id: UUID!
+  userId: UUID!
+  filename: String!
+  mimeType: String!
+  documentType: DocumentType
+  status: UploadStatus!
+  uploadUrl: URL
+  downloadUrl: URL
+  ocrData: JSON
+  authenticityScore: Decimal
+  authenticityFlags: [String!]!
+  uploadedAt: DateTime!
+  processedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Form Response Types ─────────────────────────────────────────────────────
+
+type UserForm {
+  id: UUID!
+  userId: UUID!
+  formType: String!
+  status: FormResponseStatus!
+  responses: JSON!
+  employerName: String
+  selfReportedIncome: Decimal
+  currency: String
+  submittedAt: DateTime
+  reviewedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Receipt Types ───────────────────────────────────────────────────────────
+
+type Receipt {
+  id: UUID!
+  userId: UUID!
+  verificationId: UUID
+  eventType: String!
+  amount: Decimal!
+  currency: String!
+  billedAt: DateTime!
+  description: String
+  metadata: JSON
+  createdAt: DateTime!
+}
+
+# ─── Pagination ──────────────────────────────────────────────────────────────
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+# ─── Query Root ──────────────────────────────────────────────────────────────
+
+type Query {
+  # Users
+  user(id: UUID!): ArgyleUser
+  users(limit: Int, offset: Int, externalId: String): [ArgyleUser!]!
+
+  # Accounts
+  account(id: UUID!): Account
+  accounts(userId: UUID, status: AccountStatus, limit: Int, offset: Int): [Account!]!
+
+  # Items (supported employers/platforms)
+  item(id: String!): Item
+  items(search: String, categories: [String!], limit: Int, offset: Int): [Item!]!
+  itemFilters: [ItemFilter!]!
+
+  # Identities
+  identity(id: UUID!): Identity
+  identities(userId: UUID, accountId: UUID): [Identity!]!
+
+  # Employments
+  employment(id: UUID!): Employment
+  employments(userId: UUID, accountId: UUID, status: EmploymentStatus, limit: Int, offset: Int): [Employment!]!
+
+  # Paystubs
+  paystub(id: UUID!): Paystub
+  paystubs(userId: UUID, accountId: UUID, employmentId: UUID, fromDate: Date, toDate: Date, limit: Int, offset: Int): PaystubConnection!
+
+  # Payroll Documents
+  payrollDocument(id: UUID!): PayrollDocument
+  payrollDocuments(userId: UUID, accountId: UUID, type: DocumentType, status: DocumentStatus, taxYear: Int, limit: Int, offset: Int): [PayrollDocument!]!
+
+  # Shifts
+  shift(id: UUID!): Shift
+  shifts(userId: UUID, accountId: UUID, fromDate: Date, toDate: Date, limit: Int, offset: Int): ShiftConnection!
+
+  # Gigs
+  gig(id: UUID!): Gig
+  gigs(userId: UUID, accountId: UUID, type: GigType, platform: String, fromDate: Date, toDate: Date, limit: Int, offset: Int): GigConnection!
+
+  # Vehicles
+  vehicle(id: UUID!): Vehicle
+  vehicles(userId: UUID, accountId: UUID): [Vehicle!]!
+
+  # Ratings
+  rating(id: UUID!): Rating
+  ratings(userId: UUID, accountId: UUID, platform: String): [Rating!]!
+
+  # Banking
+  bankAccount(id: UUID!): BankAccount
+  bankAccounts(userId: UUID, accountType: BankAccountType, limit: Int, offset: Int): [BankAccount!]!
+  financialInstitution(id: String!): FinancialInstitution
+  financialInstitutions(search: String, limit: Int, offset: Int): [FinancialInstitution!]!
+  transactions(bankAccountId: UUID!, fromDate: Date, toDate: Date, limit: Int, offset: Int): TransactionConnection!
+
+  # Deposit Destinations
+  depositDestination(id: UUID!): DepositDestination
+  depositDestinations(userId: UUID, accountId: UUID): [DepositDestination!]!
+
+  # Verifications
+  verification(id: UUID!): Verification
+  verifications(userId: UUID, type: VerificationType, status: VerificationStatus, limit: Int, offset: Int): [Verification!]!
+
+  # Reports
+  report(id: UUID!): Report
+  reports(userId: UUID, status: ReportStatus, format: ReportFormat, limit: Int, offset: Int): [Report!]!
+
+  # Invites
+  invite(id: UUID!): Invite
+  invites(userId: UUID, status: InviteStatus, limit: Int, offset: Int): [Invite!]!
+
+  # Uploads
+  userUpload(id: UUID!): UserUpload
+  userUploads(userId: UUID, documentType: DocumentType, status: UploadStatus, limit: Int, offset: Int): [UserUpload!]!
+
+  # Forms
+  userForm(id: UUID!): UserForm
+  userForms(userId: UUID, formType: String, status: FormResponseStatus, limit: Int, offset: Int): [UserForm!]!
+
+  # Receipts
+  receipt(id: UUID!): Receipt
+  receipts(userId: UUID, verificationId: UUID, fromDate: Date, toDate: Date, limit: Int, offset: Int): [Receipt!]!
+}
+
+# ─── Mutation Root ───────────────────────────────────────────────────────────
+
+type Mutation {
+  # User management
+  createUser(input: CreateUserInput!): ArgyleUser!
+  updateUser(id: UUID!, input: UpdateUserInput!): ArgyleUser!
+  deleteUser(id: UUID!): Boolean!
+  createUserToken(userId: UUID!): UserToken!
+
+  # Account management
+  disableAccountUpdates(id: UUID!): Account!
+  deleteAccount(id: UUID!): Boolean!
+
+  # Item filters
+  createItemFilter(input: CreateItemFilterInput!): ItemFilter!
+  updateItemFilter(id: UUID!, input: UpdateItemFilterInput!): ItemFilter!
+  deleteItemFilter(id: UUID!): Boolean!
+
+  # Invites
+  createInvite(input: CreateInviteInput!): Invite!
+  resendInvite(id: UUID!): Invite!
+  revokeInvite(id: UUID!): Invite!
+
+  # Verifications
+  orderVerification(input: OrderVerificationInput!): Verification!
+  cancelVerification(id: UUID!): Verification!
+  refreshVerification(id: UUID!): Verification!
+
+  # Reports
+  generateReport(input: GenerateReportInput!): Report!
+
+  # Uploads
+  initiateUpload(input: InitiateUploadInput!): UserUpload!
+  deleteUpload(id: UUID!): Boolean!
+
+  # Deposit destinations
+  updateDepositDestination(id: UUID!, input: UpdateDepositDestinationInput!): DepositDestination!
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input CreateUserInput {
+  externalId: String
+  metadata: JSON
+}
+
+input UpdateUserInput {
+  externalId: String
+  metadata: JSON
+}
+
+input CreateItemFilterInput {
+  name: String
+  includedItems: [String!]
+  excludedItems: [String!]
+  categories: [String!]
+}
+
+input UpdateItemFilterInput {
+  name: String
+  includedItems: [String!]
+  excludedItems: [String!]
+  categories: [String!]
+}
+
+input CreateInviteInput {
+  recipientEmail: String
+  recipientPhone: String
+  channel: InviteChannel!
+  expiresAt: DateTime
+  metadata: JSON
+}
+
+input OrderVerificationInput {
+  userId: UUID!
+  type: VerificationType!
+  accountId: UUID
+  metadata: JSON
+}
+
+input GenerateReportInput {
+  userId: UUID!
+  verificationId: UUID
+  format: ReportFormat!
+  types: [VerificationType!]!
+}
+
+input InitiateUploadInput {
+  userId: UUID!
+  filename: String!
+  mimeType: String!
+  documentType: DocumentType
+}
+
+input UpdateDepositDestinationInput {
+  allocationAmount: Decimal
+  allocationPercent: Decimal
+  isFullDeposit: Boolean
+}
