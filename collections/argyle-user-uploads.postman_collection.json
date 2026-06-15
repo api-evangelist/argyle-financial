@@ -1,0 +1,401 @@
+{
+  "item": [
+    {
+      "id": "fa5393cb-b2e1-4b3f-ad10-ff6280d9b5e8",
+      "name": "Retrieve a user upload",
+      "request": {
+        "name": "Retrieve a user upload",
+        "description": {
+          "content": "Retrieves a user upload object.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v2",
+            "user-uploads",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<uuid>",
+              "key": "id",
+              "description": "(Required) ID of the user upload object to be retrieved."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "31d5a65c-72a8-42de-ad67-1d8c860b60d2",
+          "name": "A user upload object.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "user-uploads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) ID of the user upload object to be retrieved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"01320596-2c3d-189c-53e7-a8ce6d625b33\",\n  \"account\": \"01856c65-43b6-8b5d-b32a-56b8fbda5c28\",\n  \"document_type\": \"paystubs\",\n  \"file_url\": \"www.argyle.com/storagename\",\n  \"file_name\": \"most_recent_paystub.pdf\",\n  \"metadata\": {\n    \"employment\": {},\n    \"ocr_data\": {},\n    \"ocr_authenticity\": {},\n    \"ocr_authenticity_score\": null\n  },\n  \"processing\": {\n    \"classification\": \"unauthorized\",\n    \"ocr\": \"unauthorized\",\n    \"authenticity\": \"unauthorized\"\n  },\n  \"created_at\": \"2024-07-08T13:43:49.864Z\",\n  \"updated_at\": \"2024-07-08T13:43:51.868Z\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e226bfcc-47b8-458a-9f02-7bfdf21096a0",
+      "name": "Upload a document",
+      "request": {
+        "name": "Upload a document",
+        "description": {
+          "content": "Upload a document via the API.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v2",
+            "user-uploads"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "user",
+              "value": "<uuid>",
+              "type": "text",
+              "description": "(Required) ID of the user object."
+            },
+            {
+              "key": "document_type",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) The type of document. (This can only be one of paystubs,W-2,1099,proof-of-identity,proof-of-address,miscellaneous)"
+            },
+            {
+              "key": "upload",
+              "type": "file",
+              "description": "(Required) Link to the document to be uploaded.\n\nMax of 1 document per POST request.\n"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "94e61c16-042a-4327-b18d-6703c605958d",
+          "name": "A user upload object.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "user-uploads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) ID of the user object.",
+                    "type": "text/plain"
+                  },
+                  "key": "user",
+                  "value": "<uuid>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) The type of document. (This can only be one of paystubs,W-2,1099,proof-of-identity,proof-of-address,miscellaneous)",
+                    "type": "text/plain"
+                  },
+                  "key": "document_type",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Link to the document to be uploaded.\n\nMax of 1 document per POST request.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "upload",
+                  "value": "<binary>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"f1f201bc-49d7-65f5-2e23-93ae737d311b\",\n  \"account\": \"c888d48d-756a-c1f0-c4c8-5158c63fc1fe\",\n  \"document_type\": \"string\",\n  \"file_url\": \"string\",\n  \"file_name\": \"string\",\n  \"metadata\": {\n    \"employment\": {},\n    \"ocr_data\": {},\n    \"ocr_authenticity\": {},\n    \"ocr_authenticity_score\": 8656\n  },\n  \"processing\": {\n    \"classification\": \"idle\",\n    \"ocr\": \"unauthorized\",\n    \"authenticity\": \"idle\"\n  },\n  \"created_at\": \"1957-01-03T04:36:29.551Z\",\n  \"updated_at\": \"2016-02-26T15:53:24.061Z\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "703a17b7-dd9a-40ab-a129-4b98b85d6e91",
+      "name": "List all user uploads",
+      "request": {
+        "name": "List all user uploads",
+        "description": {
+          "content": "Returns a paginated list of all user upload objects.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v2",
+            "user-uploads"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "account",
+              "value": "<uuid>",
+              "description": "Filter by account ID."
+            },
+            {
+              "disabled": false,
+              "key": "user",
+              "value": "<uuid>",
+              "description": "Filter by user ID."
+            },
+            {
+              "disabled": false,
+              "key": "document_type",
+              "value": "<uuid>",
+              "description": "Filter by `document_type`."
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "<integer>",
+              "description": "Number of user upload objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n"
+            },
+            {
+              "disabled": false,
+              "key": "cursor",
+              "value": "<string>",
+              "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1623a582-839f-498f-b16f-d973ab86d7ed",
+          "name": "A paginated list of user upload objects.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "user-uploads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "account",
+                  "value": "<uuid>"
+                },
+                {
+                  "key": "user",
+                  "value": "<uuid>"
+                },
+                {
+                  "key": "document_type",
+                  "value": "<uuid>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"next\": \"http://KdtNaFfxeuxxmGktLsTJpVWaPpUQkR.kasi2,I0NgH2zKgiP2Dmg\",\n  \"previous\": \"https://bUTTJEJIuXNJWljkBMGbHpKO.ogno8L792dM3PLWit08TBrmw\",\n  \"results\": [\n    {\n      \"id\": \"d03c4699-ff49-1396-994b-b1f566b8a78a\",\n      \"account\": \"2d8a55b2-72e9-686f-fdb7-f2abaed4adac\",\n      \"document_type\": \"string\",\n      \"file_url\": \"string\",\n      \"file_name\": \"string\",\n      \"metadata\": {\n        \"employment\": {},\n        \"ocr_data\": {},\n        \"ocr_authenticity\": {},\n        \"ocr_authenticity_score\": 3902\n      },\n      \"processing\": {\n        \"classification\": \"unauthorized\",\n        \"ocr\": \"unauthorized\",\n        \"authenticity\": \"unauthorized\"\n      },\n      \"created_at\": \"2023-08-08T22:31:57.850Z\",\n      \"updated_at\": \"1956-08-11T00:02:25.381Z\"\n    },\n    {\n      \"id\": \"b0d2a9a0-3b71-1d2f-511b-e64a7a01a0c3\",\n      \"account\": \"a1f6dfc2-49e9-2253-f845-c6b726287815\",\n      \"document_type\": \"string\",\n      \"file_url\": \"string\",\n      \"file_name\": \"string\",\n      \"metadata\": {\n        \"employment\": {},\n        \"ocr_data\": {},\n        \"ocr_authenticity\": {},\n        \"ocr_authenticity_score\": 7692\n      },\n      \"processing\": {\n        \"classification\": \"in_progress\",\n        \"ocr\": \"unauthorized\",\n        \"authenticity\": \"failed\"\n      },\n      \"created_at\": \"1983-07-17T15:58:07.921Z\",\n      \"updated_at\": \"1974-09-07T16:38:06.216Z\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "53f0e145-2a1e-4570-90fe-286cd3ec5ec7",
+    "name": "User Uploads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Retrieve manually uploaded documents.\n\n*   Retrieve documents manually uploaded through [Link](/workflows/document-processing).\n*   Retrieve [OCR data](/integrations/ocr/ocrolus#retrieving-ocr-data) and [authenticity information](/integrations/ocr/ocrolus#api) for uploaded documents.\n",
+      "type": "text/plain"
+    }
+  }
+}
