@@ -10,7 +10,7 @@ description: Argyle is a consumer-permissioned employment and income data platfo
   and is used by partners including Checkr, NFM Lending, Regional Finance, and LMCU,
   with loan-origination integrations into Encompass, nCino, Empower, and Byte.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://docs.argyle.com/
 created: '2026-05-25'
 modified: '2026-05-25'
