@@ -461,17 +461,17 @@ common:
 - url: https://docs.argyle.com/api-guide/overview
   type: Documentation
 - url: https://docs.argyle.com/api-guide/postman
-  type: Postman Collection
+  type: PostmanCollection
 - url: https://docs.argyle.com/api-guide/webhooks
   type: Webhooks
 - url: https://docs.argyle.com/overview/sandbox-testing
   type: Sandbox
 - url: https://console.argyle.com/sign-up
-  type: SignUp
+  type: Signup
 - url: https://console.argyle.com/
   type: Login
 - url: https://docs.argyle.com/link/overview
-  type: SDK
+  type: SDKs
 - url: https://docs.argyle.com/link/initialization/web
   type: WebSDK
 - url: https://docs.argyle.com/link/initialization/mobile-sdks
@@ -499,7 +499,7 @@ common:
 - url: https://www.argyle.com/legal/terms-of-service
   type: TermsOfService
 - url: https://docs.argyle.com/api-reference/account-connection-errors
-  type: Errors
+  type: ErrorCodes
 - url: https://docs.argyle.com/overview/data-security
   type: Security
 - url: https://docs.argyle.com/overview/ongoing-refresh
@@ -533,7 +533,7 @@ common:
   - https://www.argyle.com/
   - https://changelog.argyle.com/
   updated: '2026-05-25'
-- type: SDK
+- type: SDKs
   data:
   - iOS Link SDK
   - Android Link SDK
