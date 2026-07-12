@@ -1,0 +1,38 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/argyle-accounts-openapi.yml, openapi/argyle-deposit-destinations-openapi.yml,
+  openapi/argyle-employer-search-openapi.yml, openapi/argyle-employments-openapi.yml, openapi/argyle-gigs-openapi.yml,
+  openapi/argyle-identities-openapi.yml, openapi/argyle-invites-openapi.yml, openapi/argyle-item-filters-openapi.yml,
+  openapi/argyle-items-openapi.yml, openapi/argyle-payroll-documents-openapi.yml, openapi/argyle-paystubs-openapi.yml,
+  openapi/argyle-ratings-openapi.yml ...
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Username = api_key_id, Password = api_key_secret
+  sources:
+  - openapi/argyle-accounts-openapi.yml
+  - openapi/argyle-deposit-destinations-openapi.yml
+  - openapi/argyle-employer-search-openapi.yml
+  - openapi/argyle-employments-openapi.yml
+  - openapi/argyle-gigs-openapi.yml
+  - openapi/argyle-identities-openapi.yml
+  - openapi/argyle-invites-openapi.yml
+  - openapi/argyle-item-filters-openapi.yml
+  - openapi/argyle-items-openapi.yml
+  - openapi/argyle-payroll-documents-openapi.yml
+  - openapi/argyle-paystubs-openapi.yml
+  - openapi/argyle-ratings-openapi.yml
+  - openapi/argyle-receipts-openapi.yml
+  - openapi/argyle-reports-openapi.yml
+  - openapi/argyle-shifts-openapi.yml
+  - openapi/argyle-user-forms-openapi.yml
+  - openapi/argyle-user-tokens-openapi.yml
+  - openapi/argyle-user-uploads-openapi.yml
+  - openapi/argyle-users-openapi.yml
+  - openapi/argyle-vehicles-openapi.yml
+  - openapi/argyle-verifications-openapi.yml
+  - openapi/argyle-verifications-partners-openapi.yml
