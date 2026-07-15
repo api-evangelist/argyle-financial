@@ -450,6 +450,8 @@ apis:
   - FN: Argyle Support
     url: https://argyle.com/support
 common:
+- type: AgenticAccess
+  url: agentic-access/argyle-financial-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/argyle-financial-vulnerability-disclosure.yml
 - type: DomainSecurity
