@@ -1,23 +1,25 @@
 openapi: 3.0.0
 info:
-  title: Vehicles API
+  title: Argyle API Accounts Vehicles API
   version: '2.0'
-  description: Work vehicle information.
+  description: Accounts are payroll connections made through Link.
 security:
-  - basicAuth: []
+- basicAuth: []
+tags:
+- name: Vehicles
 paths:
   /v2/vehicles/{id}:
     get:
       summary: Retrieve a vehicle
       description: Retrieves a vehicle object.
       parameters:
-        - name: id
-          in: path
-          description: ID of the vehicle object to be retrieved.
-          required: true
-          schema:
-            type: string
-            format: uuid
+      - name: id
+        in: path
+        description: ID of the vehicle object to be retrieved.
+        required: true
+        schema:
+          type: string
+          format: uuid
       responses:
         '200':
           description: ''
@@ -38,37 +40,37 @@ paths:
                 created_at: '2023-02-09T13:42:03.966Z'
                 updated_at: '2023-02-09T13:42:03.966Z'
                 metadata: {}
+      tags:
+      - Vehicles
   /v2/vehicles:
     get:
       summary: List all vehicles
       description: Returns a paginated list of all vehicle objects.
       parameters:
-        - name: account
-          in: query
-          description: Filter by account ID.
-          schema:
-            type: string
-            format: uuid
-        - name: user
-          in: query
-          description: Filter by user ID.
-          schema:
-            type: string
-            format: uuid
-        - name: limit
-          in: query
-          description: >
-            Number of vehicle objects returned [per
-            page](/api-guide/overview#pagination). Default: 10. Maximum: 200.
-          schema:
-            type: integer
-        - in: query
-          name: cursor
-          schema:
-            type: string
-          description: >-
-            The URL returned in `next` or `previous` used to retrieve another
-            [page](/api-guide/overview#pagination) of results.
+      - name: account
+        in: query
+        description: Filter by account ID.
+        schema:
+          type: string
+          format: uuid
+      - name: user
+        in: query
+        description: Filter by user ID.
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        in: query
+        description: 'Number of vehicle objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.
+
+          '
+        schema:
+          type: integer
+      - in: query
+        name: cursor
+        schema:
+          type: string
+        description: The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.
       responses:
         '200':
           description: ''
@@ -92,41 +94,37 @@ paths:
                     items:
                       $ref: '#/components/schemas/Vehicle'
               example:
-                next: >-
-                  https://api-sandbox.argyle.com/v2/vehicles?cursor=ZXhhbXBsZV9jdXJzb3I
+                next: https://api-sandbox.argyle.com/v2/vehicles?cursor=ZXhhbXBsZV9jdXJzb3I
                 previous: null
                 results:
-                  - id: 0176364c-c8a2-4d43-2a12-7b4146a829a9
-                    account: 0187c66e-e7e5-811c-b006-2232f00f426a
-                    identification: JASJ1Y
-                    make: Ford
-                    model: Focus
-                    type: car
-                    year: 2011
-                    vin: W081C4YIZQYE55DSE
-                    employer: GigAntic
-                    created_at: '2023-02-09T13:28:11.427Z'
-                    updated_at: '2023-02-09T13:32:13.215Z'
-                    metadata:
-                      source: gig platform
-                  - id: 01763a69-5cbe-2edb-ade1-5591157c354d
-                    account: 0187c66e-e7e5-811c-b006-2232f00f426a
-                    identification: AEWUQ7
-                    make: Ford
-                    model: Mondeo
-                    type: car
-                    year: 1998
-                    vin: QUICELDKTRQJ4S33C
-                    employer: GigAndGo
-                    created_at: '2023-02-09T13:42:03.966Z'
-                    updated_at: '2023-02-09T13:42:03.966Z'
-                    metadata: {}
+                - id: 0176364c-c8a2-4d43-2a12-7b4146a829a9
+                  account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                  identification: JASJ1Y
+                  make: Ford
+                  model: Focus
+                  type: car
+                  year: 2011
+                  vin: W081C4YIZQYE55DSE
+                  employer: GigAntic
+                  created_at: '2023-02-09T13:28:11.427Z'
+                  updated_at: '2023-02-09T13:32:13.215Z'
+                  metadata:
+                    source: gig platform
+                - id: 01763a69-5cbe-2edb-ade1-5591157c354d
+                  account: 0187c66e-e7e5-811c-b006-2232f00f426a
+                  identification: AEWUQ7
+                  make: Ford
+                  model: Mondeo
+                  type: car
+                  year: 1998
+                  vin: QUICELDKTRQJ4S33C
+                  employer: GigAndGo
+                  created_at: '2023-02-09T13:42:03.966Z'
+                  updated_at: '2023-02-09T13:42:03.966Z'
+                  metadata: {}
+      tags:
+      - Vehicles
 components:
-  securitySchemes:
-    basicAuth:
-      type: http
-      scheme: basic
-      description: Username = api_key_id, Password = api_key_secret
   schemas:
     Vehicle:
       type: object
@@ -164,13 +162,13 @@ components:
         type:
           type: string
           enum:
-            - car
-            - pedestrian
-            - ebike
-            - bicycle
-            - scooter
-            - motorcycle
-            - other
+          - car
+          - pedestrian
+          - ebike
+          - bicycle
+          - scooter
+          - motorcycle
+          - other
           description: The type of vehicle.
         year:
           type: string
@@ -184,15 +182,16 @@ components:
         created_at:
           type: string
           format: date-time
-          description: >-
-            Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when
-            the vehicle object was created.
+          description: Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when the vehicle object was created.
         updated_at:
           type: string
           format: date-time
-          description: >-
-            Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when
-            a property value of the vehicle object most recently changed.
+          description: Timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)) when a property value of the vehicle object most recently changed.
         metadata:
           type: object
           description: Additional, non-categorized information.
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Username = api_key_id, Password = api_key_secret
