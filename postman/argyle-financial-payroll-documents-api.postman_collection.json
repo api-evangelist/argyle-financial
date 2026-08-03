@@ -1,0 +1,301 @@
+{
+  "info": {
+    "_postman_id": "f26913af-d2f9-474b-9967-c7baa0d6bd19",
+    "name": "Argyle API Accounts Payroll Documents API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:39.000Z",
+    "updatedAt": "2026-07-28T01:05:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f26913af-d2f9-474b-9967-c7baa0d6bd19"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "payroll-documents",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a payroll document",
+                  "id": "a2cc636a-5752-43fa-a33c-a4176bbd06f4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/payroll-documents/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "payroll-documents",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "60152acd-43af-4e1a-b387-51b74610421e",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the payroll document object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a payroll document object."
+                  },
+                  "response": [
+                    {
+                      "id": "7e70a013-bc34-4e12-885f-b119b4deb51a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/payroll-documents/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "payroll-documents",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"document_number\": \"<string>\",\n  \"available_date\": \"<dateTime>\",\n  \"expiration_date\": \"<dateTime>\",\n  \"employer\": \"<string>\",\n  \"employment\": \"<string>\",\n  \"document_type\": \"profile-picture\",\n  \"document_type_description\": \"<string>\",\n  \"file_url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"ocr_data\": {\n    \"form_type\": \"1099-MISC\",\n    \"omb_no\": \"<string>\",\n    \"year\": \"<string>\",\n    \"form\": {\n      \"recipient\": {\n        \"name\": \"<string>\",\n        \"address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"state\": \"<string>\"\n        }\n      },\n      \"recipient_tin\": \"<string>\",\n      \"payer\": {\n        \"name\": \"<string>\",\n        \"address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"state\": \"<string>\"\n        }\n      },\n      \"payer_tin\": \"<string>\"\n    },\n    \"warnings\": [\n      {\n        \"field_name\": \"<string>\",\n        \"message\": \"obfuscated\",\n        \"severity\": 1\n      },\n      {\n        \"field_name\": \"<string>\",\n        \"message\": \"value empty/bad format\",\n        \"severity\": 0.5\n      }\n    ],\n    \"confidence\": \"NO_MATCH\",\n    \"ocr_page_count\": \"<integer>\",\n    \"error\": \"unsupported_document_type\"\n  },\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:05:40.000Z",
+                      "updatedAt": "2026-07-28T01:05:40.000Z",
+                      "uid": "35240-7e70a013-bc34-4e12-885f-b119b4deb51a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:40.000Z",
+                  "updatedAt": "2026-07-28T01:05:40.000Z",
+                  "uid": "35240-a2cc636a-5752-43fa-a33c-a4176bbd06f4"
+                }
+              ],
+              "id": "ead3aa64-9762-4f3f-9be2-a6a8fdf07475",
+              "createdAt": "2026-07-28T01:05:40.000Z",
+              "updatedAt": "2026-07-28T01:05:40.000Z",
+              "uid": "35240-ead3aa64-9762-4f3f-9be2-a6a8fdf07475"
+            },
+            {
+              "name": "List all payroll documents",
+              "id": "b9c05303-bdd4-4349-92c6-57724b82016f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/payroll-documents?account=<uuid>&user=<uuid>&employment=<uuid>&from_available_date=<dateTime>&to_available_date=<dateTime>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "payroll-documents"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by employment ID.",
+                      "key": "employment",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter for payroll documents with an `available_date` on or after this timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).\n",
+                      "key": "from_available_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter for payroll documents with an `available_date` on or before this timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).\n",
+                      "key": "to_available_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Number of payroll document objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all payroll document objects."
+              },
+              "response": [
+                {
+                  "id": "023d9a67-90e5-4832-bb8f-27049a6750da",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/payroll-documents?account=<uuid>&user=<uuid>&employment=<uuid>&from_available_date=<dateTime>&to_available_date=<dateTime>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "payroll-documents"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by employment ID.",
+                          "key": "employment",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter for payroll documents with an `available_date` on or after this timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).\n",
+                          "key": "from_available_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter for payroll documents with an `available_date` on or before this timestamp ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)).\n",
+                          "key": "to_available_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of payroll document objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"document_number\": \"<string>\",\n      \"available_date\": \"<dateTime>\",\n      \"expiration_date\": \"<dateTime>\",\n      \"employer\": \"<string>\",\n      \"employment\": \"<string>\",\n      \"document_type\": \"W-2\",\n      \"document_type_description\": \"<string>\",\n      \"file_url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"ocr_data\": {\n        \"form_type\": \"1099-K\",\n        \"omb_no\": \"<string>\",\n        \"year\": \"<string>\",\n        \"form\": {\n          \"recipient\": {\n            \"name\": \"<string>\",\n            \"address\": {\n              \"city\": \"<string>\",\n              \"country\": \"<string>\",\n              \"line1\": \"<string>\",\n              \"line2\": \"<string>\",\n              \"postal_code\": \"<string>\",\n              \"state\": \"<string>\"\n            }\n          },\n          \"recipient_tin\": \"<string>\",\n          \"payer\": {\n            \"name\": \"<string>\",\n            \"address\": {\n              \"city\": \"<string>\",\n              \"country\": \"<string>\",\n              \"line1\": \"<string>\",\n              \"line2\": \"<string>\",\n              \"postal_code\": \"<string>\",\n              \"state\": \"<string>\"\n            }\n          },\n          \"payer_tin\": \"<string>\"\n        },\n        \"warnings\": [\n          {\n            \"field_name\": \"<string>\",\n            \"message\": \"obfuscated last two digits given\",\n            \"severity\": 0.5\n          },\n          {\n            \"field_name\": \"<string>\",\n            \"message\": \"field_name invalid - non numeric value, original value: <value>\",\n            \"severity\": 0.5\n          }\n        ],\n        \"confidence\": \"HIGH\",\n        \"ocr_page_count\": \"<integer>\",\n        \"error\": \"unsupported_document_type\"\n      },\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"document_number\": \"<string>\",\n      \"available_date\": \"<dateTime>\",\n      \"expiration_date\": \"<dateTime>\",\n      \"employer\": \"<string>\",\n      \"employment\": \"<string>\",\n      \"document_type\": \"W-9\",\n      \"document_type_description\": \"<string>\",\n      \"file_url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"ocr_data\": {\n        \"form_type\": \"1099-MISC\",\n        \"omb_no\": \"<string>\",\n        \"year\": \"<string>\",\n        \"form\": {\n          \"recipient\": {\n            \"name\": \"<string>\",\n            \"address\": {\n              \"city\": \"<string>\",\n              \"country\": \"<string>\",\n              \"line1\": \"<string>\",\n              \"line2\": \"<string>\",\n              \"postal_code\": \"<string>\",\n              \"state\": \"<string>\"\n            }\n          },\n          \"recipient_tin\": \"<string>\",\n          \"payer\": {\n            \"name\": \"<string>\",\n            \"address\": {\n              \"city\": \"<string>\",\n              \"country\": \"<string>\",\n              \"line1\": \"<string>\",\n              \"line2\": \"<string>\",\n              \"postal_code\": \"<string>\",\n              \"state\": \"<string>\"\n            }\n          },\n          \"payer_tin\": \"<string>\"\n        },\n        \"warnings\": [\n          {\n            \"field_name\": \"<string>\",\n            \"message\": \"not found\",\n            \"severity\": 0\n          },\n          {\n            \"field_name\": \"<string>\",\n            \"message\": \"not found\",\n            \"severity\": 0.5\n          }\n        ],\n        \"confidence\": \"MEDIUM\",\n        \"ocr_page_count\": \"<integer>\",\n        \"error\": \"invalid_document\"\n      },\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:40.000Z",
+                  "updatedAt": "2026-07-28T01:05:40.000Z",
+                  "uid": "35240-023d9a67-90e5-4832-bb8f-27049a6750da"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:40.000Z",
+              "updatedAt": "2026-07-28T01:05:40.000Z",
+              "uid": "35240-b9c05303-bdd4-4349-92c6-57724b82016f"
+            }
+          ],
+          "id": "a1a6925e-4849-4764-b75d-9e3d2533f6c3",
+          "createdAt": "2026-07-28T01:05:40.000Z",
+          "updatedAt": "2026-07-28T01:05:40.000Z",
+          "uid": "35240-a1a6925e-4849-4764-b75d-9e3d2533f6c3"
+        }
+      ],
+      "id": "d309825a-5a9b-450d-9f58-4f951611ecbc",
+      "createdAt": "2026-07-28T01:05:40.000Z",
+      "updatedAt": "2026-07-28T01:05:40.000Z",
+      "uid": "35240-d309825a-5a9b-450d-9f58-4f951611ecbc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

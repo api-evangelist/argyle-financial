@@ -1,0 +1,281 @@
+{
+  "info": {
+    "_postman_id": "37802f5f-5ad9-4f87-be5c-f63379ff1472",
+    "name": "Argyle API Accounts Identities API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:53.000Z",
+    "updatedAt": "2026-07-28T01:04:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-37802f5f-5ad9-4f87-be5c-f63379ff1472"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "identities",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve an identity",
+                  "id": "69facb5e-1856-4345-808f-38ae49fd58fa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/identities/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "identities",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "95b2dcc7-2840-4a9f-9428-32c1c822a301",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the identity object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves an identity object."
+                  },
+                  "response": [
+                    {
+                      "id": "e26478c0-97b3-42f2-b1f4-1a7076a96856",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/identities/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "identities",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"birth_date\": \"<date>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"picture_url\": \"<string>\",\n  \"employment_status\": \"terminated\",\n  \"employment_type\": \"regular\",\n  \"job_title\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"marital_status\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"original_hire_date\": \"<date>\",\n  \"hire_date\": \"<date>\",\n  \"termination_date\": \"<date>\",\n  \"termination_reason\": \"<string>\",\n  \"employer\": \"<string>\",\n  \"employment\": \"<string>\",\n  \"base_pay\": {\n    \"amount\": \"<string>\",\n    \"period\": \"weekly\",\n    \"currency\": \"<string>\"\n  },\n  \"pay_cycle\": \"biweekly\",\n  \"platform_ids\": {\n    \"employee_id\": \"<string>\",\n    \"position_id\": \"<string>\",\n    \"platform_user_id\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:04:53.000Z",
+                      "updatedAt": "2026-07-28T01:04:53.000Z",
+                      "uid": "35240-e26478c0-97b3-42f2-b1f4-1a7076a96856"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:53.000Z",
+                  "updatedAt": "2026-07-28T01:04:53.000Z",
+                  "uid": "35240-69facb5e-1856-4345-808f-38ae49fd58fa"
+                }
+              ],
+              "id": "48bbe099-6e4e-4f8e-a367-6e59357c001c",
+              "createdAt": "2026-07-28T01:04:53.000Z",
+              "updatedAt": "2026-07-28T01:04:53.000Z",
+              "uid": "35240-48bbe099-6e4e-4f8e-a367-6e59357c001c"
+            },
+            {
+              "name": "List all identities",
+              "id": "368f400f-7e33-47fd-b58c-e38b61229bef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/identities?account=<uuid>&user=<uuid>&employment=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "identities"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by employment ID.",
+                      "key": "employment",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of identity objects returned per page. Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all identity objects."
+              },
+              "response": [
+                {
+                  "id": "ea7dca96-83ce-4ba0-8e03-407ad97cddca",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/identities?account=<uuid>&user=<uuid>&employment=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "identities"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by employment ID.",
+                          "key": "employment",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of identity objects returned per page. Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\"\n      },\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"birth_date\": \"<date>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"picture_url\": \"<string>\",\n      \"employment_status\": \"active\",\n      \"employment_type\": \"full-time\",\n      \"job_title\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"marital_status\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"original_hire_date\": \"<date>\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\",\n      \"termination_reason\": \"<string>\",\n      \"employer\": \"<string>\",\n      \"employment\": \"<string>\",\n      \"base_pay\": {\n        \"amount\": \"<string>\",\n        \"period\": \"annual\",\n        \"currency\": \"<string>\"\n      },\n      \"pay_cycle\": \"monthly\",\n      \"platform_ids\": {\n        \"employee_id\": \"<string>\",\n        \"position_id\": \"<string>\",\n        \"platform_user_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\"\n      },\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"birth_date\": \"<date>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"picture_url\": \"<string>\",\n      \"employment_status\": \"terminated\",\n      \"employment_type\": \"temporary\",\n      \"job_title\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"marital_status\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"original_hire_date\": \"<date>\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\",\n      \"termination_reason\": \"<string>\",\n      \"employer\": \"<string>\",\n      \"employment\": \"<string>\",\n      \"base_pay\": {\n        \"amount\": \"<string>\",\n        \"period\": \"semimonthly\",\n        \"currency\": \"<string>\"\n      },\n      \"pay_cycle\": \"biweekly\",\n      \"platform_ids\": {\n        \"employee_id\": \"<string>\",\n        \"position_id\": \"<string>\",\n        \"platform_user_id\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:53.000Z",
+                  "updatedAt": "2026-07-28T01:04:53.000Z",
+                  "uid": "35240-ea7dca96-83ce-4ba0-8e03-407ad97cddca"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:53.000Z",
+              "updatedAt": "2026-07-28T01:04:53.000Z",
+              "uid": "35240-368f400f-7e33-47fd-b58c-e38b61229bef"
+            }
+          ],
+          "id": "b0aa62b5-646c-407f-80fd-d539540e8ae6",
+          "createdAt": "2026-07-28T01:04:53.000Z",
+          "updatedAt": "2026-07-28T01:04:53.000Z",
+          "uid": "35240-b0aa62b5-646c-407f-80fd-d539540e8ae6"
+        }
+      ],
+      "id": "14a7fa0c-a7a8-4b37-ac0a-8da9a9e625dc",
+      "createdAt": "2026-07-28T01:04:53.000Z",
+      "updatedAt": "2026-07-28T01:04:53.000Z",
+      "uid": "35240-14a7fa0c-a7a8-4b37-ac0a-8da9a9e625dc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

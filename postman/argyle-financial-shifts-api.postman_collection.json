@@ -1,0 +1,291 @@
+{
+  "info": {
+    "_postman_id": "36e3f643-76ce-4b3f-aaaf-bc82915a8aa0",
+    "name": "Argyle API Accounts Shifts API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:47.000Z",
+    "updatedAt": "2026-07-28T01:05:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-36e3f643-76ce-4b3f-aaaf-bc82915a8aa0"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "shifts",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a shift",
+                  "id": "b31a5aa8-1fab-44dd-9470-cf5aff8a18e4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/shifts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "shifts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a44e3067-64e7-4bf2-9032-216c9c30bfc4",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the shift object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a shift object."
+                  },
+                  "response": [
+                    {
+                      "id": "e239ccef-f5d7-4fc1-8729-9887ed11468d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/shifts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "shifts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"employer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"status\": \"scheduled\",\n  \"type\": \"hourly\",\n  \"start_datetime\": \"<dateTime>\",\n  \"end_datetime\": \"<dateTime>\",\n  \"all_datetimes\": {\n    \"shift_start\": \"<dateTime>\",\n    \"shift_end\": \"<dateTime>\",\n    \"breaks\": [\n      {\n        \"break_start\": \"<dateTime>\",\n        \"break_end\": \"<dateTime>\"\n      },\n      {\n        \"break_start\": \"<dateTime>\",\n        \"break_end\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"hours\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"location\": \"<string>\",\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:05:48.000Z",
+                      "updatedAt": "2026-07-28T01:05:48.000Z",
+                      "uid": "35240-e239ccef-f5d7-4fc1-8729-9887ed11468d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:48.000Z",
+                  "updatedAt": "2026-07-28T01:05:48.000Z",
+                  "uid": "35240-b31a5aa8-1fab-44dd-9470-cf5aff8a18e4"
+                }
+              ],
+              "id": "5c768fd2-a74b-41ce-849b-42c5d7072623",
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-5c768fd2-a74b-41ce-849b-42c5d7072623"
+            },
+            {
+              "name": "List all shifts",
+              "id": "1f52702f-7abb-4fd6-b038-33a7bf43b629",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/shifts?account=<uuid>&user=<uuid>&from_start_datetime=<dateTime>&to_start_datetime=<dateTime>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "shifts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by shifts with a `start_datetime` on or after this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).",
+                      "key": "from_start_datetime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by shifts with a `start_datetime` on or before this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).",
+                      "key": "to_start_datetime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Number of shift objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all shift objects."
+              },
+              "response": [
+                {
+                  "id": "335238d2-24c1-4967-b6f1-7fe094a0d1e8",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/shifts?account=<uuid>&user=<uuid>&from_start_datetime=<dateTime>&to_start_datetime=<dateTime>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "shifts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by shifts with a `start_datetime` on or after this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).",
+                          "key": "from_start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter by shifts with a `start_datetime` on or before this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).",
+                          "key": "to_start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of shift objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"status\": \"scheduled\",\n      \"type\": \"hourly\",\n      \"start_datetime\": \"<dateTime>\",\n      \"end_datetime\": \"<dateTime>\",\n      \"all_datetimes\": {\n        \"shift_start\": \"<dateTime>\",\n        \"shift_end\": \"<dateTime>\",\n        \"breaks\": [\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          },\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"hours\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"location\": \"<string>\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"status\": \"in_progress\",\n      \"type\": \"hourly\",\n      \"start_datetime\": \"<dateTime>\",\n      \"end_datetime\": \"<dateTime>\",\n      \"all_datetimes\": {\n        \"shift_start\": \"<dateTime>\",\n        \"shift_end\": \"<dateTime>\",\n        \"breaks\": [\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          },\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"hours\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"location\": \"<string>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:48.000Z",
+                  "updatedAt": "2026-07-28T01:05:48.000Z",
+                  "uid": "35240-335238d2-24c1-4967-b6f1-7fe094a0d1e8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:48.000Z",
+              "updatedAt": "2026-07-28T01:05:48.000Z",
+              "uid": "35240-1f52702f-7abb-4fd6-b038-33a7bf43b629"
+            }
+          ],
+          "id": "dc36f406-e490-494b-b11a-995f599eb243",
+          "createdAt": "2026-07-28T01:05:48.000Z",
+          "updatedAt": "2026-07-28T01:05:48.000Z",
+          "uid": "35240-dc36f406-e490-494b-b11a-995f599eb243"
+        }
+      ],
+      "id": "83cb62bc-0922-4d45-a867-7dc62ea315e9",
+      "createdAt": "2026-07-28T01:05:48.000Z",
+      "updatedAt": "2026-07-28T01:05:48.000Z",
+      "uid": "35240-83cb62bc-0922-4d45-a867-7dc62ea315e9"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

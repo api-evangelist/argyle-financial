@@ -1,0 +1,167 @@
+{
+  "info": {
+    "_postman_id": "a468fb5c-1930-4b3b-bade-0c9c2201b8cd",
+    "name": "Argyle API Accounts Webhooks API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:18.000Z",
+    "updatedAt": "2026-07-28T01:06:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a468fb5c-1930-4b3b-bade-0c9c2201b8cd"
+  },
+  "item": [
+    {
+      "name": "partners",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "webhooks",
+              "item": [
+                {
+                  "name": "Create webhook subscription",
+                  "id": "65a3a4d1-3faf-4611-a4be-f8fcaf49a45f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    \"verifications.updated\",\n    \"verifications.updated\"\n  ],\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"config\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partners/v2/webhooks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partners",
+                        "v2",
+                        "webhooks"
+                      ]
+                    },
+                    "description": "Creates a partner webhook subscription for `verifications.updated` or `verifications.creation_failed`.\n\nFor `verifications.updated`, set `config.include_resource = true` to include the full verification object in `data.resource`."
+                  },
+                  "response": [
+                    {
+                      "id": "b6d10b8c-40b8-4e8d-80cb-febde5992c81",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"events\": [\n    \"verifications.updated\",\n    \"verifications.updated\"\n  ],\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"config\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partners/v2/webhooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partners",
+                            "v2",
+                            "webhooks"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"event\": \"<string>\",\n  \"name\": \"<string>\",\n  \"data\": {\n    \"user\": \"<uuid>\",\n    \"verification\": \"<uuid>\",\n    \"client\": \"<uuid>\",\n    \"resource\": {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"client\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"channel\": \"encompass\",\n      \"status\": {\n        \"state\": \"COMPLETED\",\n        \"code\": \"argyle_timeout\",\n        \"errors\": [\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"report\": {\n        \"id\": \"<uuid>\",\n        \"type\": \"voe-transactions\",\n        \"file_url\": \"<string>\",\n        \"json_url\": \"<string>\",\n        \"configuration\": {\n          \"bank_accounts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"from_date\": \"<dateTime>\",\n          \"income_from_date\": \"<dateTime>\",\n          \"income_stream_confidence_minimum\": \"<integer>\",\n          \"report_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            }\n          ]\n        }\n      },\n      \"employments\": [\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"active\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        },\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"previous\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        }\n      ],\n      \"loan\": {\n        \"number\": \"<string>\",\n        \"borrower_id\": \"<string>\",\n        \"application_id\": \"<string>\",\n        \"officer_email\": \"<string>\"\n      },\n      \"billing\": {\n        \"cost_center\": \"<string>\"\n      },\n      \"data_source\": \"banking\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:06:19.000Z",
+                      "updatedAt": "2026-07-28T01:06:19.000Z",
+                      "uid": "35240-b6d10b8c-40b8-4e8d-80cb-febde5992c81"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:19.000Z",
+                  "updatedAt": "2026-07-28T01:06:19.000Z",
+                  "uid": "35240-65a3a4d1-3faf-4611-a4be-f8fcaf49a45f"
+                }
+              ],
+              "id": "1b96c0bc-8229-46d3-bdc3-d5739e984adc",
+              "createdAt": "2026-07-28T01:06:19.000Z",
+              "updatedAt": "2026-07-28T01:06:19.000Z",
+              "uid": "35240-1b96c0bc-8229-46d3-bdc3-d5739e984adc"
+            }
+          ],
+          "id": "f85762b0-3cab-4cb8-818c-aa10b502050e",
+          "createdAt": "2026-07-28T01:06:19.000Z",
+          "updatedAt": "2026-07-28T01:06:19.000Z",
+          "uid": "35240-f85762b0-3cab-4cb8-818c-aa10b502050e"
+        }
+      ],
+      "id": "5f6efc05-f512-4c9a-a3df-f732dbee0724",
+      "createdAt": "2026-07-28T01:06:19.000Z",
+      "updatedAt": "2026-07-28T01:06:19.000Z",
+      "uid": "35240-5f6efc05-f512-4c9a-a3df-f732dbee0724"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

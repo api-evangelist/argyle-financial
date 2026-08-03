@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "f2d52acd-6a68-4c89-9405-6f8fac4ad8f0",
+    "name": "Argyle API Accounts Item Migrations API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:16.000Z",
+    "updatedAt": "2026-07-28T01:05:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f2d52acd-6a68-4c89-9405-6f8fac4ad8f0"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "item-migrations",
+          "item": [
+            {
+              "name": "Migrate a Link item ID",
+              "id": "f0ef4e8e-5e64-47e9-a679-42089a998527",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"link_items\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/item-migrations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "item-migrations"
+                  ]
+                },
+                "description": "Returns the Item ID's that correspond to a provided list of Link item ID's.\n\n- Link item ID's were used in Link 4 initializations.\n- Item ID's are used in [Link 5 initializations](/link/initialization).\n\nItem ID's use the convention: \"item_[9 digits]\" - `\"item_123456789\"` for example.\n"
+              },
+              "response": [
+                {
+                  "id": "4294c3c0-8ea6-40cf-ae11-c9e0e9cfde71",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"link_items\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-migrations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-migrations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T01:05:17.000Z",
+                  "updatedAt": "2026-07-28T01:05:17.000Z",
+                  "uid": "35240-4294c3c0-8ea6-40cf-ae11-c9e0e9cfde71"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:17.000Z",
+              "updatedAt": "2026-07-28T01:05:17.000Z",
+              "uid": "35240-f0ef4e8e-5e64-47e9-a679-42089a998527"
+            }
+          ],
+          "id": "afff9877-0b22-4184-9d12-8fa68e3e293d",
+          "createdAt": "2026-07-28T01:05:17.000Z",
+          "updatedAt": "2026-07-28T01:05:17.000Z",
+          "uid": "35240-afff9877-0b22-4184-9d12-8fa68e3e293d"
+        }
+      ],
+      "id": "4003228a-5042-42e9-a03c-02db5995867a",
+      "createdAt": "2026-07-28T01:05:17.000Z",
+      "updatedAt": "2026-07-28T01:05:17.000Z",
+      "uid": "35240-4003228a-5042-42e9-a03c-02db5995867a"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

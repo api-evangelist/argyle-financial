@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "64c7eaab-9959-4d38-9a92-c8e344abe997",
+    "name": "Argyle API Accounts User Forms API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:51.000Z",
+    "updatedAt": "2026-07-28T01:05:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-64c7eaab-9959-4d38-9a92-c8e344abe997"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "user-forms",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a user form",
+                  "id": "c0b33d2c-15e5-42bd-b945-c0eb5b57b40b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-forms/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-forms",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7853e09b-bfdc-42ad-9d28-52f785a18e2c",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the user form object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a user form object."
+                  },
+                  "response": [
+                    {
+                      "id": "2045db19-1bc1-4433-aac6-4bbed8bdd2da",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/user-forms/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "user-forms",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"data\": {\n    \"income_source\": \"<string>\",\n    \"payroll_provider\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:05:51.000Z",
+                      "updatedAt": "2026-07-28T01:05:51.000Z",
+                      "uid": "35240-2045db19-1bc1-4433-aac6-4bbed8bdd2da"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:51.000Z",
+                  "updatedAt": "2026-07-28T01:05:51.000Z",
+                  "uid": "35240-c0b33d2c-15e5-42bd-b945-c0eb5b57b40b"
+                }
+              ],
+              "id": "3a054fb0-b042-4a12-b2fa-c7f9de786851",
+              "createdAt": "2026-07-28T01:05:51.000Z",
+              "updatedAt": "2026-07-28T01:05:51.000Z",
+              "uid": "35240-3a054fb0-b042-4a12-b2fa-c7f9de786851"
+            },
+            {
+              "name": "List all user forms",
+              "id": "ab5f7d3e-5f87-487c-969c-d84e44d46f56",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/user-forms?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user-forms"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of user form objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all user form objects."
+              },
+              "response": [
+                {
+                  "id": "ab01242a-12d6-4db2-a302-2f9e12496d11",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-forms?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-forms"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of user form objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"data\": {\n        \"income_source\": \"<string>\",\n        \"payroll_provider\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"data\": {\n        \"income_source\": \"<string>\",\n        \"payroll_provider\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:51.000Z",
+                  "updatedAt": "2026-07-28T01:05:51.000Z",
+                  "uid": "35240-ab01242a-12d6-4db2-a302-2f9e12496d11"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:51.000Z",
+              "updatedAt": "2026-07-28T01:05:51.000Z",
+              "uid": "35240-ab5f7d3e-5f87-487c-969c-d84e44d46f56"
+            }
+          ],
+          "id": "96ec1b5c-9c3e-456f-bbcf-4d9ffdea3f69",
+          "createdAt": "2026-07-28T01:05:51.000Z",
+          "updatedAt": "2026-07-28T01:05:51.000Z",
+          "uid": "35240-96ec1b5c-9c3e-456f-bbcf-4d9ffdea3f69"
+        }
+      ],
+      "id": "610213bf-6884-4e9c-af5d-f97aa2f985d2",
+      "createdAt": "2026-07-28T01:05:51.000Z",
+      "updatedAt": "2026-07-28T01:05:51.000Z",
+      "uid": "35240-610213bf-6884-4e9c-af5d-f97aa2f985d2"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

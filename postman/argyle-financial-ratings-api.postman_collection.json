@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "7230229c-1bb4-4ccd-bc84-366fc7ac592a",
+    "name": "Argyle API Accounts Ratings API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:41.000Z",
+    "updatedAt": "2026-07-28T01:05:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7230229c-1bb4-4ccd-bc84-366fc7ac592a"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "ratings",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a rating",
+                  "id": "17dfa1cc-675c-4121-812e-6a48f6826dfe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/ratings/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "ratings",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5dab3999-05fd-4406-86ea-8a33543aef42",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the rating object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a rating object."
+                  },
+                  "response": [
+                    {
+                      "id": "2bc73eb5-6589-415d-9587-5da84d192dc0",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/ratings/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "ratings",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"rating\": \"<string>\",\n  \"acceptance_rate\": \"<string>\",\n  \"ontime_rate\": \"<string>\",\n  \"rewards\": [\n    {\n      \"program_name\": \"<string>\",\n      \"tier\": \"<string>\",\n      \"valid_through\": \"<string>\",\n      \"points\": \"<string>\"\n    },\n    {\n      \"program_name\": \"<string>\",\n      \"tier\": \"<string>\",\n      \"valid_through\": \"<string>\",\n      \"points\": \"<string>\"\n    }\n  ],\n  \"employer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:05:41.000Z",
+                      "updatedAt": "2026-07-28T01:05:41.000Z",
+                      "uid": "35240-2bc73eb5-6589-415d-9587-5da84d192dc0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:41.000Z",
+                  "updatedAt": "2026-07-28T01:05:41.000Z",
+                  "uid": "35240-17dfa1cc-675c-4121-812e-6a48f6826dfe"
+                }
+              ],
+              "id": "09f4db2c-ca75-43b1-8d30-f1e2bbc7eae2",
+              "createdAt": "2026-07-28T01:05:41.000Z",
+              "updatedAt": "2026-07-28T01:05:41.000Z",
+              "uid": "35240-09f4db2c-ca75-43b1-8d30-f1e2bbc7eae2"
+            },
+            {
+              "name": "List all ratings",
+              "id": "e1910ccc-9340-448a-9373-9ef946f26861",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/ratings?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "ratings"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of rating objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all rating objects."
+              },
+              "response": [
+                {
+                  "id": "2bd57c47-f73a-4597-83fb-23857ed677c8",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/ratings?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "ratings"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of rating objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"rating\": \"<string>\",\n      \"acceptance_rate\": \"<string>\",\n      \"ontime_rate\": \"<string>\",\n      \"rewards\": [\n        {\n          \"program_name\": \"<string>\",\n          \"tier\": \"<string>\",\n          \"valid_through\": \"<string>\",\n          \"points\": \"<string>\"\n        },\n        {\n          \"program_name\": \"<string>\",\n          \"tier\": \"<string>\",\n          \"valid_through\": \"<string>\",\n          \"points\": \"<string>\"\n        }\n      ],\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"rating\": \"<string>\",\n      \"acceptance_rate\": \"<string>\",\n      \"ontime_rate\": \"<string>\",\n      \"rewards\": [\n        {\n          \"program_name\": \"<string>\",\n          \"tier\": \"<string>\",\n          \"valid_through\": \"<string>\",\n          \"points\": \"<string>\"\n        },\n        {\n          \"program_name\": \"<string>\",\n          \"tier\": \"<string>\",\n          \"valid_through\": \"<string>\",\n          \"points\": \"<string>\"\n        }\n      ],\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:41.000Z",
+                  "updatedAt": "2026-07-28T01:05:41.000Z",
+                  "uid": "35240-2bd57c47-f73a-4597-83fb-23857ed677c8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:41.000Z",
+              "updatedAt": "2026-07-28T01:05:41.000Z",
+              "uid": "35240-e1910ccc-9340-448a-9373-9ef946f26861"
+            }
+          ],
+          "id": "bb39d01e-1c8d-4f31-83de-fd5107c2b325",
+          "createdAt": "2026-07-28T01:05:41.000Z",
+          "updatedAt": "2026-07-28T01:05:41.000Z",
+          "uid": "35240-bb39d01e-1c8d-4f31-83de-fd5107c2b325"
+        }
+      ],
+      "id": "f43c27b2-1d64-4b95-8e14-12528219e4cd",
+      "createdAt": "2026-07-28T01:05:41.000Z",
+      "updatedAt": "2026-07-28T01:05:41.000Z",
+      "uid": "35240-f43c27b2-1d64-4b95-8e14-12528219e4cd"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

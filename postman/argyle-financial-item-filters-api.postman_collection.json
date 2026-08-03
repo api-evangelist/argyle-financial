@@ -1,0 +1,548 @@
+{
+  "info": {
+    "_postman_id": "17b3e04e-838c-43e8-b667-0602fd3d2201",
+    "name": "Argyle API Accounts Item Filters API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:57.000Z",
+    "updatedAt": "2026-07-28T01:04:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-17b3e04e-838c-43e8-b667-0602fd3d2201"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "item-filters",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve an Item filter",
+                  "id": "5580cca9-1a8c-4053-aac8-d6de1c5263be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-filters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-filters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2062995a-9dc8-4383-99b1-0370cf1bb6dd",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the Item filter to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves an Item filter."
+                  },
+                  "response": [
+                    {
+                      "id": "47f1150b-ebf0-4920-b960-6d33b987f86c",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/item-filters/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "item-filters",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"filters\": {}\n}",
+                      "createdAt": "2026-07-28T01:04:57.000Z",
+                      "updatedAt": "2026-07-28T01:04:57.000Z",
+                      "uid": "35240-47f1150b-ebf0-4920-b960-6d33b987f86c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:57.000Z",
+                  "updatedAt": "2026-07-28T01:04:57.000Z",
+                  "uid": "35240-5580cca9-1a8c-4053-aac8-d6de1c5263be"
+                },
+                {
+                  "name": "Replace an Item filter",
+                  "id": "edfa6744-1b0d-4a0f-9cf2-f781f8d6fb09",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"filters\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-filters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-filters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "156e5806-c1db-4df1-9ac8-b9224c16004c",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the Item filter whose filters are to be replaced."
+                        }
+                      ]
+                    },
+                    "description": "Replaces the filters of an Item filter with a new set of filters."
+                  },
+                  "response": [
+                    {
+                      "id": "31def840-29d0-4a9d-b720-4433d172c0f0",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"filters\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/item-filters/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "item-filters",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:04:57.000Z",
+                      "updatedAt": "2026-07-28T01:04:57.000Z",
+                      "uid": "35240-31def840-29d0-4a9d-b720-4433d172c0f0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:57.000Z",
+                  "updatedAt": "2026-07-28T01:04:57.000Z",
+                  "uid": "35240-edfa6744-1b0d-4a0f-9cf2-f781f8d6fb09"
+                },
+                {
+                  "name": "Delete an Item filter",
+                  "id": "70e403fc-323a-4d60-83f1-f7205fa898aa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-filters/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-filters",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "852293cf-5a15-409d-8f9e-b157b68ca1fe",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the Item filter to be deleted."
+                        }
+                      ]
+                    },
+                    "description": "Deletes an Item filter."
+                  },
+                  "response": [
+                    {
+                      "id": "246063ef-fd75-4b14-a998-bbd9812b5b3b",
+                      "name": "204 status code: No content.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/item-filters/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "item-filters",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:04:57.000Z",
+                      "updatedAt": "2026-07-28T01:04:57.000Z",
+                      "uid": "35240-246063ef-fd75-4b14-a998-bbd9812b5b3b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:57.000Z",
+                  "updatedAt": "2026-07-28T01:04:57.000Z",
+                  "uid": "35240-70e403fc-323a-4d60-83f1-f7205fa898aa"
+                }
+              ],
+              "id": "ad03b336-3848-4b3a-ac73-35209dc3583e",
+              "createdAt": "2026-07-28T01:04:57.000Z",
+              "updatedAt": "2026-07-28T01:04:57.000Z",
+              "uid": "35240-ad03b336-3848-4b3a-ac73-35209dc3583e"
+            },
+            {
+              "name": "Create an Item filter",
+              "id": "d02ffdf9-3a38-4442-b9b7-52ab8a8eb741",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"filters\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/item-filters",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "item-filters"
+                  ]
+                },
+                "description": "Filters are applied to properties of the `field_coverage` object of [Items](/api-reference/items#object) using the comparison operators below. You can also filter Items by their `status` property using the `eq` operator.\n\nThe name and ID of the new Item filter are returned in the response, which can be used as a query parameter when [listing Items](/api-reference/items#list).\n\n## Comparison operators\n\n`eq` \u2014 equals  \n`gt` \u2014 greater than  \n`gte` \u2014 greater than or equal to  \n`lt` \u2014 less than  \n`lte` \u2014 less than or equal to\n"
+              },
+              "response": [
+                {
+                  "id": "2789b394-2144-463b-aec9-c0eb8f7c4945",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"filters\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-filters",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-filters"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:04:57.000Z",
+                  "updatedAt": "2026-07-28T01:04:57.000Z",
+                  "uid": "35240-2789b394-2144-463b-aec9-c0eb8f7c4945"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:57.000Z",
+              "updatedAt": "2026-07-28T01:04:57.000Z",
+              "uid": "35240-d02ffdf9-3a38-4442-b9b7-52ab8a8eb741"
+            },
+            {
+              "name": "List all Item filters",
+              "id": "f25c9d62-d719-466f-8f0d-c49db4a84512",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/item-filters?limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "item-filters"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of Item filters returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all Item filters."
+              },
+              "response": [
+                {
+                  "id": "7699246d-d463-4e7c-9371-ad1df29b6e2a",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/item-filters?limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "item-filters"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of Item filters returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"name\": \"<string>\",\n      \"filters\": {}\n    },\n    {\n      \"name\": \"<string>\",\n      \"filters\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:57.000Z",
+                  "updatedAt": "2026-07-28T01:04:57.000Z",
+                  "uid": "35240-7699246d-d463-4e7c-9371-ad1df29b6e2a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:57.000Z",
+              "updatedAt": "2026-07-28T01:04:57.000Z",
+              "uid": "35240-f25c9d62-d719-466f-8f0d-c49db4a84512"
+            }
+          ],
+          "id": "74c10b80-3b90-416f-938c-4495e7c777d1",
+          "createdAt": "2026-07-28T01:04:57.000Z",
+          "updatedAt": "2026-07-28T01:04:57.000Z",
+          "uid": "35240-74c10b80-3b90-416f-938c-4495e7c777d1"
+        }
+      ],
+      "id": "0996e69c-8f5e-498d-8de6-67c8fb3a5af4",
+      "createdAt": "2026-07-28T01:04:57.000Z",
+      "updatedAt": "2026-07-28T01:04:57.000Z",
+      "uid": "35240-0996e69c-8f5e-498d-8de6-67c8fb3a5af4"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

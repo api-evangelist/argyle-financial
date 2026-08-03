@@ -1,0 +1,192 @@
+{
+  "info": {
+    "_postman_id": "abac6eec-0486-4253-8a0b-ab7897f9db92",
+    "name": "Argyle API Accounts Employer Search API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:49.000Z",
+    "updatedAt": "2026-07-28T01:04:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-abac6eec-0486-4253-8a0b-ab7897f9db92"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "employer-search",
+          "item": [
+            {
+              "name": "List all employers",
+              "id": "35701101-312b-4550-8775-7ffab8a6c41b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/employer-search?q=<string>&kind=<string>&mapping_status=<string>&status=<string>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "employer-search"
+                  ],
+                  "query": [
+                    {
+                      "description": "Free-text search filter.",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `kind` value.",
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `mapping_status` value.\n\nMultiple `mapping_status` values can also be searched at once using either method:\n\n1. `/v2/items?mapping_status=verified,mapped`\n2. `/v2/items?mapping_status=verified&mapping_status=mapped`\n",
+                      "key": "mapping_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `status` value.\n\nMultiple `status` values can also be searched at once using either method:\n\n1. `/v2/items?status=healthy,issues`\n2. `/v2/items?status=healthy&status=issues`\n\nFiltering by both `healthy` and `issues` will return all Items that currently support new payroll connections.\n",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of Item objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all Item objects, representing the most relevant search results."
+              },
+              "response": [
+                {
+                  "id": "8b02f8cb-2313-4f62-8f63-bbd6c0e54a33",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/employer-search?q=<string>&kind=<string>&mapping_status=<string>&status=<string>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "employer-search"
+                      ],
+                      "query": [
+                        {
+                          "description": "Free-text search filter.",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `kind` value.",
+                          "key": "kind",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `mapping_status` value.\n\nMultiple `mapping_status` values can also be searched at once using either method:\n\n1. `/v2/items?mapping_status=verified,mapped`\n2. `/v2/items?mapping_status=verified&mapping_status=mapped`\n",
+                          "key": "mapping_status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `status` value.\n\nMultiple `status` values can also be searched at once using either method:\n\n1. `/v2/items?status=healthy,issues`\n2. `/v2/items?status=healthy&status=issues`\n\nFiltering by both `healthy` and `issues` will return all Items that currently support new payroll connections.\n",
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of Item objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"kind\": \"gig\",\n      \"mapping_status\": \"verified\",\n      \"status\": \"unavailable\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"kind\": \"benefits\",\n      \"mapping_status\": \"mapped\",\n      \"status\": \"unavailable\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:50.000Z",
+                  "updatedAt": "2026-07-28T01:04:50.000Z",
+                  "uid": "35240-8b02f8cb-2313-4f62-8f63-bbd6c0e54a33"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:50.000Z",
+              "updatedAt": "2026-07-28T01:04:50.000Z",
+              "uid": "35240-35701101-312b-4550-8775-7ffab8a6c41b"
+            }
+          ],
+          "id": "70f53430-bc42-43bb-a660-de3ec8e3b009",
+          "createdAt": "2026-07-28T01:04:50.000Z",
+          "updatedAt": "2026-07-28T01:04:50.000Z",
+          "uid": "35240-70f53430-bc42-43bb-a660-de3ec8e3b009"
+        }
+      ],
+      "id": "a861ca96-e735-4f47-b923-f18b89910ec5",
+      "createdAt": "2026-07-28T01:04:50.000Z",
+      "updatedAt": "2026-07-28T01:04:50.000Z",
+      "uid": "35240-a861ca96-e735-4f47-b923-f18b89910ec5"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

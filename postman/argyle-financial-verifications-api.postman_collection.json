@@ -1,0 +1,737 @@
+{
+  "info": {
+    "_postman_id": "e471be8b-ca5e-43c8-a0a0-68400cf3649e",
+    "name": "Argyle API Accounts Verifications API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:06:00.000Z",
+    "updatedAt": "2026-07-28T01:06:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e471be8b-ca5e-43c8-a0a0-68400cf3649e"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "verifications",
+          "item": [
+            {
+              "name": "refresh",
+              "item": [
+                {
+                  "name": "Refresh a verification",
+                  "id": "ca4b1071-cbce-4270-9b71-13df5cfb4c47",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": \"<uuid>\",\n  \"report\": {\n    \"type\": \"voa\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/verifications/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "verifications",
+                        "refresh"
+                      ]
+                    },
+                    "description": "Creates a new payroll, banking, or Doc VOI verification without requiring the user to reconnect or upload additional documents.\n\nFor payroll and banking, a valid connection must already exist. For Doc VOI, the new report is generated from the user's existing uploaded documents."
+                  },
+                  "response": [
+                    {
+                      "id": "16d2e798-406b-4c32-93e7-1d434fec6779",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": \"<uuid>\",\n  \"report\": {\n    \"type\": \"voa\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/verifications/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "verifications",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"channel\": \"api\",\n  \"status\": {\n    \"state\": \"PROCESSING\",\n    \"code\": \"argyle_timeout\",\n    \"errors\": [\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"report\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"voie\",\n    \"file_url\": \"<string>\",\n    \"json_url\": \"<string>\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"data_source\": \"banking\"\n}",
+                      "createdAt": "2026-07-28T01:06:00.000Z",
+                      "updatedAt": "2026-07-28T01:06:00.000Z",
+                      "uid": "35240-16d2e798-406b-4c32-93e7-1d434fec6779"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-ca4b1071-cbce-4270-9b71-13df5cfb4c47"
+                }
+              ],
+              "id": "b7ab2ba7-2d9a-43d3-8798-6819010e05f4",
+              "createdAt": "2026-07-28T01:06:00.000Z",
+              "updatedAt": "2026-07-28T01:06:00.000Z",
+              "uid": "35240-b7ab2ba7-2d9a-43d3-8798-6819010e05f4"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "Cancel a verification",
+                      "id": "81d9ee30-ea6c-4b42-bc78-21a8770c4aa0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/verifications/:id/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "verifications",
+                            ":id",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ca57172d-71c6-499d-bfb1-7509c499861c",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) ID of the verification to be cancelled."
+                            }
+                          ]
+                        },
+                        "description": "Cancels a verification order.\n\n<Note>\nOnly verifications in the `PAUSED` state can be cancelled.\n</Note>\n"
+                      },
+                      "response": [
+                        {
+                          "id": "efbef401-4a7a-47a7-b8ae-47b2b1cf5a7b",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/verifications/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "verifications",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"channel\": \"api\",\n  \"status\": {\n    \"state\": \"PROCESSING\",\n    \"code\": \"argyle_timeout\",\n    \"errors\": [\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"report\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"voie\",\n    \"file_url\": \"<string>\",\n    \"json_url\": \"<string>\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"data_source\": \"banking\"\n}",
+                          "createdAt": "2026-07-28T01:06:00.000Z",
+                          "updatedAt": "2026-07-28T01:06:00.000Z",
+                          "uid": "35240-efbef401-4a7a-47a7-b8ae-47b2b1cf5a7b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:06:00.000Z",
+                      "updatedAt": "2026-07-28T01:06:00.000Z",
+                      "uid": "35240-81d9ee30-ea6c-4b42-bc78-21a8770c4aa0"
+                    }
+                  ],
+                  "id": "270e7ddd-0e1c-4187-9c81-3f698ab453c5",
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-270e7ddd-0e1c-4187-9c81-3f698ab453c5"
+                },
+                {
+                  "name": "Retrieve a verification",
+                  "id": "c8c2b6f2-f90a-4377-b29a-87186fb095aa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/verifications/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "verifications",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "efa1c681-1493-42b6-90bc-5ca9ce17e07a",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the verification to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a verification."
+                  },
+                  "response": [
+                    {
+                      "id": "ddf0962b-a40d-4ee3-a116-bee3b3705f19",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/verifications/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "verifications",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"channel\": \"api\",\n  \"status\": {\n    \"state\": \"PROCESSING\",\n    \"code\": \"argyle_timeout\",\n    \"errors\": [\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"report\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"voie\",\n    \"file_url\": \"<string>\",\n    \"json_url\": \"<string>\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"data_source\": \"banking\"\n}",
+                      "createdAt": "2026-07-28T01:06:00.000Z",
+                      "updatedAt": "2026-07-28T01:06:00.000Z",
+                      "uid": "35240-ddf0962b-a40d-4ee3-a116-bee3b3705f19"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-c8c2b6f2-f90a-4377-b29a-87186fb095aa"
+                },
+                {
+                  "name": "Update a verification",
+                  "id": "a6775af5-0b47-42a2-aa15-9fdb50da1bca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/verifications/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "verifications",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1b80dee0-ee1f-4a28-9b20-e315d0b0d401",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the verification to be updated."
+                        }
+                      ]
+                    },
+                    "description": "Updates verification metadata or employments.\n\n<Note>\nAfter a verification is updated, it will re-enter the `PROCESSING` state.\n</Note>\n"
+                  },
+                  "response": [
+                    {
+                      "id": "8c0a9f8f-8984-4d2c-8dfa-e77344e40950",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/verifications/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "verifications",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"channel\": \"api\",\n  \"status\": {\n    \"state\": \"PROCESSING\",\n    \"code\": \"argyle_timeout\",\n    \"errors\": [\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"report\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"voie\",\n    \"file_url\": \"<string>\",\n    \"json_url\": \"<string>\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"data_source\": \"banking\"\n}",
+                      "createdAt": "2026-07-28T01:06:00.000Z",
+                      "updatedAt": "2026-07-28T01:06:00.000Z",
+                      "uid": "35240-8c0a9f8f-8984-4d2c-8dfa-e77344e40950"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-a6775af5-0b47-42a2-aa15-9fdb50da1bca"
+                }
+              ],
+              "id": "8a88e954-1b63-4e02-a333-13721c751a1a",
+              "createdAt": "2026-07-28T01:06:00.000Z",
+              "updatedAt": "2026-07-28T01:06:00.000Z",
+              "uid": "35240-8a88e954-1b63-4e02-a333-13721c751a1a"
+            },
+            {
+              "name": "Order a verification",
+              "id": "ba478b16-f041-4f8f-8a8b-d62b6e11ad12",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<uuid>\",\n  \"report\": {\n    \"type\": \"voa\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/verifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "verifications"
+                  ]
+                },
+                "description": "Orders a new verification.\n\n<Note>\n[Create a user](/api-reference/verifications-guide#create-a-user) or update an existing user with the required details before ordering payroll, banking, or document verifications.\n</Note>"
+              },
+              "response": [
+                {
+                  "id": "eec12a41-b886-4379-b2fd-c4bbe9145a3d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": \"<uuid>\",\n  \"report\": {\n    \"type\": \"voa\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"active\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/verifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "verifications"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"channel\": \"api\",\n  \"status\": {\n    \"state\": \"PROCESSING\",\n    \"code\": \"argyle_timeout\",\n    \"errors\": [\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"code\": \"<string>\",\n        \"title\": \"<string>\",\n        \"message\": \"<string>\",\n        \"resources\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"name\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"report\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"voie\",\n    \"file_url\": \"<string>\",\n    \"json_url\": \"<string>\",\n    \"configuration\": {\n      \"bank_accounts\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"from_date\": \"<dateTime>\",\n      \"income_from_date\": \"<dateTime>\",\n      \"income_stream_confidence_minimum\": \"<integer>\",\n      \"report_custom_fields\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<string>\",\n          \"shown\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"employments\": [\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    },\n    {\n      \"employer\": \"<string>\",\n      \"status\": \"previous\",\n      \"hire_date\": \"<date>\",\n      \"termination_date\": \"<date>\"\n    }\n  ],\n  \"loan\": {\n    \"number\": \"<string>\",\n    \"borrower_id\": \"<string>\",\n    \"application_id\": \"<string>\",\n    \"officer_email\": \"<string>\"\n  },\n  \"billing\": {\n    \"cost_center\": \"<string>\"\n  },\n  \"data_source\": \"banking\"\n}",
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-eec12a41-b886-4379-b2fd-c4bbe9145a3d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:06:00.000Z",
+              "updatedAt": "2026-07-28T01:06:00.000Z",
+              "uid": "35240-ba478b16-f041-4f8f-8a8b-d62b6e11ad12"
+            },
+            {
+              "name": "List all verifications",
+              "id": "ca8bb911-da4a-4bea-b0c4-361190e9020a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/verifications?user=<uuid>&status_state=PAUSED&status_code=authenticated&report_type=voi&loan_number=<string>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "verifications"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by verification status `state`.",
+                      "key": "status_state",
+                      "value": "PAUSED"
+                    },
+                    {
+                      "description": "Filter by verification status `code`.",
+                      "key": "status_code",
+                      "value": "authenticated"
+                    },
+                    {
+                      "description": "Filter by report `type`.",
+                      "key": "report_type",
+                      "value": "voi"
+                    },
+                    {
+                      "description": "Filter by loan `number`.",
+                      "key": "loan_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of verification objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all verification objects."
+              },
+              "response": [
+                {
+                  "id": "bfb68849-6e41-4639-bc5c-d8aac13e107b",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/verifications?user=<uuid>&status_state=PAUSED&status_code=authenticated&report_type=voi&loan_number=<string>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "verifications"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by verification status `state`.",
+                          "key": "status_state",
+                          "value": "PAUSED"
+                        },
+                        {
+                          "description": "Filter by verification status `code`.",
+                          "key": "status_code",
+                          "value": "authenticated"
+                        },
+                        {
+                          "description": "Filter by report `type`.",
+                          "key": "report_type",
+                          "value": "voi"
+                        },
+                        {
+                          "description": "Filter by loan `number`.",
+                          "key": "loan_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of verification objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<string>\",\n  \"previous\": \"<string>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"channel\": \"encompass\",\n      \"status\": {\n        \"state\": \"COMPLETED\",\n        \"code\": \"authenticated\",\n        \"errors\": [\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"report\": {\n        \"id\": \"<uuid>\",\n        \"type\": \"doc-voi-mortgage\",\n        \"file_url\": \"<string>\",\n        \"json_url\": \"<string>\",\n        \"configuration\": {\n          \"bank_accounts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"from_date\": \"<dateTime>\",\n          \"income_from_date\": \"<dateTime>\",\n          \"income_stream_confidence_minimum\": \"<integer>\",\n          \"report_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            }\n          ]\n        }\n      },\n      \"employments\": [\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"active\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        },\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"active\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        }\n      ],\n      \"loan\": {\n        \"number\": \"<string>\",\n        \"borrower_id\": \"<string>\",\n        \"application_id\": \"<string>\",\n        \"officer_email\": \"<string>\"\n      },\n      \"billing\": {\n        \"cost_center\": \"<string>\"\n      },\n      \"data_source\": \"banking\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"channel\": \"api\",\n      \"status\": {\n        \"state\": \"PENDING\",\n        \"code\": \"completed_with_errors\",\n        \"errors\": [\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          },\n          {\n            \"code\": \"<string>\",\n            \"title\": \"<string>\",\n            \"message\": \"<string>\",\n            \"resources\": [\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              },\n              {\n                \"id\": \"<string>\",\n                \"type\": \"<string>\",\n                \"name\": \"<string>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"report\": {\n        \"id\": \"<uuid>\",\n        \"type\": \"voie\",\n        \"file_url\": \"<string>\",\n        \"json_url\": \"<string>\",\n        \"configuration\": {\n          \"bank_accounts\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"from_date\": \"<dateTime>\",\n          \"income_from_date\": \"<dateTime>\",\n          \"income_stream_confidence_minimum\": \"<integer>\",\n          \"report_custom_fields\": [\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            },\n            {\n              \"label\": \"<string>\",\n              \"value\": \"<string>\",\n              \"shown\": \"<boolean>\"\n            }\n          ]\n        }\n      },\n      \"employments\": [\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"previous\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        },\n        {\n          \"employer\": \"<string>\",\n          \"status\": \"active\",\n          \"hire_date\": \"<date>\",\n          \"termination_date\": \"<date>\"\n        }\n      ],\n      \"loan\": {\n        \"number\": \"<string>\",\n        \"borrower_id\": \"<string>\",\n        \"application_id\": \"<string>\",\n        \"officer_email\": \"<string>\"\n      },\n      \"billing\": {\n        \"cost_center\": \"<string>\"\n      },\n      \"data_source\": \"documents\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:06:00.000Z",
+                  "updatedAt": "2026-07-28T01:06:00.000Z",
+                  "uid": "35240-bfb68849-6e41-4639-bc5c-d8aac13e107b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:06:00.000Z",
+              "updatedAt": "2026-07-28T01:06:00.000Z",
+              "uid": "35240-ca8bb911-da4a-4bea-b0c4-361190e9020a"
+            }
+          ],
+          "id": "83fd9765-acd3-4c36-b9a1-f61ac355b49d",
+          "createdAt": "2026-07-28T01:06:00.000Z",
+          "updatedAt": "2026-07-28T01:06:00.000Z",
+          "uid": "35240-83fd9765-acd3-4c36-b9a1-f61ac355b49d"
+        }
+      ],
+      "id": "ca121df2-1aeb-4e09-b251-7b416bf24105",
+      "createdAt": "2026-07-28T01:06:00.000Z",
+      "updatedAt": "2026-07-28T01:06:00.000Z",
+      "uid": "35240-ca121df2-1aeb-4e09-b251-7b416bf24105"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

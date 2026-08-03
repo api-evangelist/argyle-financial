@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "2b819056-ffb5-4aff-af7b-49ed9f8dc70f",
+    "name": "Argyle API Accounts Deposit Destinations API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:49.000Z",
+    "updatedAt": "2026-07-28T01:04:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b819056-ffb5-4aff-af7b-49ed9f8dc70f"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "deposit-destinations",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a deposit destination",
+                  "id": "7a9afe27-77be-472a-bffb-1c8fe5b5817c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/deposit-destinations/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "deposit-destinations",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "713ee60b-db58-4ee1-8f0f-b7b876925a0a",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the deposit destination object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a deposit destination object."
+                  },
+                  "response": [
+                    {
+                      "id": "f9ad3f5a-57d7-4e07-bedb-9a41a5b5c6f9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/deposit-destinations/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "deposit-destinations",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"employer\": \"<string>\",\n  \"destination_type\": \"ach_deposit_account\",\n  \"status\": \"inactive\",\n  \"allocation_type\": \"amount\",\n  \"currency\": \"<string>\",\n  \"allocation_value\": \"<string>\",\n  \"method\": \"<string>\",\n  \"ach_deposit_account\": {\n    \"account_number\": \"<string>\",\n    \"bank_name\": \"<string>\",\n    \"routing_number\": \"<string>\",\n    \"account_type\": \"<string>\"\n  },\n  \"card\": {\n    \"card_number\": \"<string>\",\n    \"card_name\": \"<string>\",\n    \"is_platform_card\": \"<boolean>\"\n  },\n  \"acss_debit\": {\n    \"account_number\": \"<string>\",\n    \"account_type\": \"<string>\",\n    \"institution_number\": \"<string>\",\n    \"transit_number\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:04:49.000Z",
+                      "updatedAt": "2026-07-28T01:04:49.000Z",
+                      "uid": "35240-f9ad3f5a-57d7-4e07-bedb-9a41a5b5c6f9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:49.000Z",
+                  "updatedAt": "2026-07-28T01:04:49.000Z",
+                  "uid": "35240-7a9afe27-77be-472a-bffb-1c8fe5b5817c"
+                }
+              ],
+              "id": "137c9198-af52-4f9e-a96a-e761bd957733",
+              "createdAt": "2026-07-28T01:04:49.000Z",
+              "updatedAt": "2026-07-28T01:04:49.000Z",
+              "uid": "35240-137c9198-af52-4f9e-a96a-e761bd957733"
+            },
+            {
+              "name": "List all deposit destinations",
+              "id": "ac05e5c9-c115-4cec-84b9-b90d66aa8af6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/deposit-destinations?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "deposit-destinations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of deposit destination objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all deposit destination objects."
+              },
+              "response": [
+                {
+                  "id": "15e7d0d7-85d0-4f83-ab82-bef05d7a05d2",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/deposit-destinations?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "deposit-destinations"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of deposit destination objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"destination_type\": \"card\",\n      \"status\": \"pending\",\n      \"allocation_type\": \"percent\",\n      \"currency\": \"<string>\",\n      \"allocation_value\": \"<string>\",\n      \"method\": \"<string>\",\n      \"ach_deposit_account\": {\n        \"account_number\": \"<string>\",\n        \"bank_name\": \"<string>\",\n        \"routing_number\": \"<string>\",\n        \"account_type\": \"<string>\"\n      },\n      \"card\": {\n        \"card_number\": \"<string>\",\n        \"card_name\": \"<string>\",\n        \"is_platform_card\": \"<boolean>\"\n      },\n      \"acss_debit\": {\n        \"account_number\": \"<string>\",\n        \"account_type\": \"<string>\",\n        \"institution_number\": \"<string>\",\n        \"transit_number\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"destination_type\": \"card\",\n      \"status\": \"pending\",\n      \"allocation_type\": \"percent\",\n      \"currency\": \"<string>\",\n      \"allocation_value\": \"<string>\",\n      \"method\": \"<string>\",\n      \"ach_deposit_account\": {\n        \"account_number\": \"<string>\",\n        \"bank_name\": \"<string>\",\n        \"routing_number\": \"<string>\",\n        \"account_type\": \"<string>\"\n      },\n      \"card\": {\n        \"card_number\": \"<string>\",\n        \"card_name\": \"<string>\",\n        \"is_platform_card\": \"<boolean>\"\n      },\n      \"acss_debit\": {\n        \"account_number\": \"<string>\",\n        \"account_type\": \"<string>\",\n        \"institution_number\": \"<string>\",\n        \"transit_number\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:49.000Z",
+                  "updatedAt": "2026-07-28T01:04:49.000Z",
+                  "uid": "35240-15e7d0d7-85d0-4f83-ab82-bef05d7a05d2"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:49.000Z",
+              "updatedAt": "2026-07-28T01:04:49.000Z",
+              "uid": "35240-ac05e5c9-c115-4cec-84b9-b90d66aa8af6"
+            }
+          ],
+          "id": "721c0eb6-33e4-406a-ba97-58a9857bbba5",
+          "createdAt": "2026-07-28T01:04:49.000Z",
+          "updatedAt": "2026-07-28T01:04:49.000Z",
+          "uid": "35240-721c0eb6-33e4-406a-ba97-58a9857bbba5"
+        }
+      ],
+      "id": "07c378d5-e6da-48be-bee4-08e867acda9c",
+      "createdAt": "2026-07-28T01:04:49.000Z",
+      "updatedAt": "2026-07-28T01:04:49.000Z",
+      "uid": "35240-07c378d5-e6da-48be-bee4-08e867acda9c"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

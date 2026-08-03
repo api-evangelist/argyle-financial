@@ -1,0 +1,291 @@
+{
+  "info": {
+    "_postman_id": "8529dd5f-792d-4da2-81ed-9f65657b8cea",
+    "name": "Argyle API Accounts Gigs API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:51.000Z",
+    "updatedAt": "2026-07-28T01:04:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8529dd5f-792d-4da2-81ed-9f65657b8cea"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "gigs",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a gig",
+                  "id": "5c0d546e-e910-4636-9c3d-1d950b561789",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/gigs/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "gigs",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0ff57769-d030-4b11-9262-1ef93e90276b",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the gig object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a gig object."
+                  },
+                  "response": [
+                    {
+                      "id": "0c0b8d27-9815-4542-adaa-1b2becfc98fb",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/gigs/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "gigs",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"employer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"status\": \"in_progress\",\n  \"type\": \"rideshare\",\n  \"task_count\": \"<integer>\",\n  \"start_datetime\": \"<dateTime>\",\n  \"end_datetime\": \"<dateTime>\",\n  \"all_datetimes\": {\n    \"request_at\": \"<dateTime>\",\n    \"accept_at\": \"<dateTime>\",\n    \"pickup_at\": \"<dateTime>\",\n    \"dropoff_at\": \"<dateTime>\",\n    \"cancel_at\": \"<dateTime>\",\n    \"shift_start\": \"<dateTime>\",\n    \"shift_end\": \"<dateTime>\",\n    \"breaks\": [\n      {\n        \"break_start\": \"<dateTime>\",\n        \"break_end\": \"<dateTime>\"\n      },\n      {\n        \"break_start\": \"<dateTime>\",\n        \"break_end\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"duration\": \"<integer>\",\n  \"timezone\": \"<string>\",\n  \"earning_type\": \"incentive\",\n  \"start_location\": {\n    \"lat\": \"<string>\",\n    \"lng\": \"<string>\",\n    \"formatted_address\": \"<string>\"\n  },\n  \"end_location\": {\n    \"lat\": \"<string>\",\n    \"lng\": \"<string>\",\n    \"formatted_address\": \"<string>\"\n  },\n  \"task_details\": {\n    \"events\": [\n      {\n        \"order_id\": \"<string>\",\n        \"sequence\": \"<string>\",\n        \"type\": \"other\",\n        \"name\": \"<string>\",\n        \"formatted_address\": \"<string>\",\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"datetime\": \"<dateTime>\"\n      },\n      {\n        \"order_id\": \"<string>\",\n        \"sequence\": \"<string>\",\n        \"type\": \"accept\",\n        \"name\": \"<string>\",\n        \"formatted_address\": \"<string>\",\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"datetime\": \"<dateTime>\"\n      }\n    ],\n    \"orders\": [\n      {\n        \"order_id\": \"<string>\",\n        \"sequence\": \"<string>\",\n        \"income\": {\n          \"currency\": \"<string>\",\n          \"total_charge\": \"<string>\",\n          \"customer_price\": \"<string>\",\n          \"fees\": \"<string>\",\n          \"total\": \"<string>\",\n          \"pay\": \"<string>\",\n          \"tips\": \"<string>\",\n          \"bonus\": \"<string>\",\n          \"other\": \"<string>\"\n        }\n      },\n      {\n        \"order_id\": \"<string>\",\n        \"sequence\": \"<string>\",\n        \"income\": {\n          \"currency\": \"<string>\",\n          \"total_charge\": \"<string>\",\n          \"customer_price\": \"<string>\",\n          \"fees\": \"<string>\",\n          \"total\": \"<string>\",\n          \"pay\": \"<string>\",\n          \"tips\": \"<string>\",\n          \"bonus\": \"<string>\",\n          \"other\": \"<string>\"\n        }\n      }\n    ]\n  },\n  \"distance\": \"<string>\",\n  \"distance_unit\": \"km\",\n  \"metadata\": {},\n  \"circumstances\": {},\n  \"income\": {\n    \"currency\": \"<string>\",\n    \"total_charge\": \"<string>\",\n    \"customer_price\": \"<string>\",\n    \"fees\": \"<string>\",\n    \"total\": \"<string>\",\n    \"pay\": \"<string>\",\n    \"tips\": \"<string>\",\n    \"bonus\": \"<string>\",\n    \"other\": \"<string>\"\n  },\n  \"income_rates\": {\n    \"hour\": \"<string>\",\n    \"mile\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:04:52.000Z",
+                      "updatedAt": "2026-07-28T01:04:52.000Z",
+                      "uid": "35240-0c0b8d27-9815-4542-adaa-1b2becfc98fb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:52.000Z",
+                  "updatedAt": "2026-07-28T01:04:52.000Z",
+                  "uid": "35240-5c0d546e-e910-4636-9c3d-1d950b561789"
+                }
+              ],
+              "id": "705cae34-b67e-4769-b11a-6154c48ecad8",
+              "createdAt": "2026-07-28T01:04:52.000Z",
+              "updatedAt": "2026-07-28T01:04:52.000Z",
+              "uid": "35240-705cae34-b67e-4769-b11a-6154c48ecad8"
+            },
+            {
+              "name": "List all gigs",
+              "id": "b83c5155-b152-4def-8855-3cae7a093935",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/gigs?account=<uuid>&user=<uuid>&from_start_datetime=<dateTime>&to_start_datetime=<dateTime>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "gigs"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by gigs with a `start_datetime` on or after this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).\n",
+                      "key": "from_start_datetime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter by gigs with a `start_datetime` on or before this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).\n",
+                      "key": "to_start_datetime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Number of gig objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all gig objects."
+              },
+              "response": [
+                {
+                  "id": "f30d485b-d426-4759-ab55-162238cf943d",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/gigs?account=<uuid>&user=<uuid>&from_start_datetime=<dateTime>&to_start_datetime=<dateTime>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "gigs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by gigs with a `start_datetime` on or after this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).\n",
+                          "key": "from_start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter by gigs with a `start_datetime` on or before this timestamp [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).\n",
+                          "key": "to_start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Number of gig objects returned <a href=\"/api-guide/overview#pagination\">per page</a>. Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"status\": \"scheduled\",\n      \"type\": \"services\",\n      \"task_count\": \"<integer>\",\n      \"start_datetime\": \"<dateTime>\",\n      \"end_datetime\": \"<dateTime>\",\n      \"all_datetimes\": {\n        \"request_at\": \"<dateTime>\",\n        \"accept_at\": \"<dateTime>\",\n        \"pickup_at\": \"<dateTime>\",\n        \"dropoff_at\": \"<dateTime>\",\n        \"cancel_at\": \"<dateTime>\",\n        \"shift_start\": \"<dateTime>\",\n        \"shift_end\": \"<dateTime>\",\n        \"breaks\": [\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          },\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"duration\": \"<integer>\",\n      \"timezone\": \"<string>\",\n      \"earning_type\": \"adjustment\",\n      \"start_location\": {\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"formatted_address\": \"<string>\"\n      },\n      \"end_location\": {\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"formatted_address\": \"<string>\"\n      },\n      \"task_details\": {\n        \"events\": [\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"type\": \"cancel\",\n            \"name\": \"<string>\",\n            \"formatted_address\": \"<string>\",\n            \"lat\": \"<string>\",\n            \"lng\": \"<string>\",\n            \"datetime\": \"<dateTime>\"\n          },\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"type\": \"request\",\n            \"name\": \"<string>\",\n            \"formatted_address\": \"<string>\",\n            \"lat\": \"<string>\",\n            \"lng\": \"<string>\",\n            \"datetime\": \"<dateTime>\"\n          }\n        ],\n        \"orders\": [\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"income\": {\n              \"currency\": \"<string>\",\n              \"total_charge\": \"<string>\",\n              \"customer_price\": \"<string>\",\n              \"fees\": \"<string>\",\n              \"total\": \"<string>\",\n              \"pay\": \"<string>\",\n              \"tips\": \"<string>\",\n              \"bonus\": \"<string>\",\n              \"other\": \"<string>\"\n            }\n          },\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"income\": {\n              \"currency\": \"<string>\",\n              \"total_charge\": \"<string>\",\n              \"customer_price\": \"<string>\",\n              \"fees\": \"<string>\",\n              \"total\": \"<string>\",\n              \"pay\": \"<string>\",\n              \"tips\": \"<string>\",\n              \"bonus\": \"<string>\",\n              \"other\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"distance\": \"<string>\",\n      \"distance_unit\": \"miles\",\n      \"metadata\": {},\n      \"circumstances\": {},\n      \"income\": {\n        \"currency\": \"<string>\",\n        \"total_charge\": \"<string>\",\n        \"customer_price\": \"<string>\",\n        \"fees\": \"<string>\",\n        \"total\": \"<string>\",\n        \"pay\": \"<string>\",\n        \"tips\": \"<string>\",\n        \"bonus\": \"<string>\",\n        \"other\": \"<string>\"\n      },\n      \"income_rates\": {\n        \"hour\": \"<string>\",\n        \"mile\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"status\": \"cancelled\",\n      \"type\": \"delivery\",\n      \"task_count\": \"<integer>\",\n      \"start_datetime\": \"<dateTime>\",\n      \"end_datetime\": \"<dateTime>\",\n      \"all_datetimes\": {\n        \"request_at\": \"<dateTime>\",\n        \"accept_at\": \"<dateTime>\",\n        \"pickup_at\": \"<dateTime>\",\n        \"dropoff_at\": \"<dateTime>\",\n        \"cancel_at\": \"<dateTime>\",\n        \"shift_start\": \"<dateTime>\",\n        \"shift_end\": \"<dateTime>\",\n        \"breaks\": [\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          },\n          {\n            \"break_start\": \"<dateTime>\",\n            \"break_end\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"duration\": \"<integer>\",\n      \"timezone\": \"<string>\",\n      \"earning_type\": \"offer\",\n      \"start_location\": {\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"formatted_address\": \"<string>\"\n      },\n      \"end_location\": {\n        \"lat\": \"<string>\",\n        \"lng\": \"<string>\",\n        \"formatted_address\": \"<string>\"\n      },\n      \"task_details\": {\n        \"events\": [\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"type\": \"request\",\n            \"name\": \"<string>\",\n            \"formatted_address\": \"<string>\",\n            \"lat\": \"<string>\",\n            \"lng\": \"<string>\",\n            \"datetime\": \"<dateTime>\"\n          },\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"type\": \"other\",\n            \"name\": \"<string>\",\n            \"formatted_address\": \"<string>\",\n            \"lat\": \"<string>\",\n            \"lng\": \"<string>\",\n            \"datetime\": \"<dateTime>\"\n          }\n        ],\n        \"orders\": [\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"income\": {\n              \"currency\": \"<string>\",\n              \"total_charge\": \"<string>\",\n              \"customer_price\": \"<string>\",\n              \"fees\": \"<string>\",\n              \"total\": \"<string>\",\n              \"pay\": \"<string>\",\n              \"tips\": \"<string>\",\n              \"bonus\": \"<string>\",\n              \"other\": \"<string>\"\n            }\n          },\n          {\n            \"order_id\": \"<string>\",\n            \"sequence\": \"<string>\",\n            \"income\": {\n              \"currency\": \"<string>\",\n              \"total_charge\": \"<string>\",\n              \"customer_price\": \"<string>\",\n              \"fees\": \"<string>\",\n              \"total\": \"<string>\",\n              \"pay\": \"<string>\",\n              \"tips\": \"<string>\",\n              \"bonus\": \"<string>\",\n              \"other\": \"<string>\"\n            }\n          }\n        ]\n      },\n      \"distance\": \"<string>\",\n      \"distance_unit\": \"km\",\n      \"metadata\": {},\n      \"circumstances\": {},\n      \"income\": {\n        \"currency\": \"<string>\",\n        \"total_charge\": \"<string>\",\n        \"customer_price\": \"<string>\",\n        \"fees\": \"<string>\",\n        \"total\": \"<string>\",\n        \"pay\": \"<string>\",\n        \"tips\": \"<string>\",\n        \"bonus\": \"<string>\",\n        \"other\": \"<string>\"\n      },\n      \"income_rates\": {\n        \"hour\": \"<string>\",\n        \"mile\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:52.000Z",
+                  "updatedAt": "2026-07-28T01:04:52.000Z",
+                  "uid": "35240-f30d485b-d426-4759-ab55-162238cf943d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:52.000Z",
+              "updatedAt": "2026-07-28T01:04:52.000Z",
+              "uid": "35240-b83c5155-b152-4def-8855-3cae7a093935"
+            }
+          ],
+          "id": "afc29518-d536-4fa3-9639-8ca657eb8e73",
+          "createdAt": "2026-07-28T01:04:52.000Z",
+          "updatedAt": "2026-07-28T01:04:52.000Z",
+          "uid": "35240-afc29518-d536-4fa3-9639-8ca657eb8e73"
+        }
+      ],
+      "id": "e1be04e0-1e68-40d8-b799-931d7ace29f8",
+      "createdAt": "2026-07-28T01:04:52.000Z",
+      "updatedAt": "2026-07-28T01:04:52.000Z",
+      "uid": "35240-e1be04e0-1e68-40d8-b799-931d7ace29f8"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

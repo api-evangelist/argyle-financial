@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "02067f83-14b1-4d57-9309-a6b43930581f",
+    "name": "Argyle API Accounts Vehicles API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:55.000Z",
+    "updatedAt": "2026-07-28T01:05:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02067f83-14b1-4d57-9309-a6b43930581f"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "vehicles",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a vehicle",
+                  "id": "22c5a0f8-771a-4d29-919f-4563da8b24a7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vehicles/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vehicles",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "20fd0296-e8ae-4262-bf96-6a9c8cb0d237",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the vehicle object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a vehicle object."
+                  },
+                  "response": [
+                    {
+                      "id": "41768508-66d2-4656-8e12-55667cdd12e9",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vehicles/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vehicles",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"identification\": \"<string>\",\n  \"make\": \"<string>\",\n  \"model\": \"<string>\",\n  \"type\": \"motorcycle\",\n  \"year\": \"<string>\",\n  \"vin\": \"<string>\",\n  \"employer\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"metadata\": {}\n}",
+                      "createdAt": "2026-07-28T01:05:56.000Z",
+                      "updatedAt": "2026-07-28T01:05:56.000Z",
+                      "uid": "35240-41768508-66d2-4656-8e12-55667cdd12e9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:56.000Z",
+                  "updatedAt": "2026-07-28T01:05:56.000Z",
+                  "uid": "35240-22c5a0f8-771a-4d29-919f-4563da8b24a7"
+                }
+              ],
+              "id": "6333b0ba-ac8a-4afd-bf2f-8ed4feaca03d",
+              "createdAt": "2026-07-28T01:05:56.000Z",
+              "updatedAt": "2026-07-28T01:05:56.000Z",
+              "uid": "35240-6333b0ba-ac8a-4afd-bf2f-8ed4feaca03d"
+            },
+            {
+              "name": "List all vehicles",
+              "id": "4faa6050-65b2-4425-9888-00a2e961f2c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/vehicles?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "vehicles"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of vehicle objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all vehicle objects."
+              },
+              "response": [
+                {
+                  "id": "f7051a87-3bcf-4322-8742-e3016d100db7",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vehicles?account=<uuid>&user=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vehicles"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of vehicle objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"identification\": \"<string>\",\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"type\": \"car\",\n      \"year\": \"<string>\",\n      \"vin\": \"<string>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"identification\": \"<string>\",\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"type\": \"motorcycle\",\n      \"year\": \"<string>\",\n      \"vin\": \"<string>\",\n      \"employer\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:56.000Z",
+                  "updatedAt": "2026-07-28T01:05:56.000Z",
+                  "uid": "35240-f7051a87-3bcf-4322-8742-e3016d100db7"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:56.000Z",
+              "updatedAt": "2026-07-28T01:05:56.000Z",
+              "uid": "35240-4faa6050-65b2-4425-9888-00a2e961f2c2"
+            }
+          ],
+          "id": "e3f08c02-2d00-4027-a27f-6085c462f879",
+          "createdAt": "2026-07-28T01:05:56.000Z",
+          "updatedAt": "2026-07-28T01:05:56.000Z",
+          "uid": "35240-e3f08c02-2d00-4027-a27f-6085c462f879"
+        }
+      ],
+      "id": "b6e5da6f-fdb3-4e0f-9584-468989a27d86",
+      "createdAt": "2026-07-28T01:05:56.000Z",
+      "updatedAt": "2026-07-28T01:05:56.000Z",
+      "uid": "35240-b6e5da6f-fdb3-4e0f-9584-468989a27d86"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

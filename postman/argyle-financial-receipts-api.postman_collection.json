@@ -1,0 +1,183 @@
+{
+  "info": {
+    "_postman_id": "611d6442-e9b7-4ffc-ac3e-87c7c20df755",
+    "name": "Argyle API Accounts Receipts API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:43.000Z",
+    "updatedAt": "2026-07-28T01:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-611d6442-e9b7-4ffc-ac3e-87c7c20df755"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "receipts",
+          "item": [
+            {
+              "name": "Generate a receipt",
+              "id": "1f51ef46-8f5b-4f66-88dd-31697e386f24",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/receipts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "receipts"
+                  ]
+                },
+                "description": "Returns a PDF listing all billable transactions associated with the user."
+              },
+              "response": [
+                {
+                  "id": "e3127326-1036-4fb9-b93d-fd6b6301f1ab",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/pdf"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/receipts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "receipts"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/pdf"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Content type of response payload.",
+                        "type": "text/plain"
+                      },
+                      "key": "Content-Type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Response disposition with receipt filename.",
+                        "type": "text/plain"
+                      },
+                      "key": "Content-Disposition",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Size of response payload in bytes.",
+                        "type": "text/plain"
+                      },
+                      "key": "Content-Length",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<binary>",
+                  "createdAt": "2026-07-28T01:05:44.000Z",
+                  "updatedAt": "2026-07-28T01:05:44.000Z",
+                  "uid": "35240-e3127326-1036-4fb9-b93d-fd6b6301f1ab"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:44.000Z",
+              "updatedAt": "2026-07-28T01:05:44.000Z",
+              "uid": "35240-1f51ef46-8f5b-4f66-88dd-31697e386f24"
+            }
+          ],
+          "id": "134f60a2-6198-42c3-b6f5-ea099495dc25",
+          "createdAt": "2026-07-28T01:05:44.000Z",
+          "updatedAt": "2026-07-28T01:05:44.000Z",
+          "uid": "35240-134f60a2-6198-42c3-b6f5-ea099495dc25"
+        }
+      ],
+      "id": "c9425751-733c-4686-8037-e371421f1906",
+      "createdAt": "2026-07-28T01:05:44.000Z",
+      "updatedAt": "2026-07-28T01:05:44.000Z",
+      "uid": "35240-c9425751-733c-4686-8037-e371421f1906"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

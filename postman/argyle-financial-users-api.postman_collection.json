@@ -1,0 +1,558 @@
+{
+  "info": {
+    "_postman_id": "27358be2-eb1a-42a3-b900-fb9e122b872b",
+    "name": "Argyle API Accounts Users API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:54.000Z",
+    "updatedAt": "2026-07-28T01:05:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-27358be2-eb1a-42a3-b900-fb9e122b872b"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a user",
+                  "id": "6f4f6bca-0f6d-43d7-bfbc-9bd00529ae97",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5460cbbb-475f-4c65-97b2-38206cc235f5",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the user object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a user object."
+                  },
+                  "response": [
+                    {
+                      "id": "589d6e1e-8af8-4bbe-b4f0-2bd8867311fa",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"items_connected\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employers_connected\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"external_metadata\": {},\n  \"external_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:05:54.000Z",
+                      "updatedAt": "2026-07-28T01:05:54.000Z",
+                      "uid": "35240-589d6e1e-8af8-4bbe-b4f0-2bd8867311fa"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:54.000Z",
+                  "updatedAt": "2026-07-28T01:05:54.000Z",
+                  "uid": "35240-6f4f6bca-0f6d-43d7-bfbc-9bd00529ae97"
+                },
+                {
+                  "name": "Update a user",
+                  "id": "0aacd132-51b5-476d-9152-c5fe24b946d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  },\n  \"external_metadata\": {},\n  \"open_banking\": {\n    \"end_user\": {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  },\n  \"external_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f865f7db-4ad0-472b-aa76-7b44f3a7624c",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the user object to be updated."
+                        }
+                      ]
+                    },
+                    "description": "Updates a user object."
+                  },
+                  "response": [
+                    {
+                      "id": "065eada0-62dd-4cf8-91bd-a394440eca3e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  },\n  \"external_metadata\": {},\n  \"open_banking\": {\n    \"end_user\": {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  },\n  \"external_id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"created_at\": \"<dateTime>\",\n  \"items_connected\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"employers_connected\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"external_metadata\": {},\n  \"external_id\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:05:54.000Z",
+                      "updatedAt": "2026-07-28T01:05:54.000Z",
+                      "uid": "35240-065eada0-62dd-4cf8-91bd-a394440eca3e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:54.000Z",
+                  "updatedAt": "2026-07-28T01:05:54.000Z",
+                  "uid": "35240-0aacd132-51b5-476d-9152-c5fe24b946d9"
+                },
+                {
+                  "name": "Delete a user",
+                  "id": "cb78d7f0-de44-4698-b652-ddc55bfb8ed7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7eb22e55-24a4-4abf-b129-7a041f9705ba",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the user object to be deleted."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a user object.\n\n<Warning>Deleting a user object will also delete all accounts and resources associated with the user.</Warning>\n"
+                  },
+                  "response": [
+                    {
+                      "id": "39f2fa0c-e8d3-4334-bdeb-cf7eef9ac256",
+                      "name": "204 status code: No content.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:05:54.000Z",
+                      "updatedAt": "2026-07-28T01:05:54.000Z",
+                      "uid": "35240-39f2fa0c-e8d3-4334-bdeb-cf7eef9ac256"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:54.000Z",
+                  "updatedAt": "2026-07-28T01:05:54.000Z",
+                  "uid": "35240-cb78d7f0-de44-4698-b652-ddc55bfb8ed7"
+                }
+              ],
+              "id": "08faee7b-42d4-418b-b882-d044ec43bad4",
+              "createdAt": "2026-07-28T01:05:54.000Z",
+              "updatedAt": "2026-07-28T01:05:54.000Z",
+              "uid": "35240-08faee7b-42d4-418b-b882-d044ec43bad4"
+            },
+            {
+              "name": "Create a user",
+              "id": "efedf0bf-12bd-4c98-8b91-435c96fbc987",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  },\n  \"external_metadata\": {},\n  \"open_banking\": {\n    \"end_user\": {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  },\n  \"external_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "users"
+                  ]
+                },
+                "description": "Creates a new user object. Includes a new [user token](/link/user-tokens) in the response."
+              },
+              "response": [
+                {
+                  "id": "04bc0762-5fa8-40b4-96cb-42c3866b5608",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"ssn\": \"<string>\",\n  \"address\": {\n    \"city\": \"<string>\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postal_code\": \"<string>\"\n  },\n  \"birth_date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\"\n  },\n  \"external_metadata\": {},\n  \"open_banking\": {\n    \"end_user\": {\n      \"name\": \"<string>\",\n      \"address\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  },\n  \"external_id\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"user_token\": \"<string>\",\n  \"id\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T01:05:54.000Z",
+                  "updatedAt": "2026-07-28T01:05:54.000Z",
+                  "uid": "35240-04bc0762-5fa8-40b4-96cb-42c3866b5608"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:54.000Z",
+              "updatedAt": "2026-07-28T01:05:54.000Z",
+              "uid": "35240-efedf0bf-12bd-4c98-8b91-435c96fbc987"
+            },
+            {
+              "name": "List all users",
+              "id": "56313b86-e9d7-44c5-8781-980322f4031b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/users?limit=<integer>&external_id=<string>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of user objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter users by `external_id`. Exact matches only.",
+                      "key": "external_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all user objects."
+              },
+              "response": [
+                {
+                  "id": "c55a2135-992f-477d-803b-06bd26857bfb",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users?limit=<integer>&external_id=<string>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of user objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter users by `external_id`. Exact matches only.",
+                          "key": "external_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"items_connected\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"employers_connected\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"external_metadata\": {},\n      \"external_id\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\"\n      },\n      \"birth_date\": {\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"day\": \"<integer>\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"items_connected\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"employers_connected\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"external_metadata\": {},\n      \"external_id\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"ssn\": \"<string>\",\n      \"address\": {\n        \"city\": \"<string>\",\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postal_code\": \"<string>\"\n      },\n      \"birth_date\": {\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"day\": \"<integer>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:54.000Z",
+                  "updatedAt": "2026-07-28T01:05:54.000Z",
+                  "uid": "35240-c55a2135-992f-477d-803b-06bd26857bfb"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:54.000Z",
+              "updatedAt": "2026-07-28T01:05:54.000Z",
+              "uid": "35240-56313b86-e9d7-44c5-8781-980322f4031b"
+            }
+          ],
+          "id": "4de6b03f-5a17-4b36-94fe-c211d27b8008",
+          "createdAt": "2026-07-28T01:05:54.000Z",
+          "updatedAt": "2026-07-28T01:05:54.000Z",
+          "uid": "35240-4de6b03f-5a17-4b36-94fe-c211d27b8008"
+        }
+      ],
+      "id": "3c23cadf-526d-463d-aa67-0be6197b7352",
+      "createdAt": "2026-07-28T01:05:54.000Z",
+      "updatedAt": "2026-07-28T01:05:54.000Z",
+      "uid": "35240-3c23cadf-526d-463d-aa67-0be6197b7352"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

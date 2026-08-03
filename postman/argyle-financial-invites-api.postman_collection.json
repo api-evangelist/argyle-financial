@@ -1,0 +1,565 @@
+{
+  "info": {
+    "_postman_id": "ea3c63cc-4c7c-4d56-aad3-4ba184729a98",
+    "name": "Argyle API Accounts Invites API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:54.000Z",
+    "updatedAt": "2026-07-28T01:04:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea3c63cc-4c7c-4d56-aad3-4ba184729a98"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "invites",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "revoke",
+                  "item": [
+                    {
+                      "name": "Revoke an invite",
+                      "id": "eab1371c-1609-427d-b3ec-c8821249e5a5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/invites/:id/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "invites",
+                            ":id",
+                            "revoke"
+                          ],
+                          "variable": [
+                            {
+                              "id": "45a2ce8c-70b7-4624-b682-1dff3cfff768",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) ID of the invite to be revoked."
+                            }
+                          ]
+                        },
+                        "description": "Invalidates a previously sent invite.\n\nIf a user clicks a revoked invite URL, the landing page will notify the user the invite has expired.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "b06cd7fd-7c57-44ad-9912-641393e6a318",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/invites/:id/revoke",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "invites",
+                                ":id",
+                                "revoke"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"user_token\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"revoked_at\": \"<dateTime>\",\n  \"status\": \"sent\",\n  \"group_id\": \"<uuid>\",\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"invited_at\": \"<dateTime>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deliveries\": [\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"opened\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"sent\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"invite_template_id\": \"<uuid>\"\n}",
+                          "createdAt": "2026-07-28T01:04:54.000Z",
+                          "updatedAt": "2026-07-28T01:04:54.000Z",
+                          "uid": "35240-b06cd7fd-7c57-44ad-9912-641393e6a318"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:04:54.000Z",
+                      "updatedAt": "2026-07-28T01:04:54.000Z",
+                      "uid": "35240-eab1371c-1609-427d-b3ec-c8821249e5a5"
+                    }
+                  ],
+                  "id": "ce6260f0-e6f0-4492-979c-1ad173cd900c",
+                  "createdAt": "2026-07-28T01:04:54.000Z",
+                  "updatedAt": "2026-07-28T01:04:54.000Z",
+                  "uid": "35240-ce6260f0-e6f0-4492-979c-1ad173cd900c"
+                },
+                {
+                  "name": "Retrieve an invite",
+                  "id": "1ae096dd-74a0-4ecb-8215-3cecf3d54bff",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/invites/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "invites",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0bcb66b0-4647-4bce-b159-196d59092439",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the invite to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves an invite object."
+                  },
+                  "response": [
+                    {
+                      "id": "6eb87450-b453-4c21-9993-23a7c7358e8d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/invites/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "invites",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"user_token\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"revoked_at\": \"<dateTime>\",\n  \"status\": \"sent\",\n  \"group_id\": \"<uuid>\",\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"invited_at\": \"<dateTime>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deliveries\": [\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"opened\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"sent\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"invite_template_id\": \"<uuid>\"\n}",
+                      "createdAt": "2026-07-28T01:04:54.000Z",
+                      "updatedAt": "2026-07-28T01:04:54.000Z",
+                      "uid": "35240-6eb87450-b453-4c21-9993-23a7c7358e8d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:54.000Z",
+                  "updatedAt": "2026-07-28T01:04:54.000Z",
+                  "uid": "35240-1ae096dd-74a0-4ecb-8215-3cecf3d54bff"
+                },
+                {
+                  "name": "Re-send an invite",
+                  "id": "70a8996b-3617-43b0-aba2-1ab669a01841",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/invites/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "invites",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cc675348-9c50-4ae1-9ecb-17b9c8ab654b",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the invite to be re-sent."
+                        }
+                      ]
+                    },
+                    "description": "Re-sends a previously sent invite. Updates the `updated_at` and `invited_at` time.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "0d277fcb-7d61-4800-a76b-38b43c2f4814",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/invites/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "invites",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"user_token\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"revoked_at\": \"<dateTime>\",\n  \"status\": \"sent\",\n  \"group_id\": \"<uuid>\",\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"invited_at\": \"<dateTime>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deliveries\": [\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"opened\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"sent\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"invite_template_id\": \"<uuid>\"\n}",
+                      "createdAt": "2026-07-28T01:04:54.000Z",
+                      "updatedAt": "2026-07-28T01:04:54.000Z",
+                      "uid": "35240-0d277fcb-7d61-4800-a76b-38b43c2f4814"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:54.000Z",
+                  "updatedAt": "2026-07-28T01:04:54.000Z",
+                  "uid": "35240-70a8996b-3617-43b0-aba2-1ab669a01841"
+                }
+              ],
+              "id": "58423a76-06df-4f26-80f0-5baa2afea803",
+              "createdAt": "2026-07-28T01:04:54.000Z",
+              "updatedAt": "2026-07-28T01:04:54.000Z",
+              "uid": "35240-58423a76-06df-4f26-80f0-5baa2afea803"
+            },
+            {
+              "name": "Send an invite",
+              "id": "3b177502-ebb8-41f8-915e-0e3fa1922062",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dds_config\": {},\n  \"override_invite_template\": {\n    \"brand\": {\n      \"color\": \"<string>\",\n      \"logo\": \"<string>\"\n    },\n    \"email\": {\n      \"reply_to\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subject\": \"<string>\",\n      \"sender\": \"<string>\",\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"body_text_icon_1\": \"<string>\",\n      \"body_text_header_1\": \"<string>\",\n      \"body_text_subheader_1\": \"<string>\",\n      \"body_text_icon_2\": \"<string>\",\n      \"body_text_header_2\": \"<string>\",\n      \"body_text_subheader_2\": \"<string>\",\n      \"body_text_icon_3\": \"<string>\",\n      \"body_text_header_3\": \"<string>\",\n      \"body_text_subheader_3\": \"<string>\"\n    },\n    \"sms_text\": \"<string>\",\n    \"landing_page\": {\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"step_1\": \"<string>\",\n      \"step_2\": \"<string>\",\n      \"step_3\": \"<string>\"\n    },\n    \"flow_id\": \"<string>\",\n    \"success_page\": {\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"button_text\": \"<string>\",\n      \"button_url\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/invites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "invites"
+                  ]
+                },
+                "description": "Immediately sends an invite via email, SMS, or both.\nReturns an invite object in the response.\n"
+              },
+              "response": [
+                {
+                  "id": "8a698d1d-5d4a-452b-bd57-8f6a7b969773",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"dds_config\": {},\n  \"override_invite_template\": {\n    \"brand\": {\n      \"color\": \"<string>\",\n      \"logo\": \"<string>\"\n    },\n    \"email\": {\n      \"reply_to\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"subject\": \"<string>\",\n      \"sender\": \"<string>\",\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"body_text_icon_1\": \"<string>\",\n      \"body_text_header_1\": \"<string>\",\n      \"body_text_subheader_1\": \"<string>\",\n      \"body_text_icon_2\": \"<string>\",\n      \"body_text_header_2\": \"<string>\",\n      \"body_text_subheader_2\": \"<string>\",\n      \"body_text_icon_3\": \"<string>\",\n      \"body_text_header_3\": \"<string>\",\n      \"body_text_subheader_3\": \"<string>\"\n    },\n    \"sms_text\": \"<string>\",\n    \"landing_page\": {\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"step_1\": \"<string>\",\n      \"step_2\": \"<string>\",\n      \"step_3\": \"<string>\"\n    },\n    \"flow_id\": \"<string>\",\n    \"success_page\": {\n      \"header\": \"<string>\",\n      \"subheader\": \"<string>\",\n      \"button_text\": \"<string>\",\n      \"button_url\": \"<string>\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/invites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "invites"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"user_token\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"revoked_at\": \"<dateTime>\",\n  \"status\": \"sent\",\n  \"group_id\": \"<uuid>\",\n  \"url\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"invited_at\": \"<dateTime>\",\n  \"flow_id\": \"<string>\",\n  \"flow_items\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"reply_to\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"deliveries\": [\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"opened\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"method\": \"sms\",\n      \"status\": \"sent\",\n      \"sent_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"invite_template_id\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T01:04:54.000Z",
+                  "updatedAt": "2026-07-28T01:04:54.000Z",
+                  "uid": "35240-8a698d1d-5d4a-452b-bd57-8f6a7b969773"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:54.000Z",
+              "updatedAt": "2026-07-28T01:04:54.000Z",
+              "uid": "35240-3b177502-ebb8-41f8-915e-0e3fa1922062"
+            },
+            {
+              "name": "List all invites",
+              "id": "308ac1b7-4ff0-4216-9a04-e6c27f77bd8b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/invites?status=<string>&reply_to=<string>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "invites"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter invites by [status](#object-status).\n\nMultiple status values can be searched at once using either method:\n\n1. `/v2/invites?status=sent,initiated`\n2. `/v2/invites?status=sent&status=initiated`\n",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter invites for a specific [`reply_to`](#object-reply_to) email.",
+                      "key": "reply_to",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of invite objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns an object containing all invite objects."
+              },
+              "response": [
+                {
+                  "id": "8a3a8657-5da1-4c1b-bbf4-cbd5dcafbb71",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/invites?status=<string>&reply_to=<string>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "invites"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter invites by [status](#object-status).\n\nMultiple status values can be searched at once using either method:\n\n1. `/v2/invites?status=sent,initiated`\n2. `/v2/invites?status=sent&status=initiated`\n",
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter invites for a specific [`reply_to`](#object-reply_to) email.",
+                          "key": "reply_to",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of invite objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"user_token\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"revoked_at\": \"<dateTime>\",\n      \"status\": \"sent\",\n      \"group_id\": \"<uuid>\",\n      \"url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"invited_at\": \"<dateTime>\",\n      \"flow_id\": \"<string>\",\n      \"flow_items\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"reply_to\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deliveries\": [\n        {\n          \"id\": \"<uuid>\",\n          \"method\": \"sms\",\n          \"status\": \"undelivered\",\n          \"sent_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"method\": \"sms\",\n          \"status\": \"opened\",\n          \"sent_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ],\n      \"invite_template_id\": \"<uuid>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"user_token\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"last_name\": \"<string>\",\n      \"revoked_at\": \"<dateTime>\",\n      \"status\": \"initiated\",\n      \"group_id\": \"<uuid>\",\n      \"url\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"invited_at\": \"<dateTime>\",\n      \"flow_id\": \"<string>\",\n      \"flow_items\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"reply_to\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"deliveries\": [\n        {\n          \"id\": \"<uuid>\",\n          \"method\": \"sms\",\n          \"status\": \"sent\",\n          \"sent_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"method\": \"email\",\n          \"status\": \"opened\",\n          \"sent_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ],\n      \"invite_template_id\": \"<uuid>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:54.000Z",
+                  "updatedAt": "2026-07-28T01:04:54.000Z",
+                  "uid": "35240-8a3a8657-5da1-4c1b-bbf4-cbd5dcafbb71"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:54.000Z",
+              "updatedAt": "2026-07-28T01:04:54.000Z",
+              "uid": "35240-308ac1b7-4ff0-4216-9a04-e6c27f77bd8b"
+            }
+          ],
+          "id": "aaca9491-2c99-49f0-9bac-d63c15b64e0e",
+          "createdAt": "2026-07-28T01:04:54.000Z",
+          "updatedAt": "2026-07-28T01:04:54.000Z",
+          "uid": "35240-aaca9491-2c99-49f0-9bac-d63c15b64e0e"
+        }
+      ],
+      "id": "f313852d-11d9-4780-b507-6789b7d4e9d9",
+      "createdAt": "2026-07-28T01:04:54.000Z",
+      "updatedAt": "2026-07-28T01:04:54.000Z",
+      "uid": "35240-f313852d-11d9-4780-b507-6789b7d4e9d9"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "b07e5481-3508-4a2b-8f5b-31b4725c4428",
+    "name": "Argyle API Accounts Items API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:35.000Z",
+    "updatedAt": "2026-07-28T01:05:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b07e5481-3508-4a2b-8f5b-31b4725c4428"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve an Item",
+                  "id": "6f8ac156-a850-4a71-8796-4eb6a2f71958",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/items/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "items",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "988b6141-963c-4fe9-9995-c736fbb2391c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the Item. ID format \u2014 `item_123456789`\n"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves an Item object."
+                  },
+                  "response": [
+                    {
+                      "id": "baa7a755-e954-4ab1-be10-c2b3f4e26401",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/items/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "items",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"kind\": \"platform\",\n  \"known_limitations\": \"<string>\",\n  \"status\": \"unavailable\",\n  \"status_details\": \"<string>\",\n  \"logo_url\": \"<string>\",\n  \"is_grouping\": \"<boolean>\",\n  \"mapping_status\": \"unmapped\",\n  \"matching_score\": \"<string>\",\n  \"features\": {\n    \"data_retrieval\": {\n      \"refresh_frequency\": \"<string>\"\n    },\n    \"field_coverage\": {\n      \"identities\": {},\n      \"paystubs\": {},\n      \"payroll_documents\": {},\n      \"deposit_destinations\": {},\n      \"shifts\": {},\n      \"gigs\": {},\n      \"vehicles\": {},\n      \"ratings\": {}\n    },\n    \"direct_deposit_switch\": {\n      \"card\": {\n        \"supported\": \"<boolean>\",\n        \"max_allocations\": \"<string>\"\n      },\n      \"deposit_account\": {\n        \"types\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"supported\": \"<boolean>\",\n        \"max_allocations\": \"<string>\",\n        \"amount_allocation\": \"<boolean>\",\n        \"percent_allocation\": \"<boolean>\",\n        \"amount_precision\": \"<string>\",\n        \"percent_precision\": \"<string>\"\n      }\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:05:35.000Z",
+                      "updatedAt": "2026-07-28T01:05:35.000Z",
+                      "uid": "35240-baa7a755-e954-4ab1-be10-c2b3f4e26401"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:35.000Z",
+                  "updatedAt": "2026-07-28T01:05:35.000Z",
+                  "uid": "35240-6f8ac156-a850-4a71-8796-4eb6a2f71958"
+                }
+              ],
+              "id": "3b16b040-2bdf-4f27-840f-ea89b9cf93a3",
+              "createdAt": "2026-07-28T01:05:35.000Z",
+              "updatedAt": "2026-07-28T01:05:35.000Z",
+              "uid": "35240-3b16b040-2bdf-4f27-840f-ea89b9cf93a3"
+            },
+            {
+              "name": "List all Items",
+              "id": "cc409bf1-4452-46da-af83-5e1c45f69e7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/items?q=<string>&id=<string>&kind=<string>&status=<string>&mapping_status=<string>&min_matching_score=<number>&filter_set=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "description": "Free-text search filter. For best results, use the payroll platform or employer's full name.\n",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by Item ID.\nMultiple Item IDs can also be searched at once using either method:\n\n1. `/v2/items?id=item_000000001,item_000000002`\n2. `/v2/items?id=item_000000001&id=item_000000002`\n",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `kind` value.",
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `status` value.\n\nMultiple `status` values can also be searched at once using either method:\n\n1. `/v2/items?status=healthy,issues`\n2. `/v2/items?status=healthy&status=issues`\n\nFiltering by both `healthy` and `issues` will return all Items that currently support new payroll connections.\n",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by `mapping_status` value.\n\nMultiple `mapping_status` values can also be searched at once using either method:\n\n1. `/v2/items?mapping_status=verified,mapped`\n2. `/v2/items?mapping_status=verified&mapping_status=mapped`\n",
+                      "key": "mapping_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only returns items with a [matching_score](/api-reference/items#object-matching_score) greater than or equal to this value.\n`min_matching_score` should be used together with the `q` \"free-text search\" query parameter.\n",
+                      "key": "min_matching_score",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "Filter by Item filter ID.",
+                      "key": "filter_set",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of Item objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all Item objects."
+              },
+              "response": [
+                {
+                  "id": "a9ff1799-c898-4117-a679-a3174c47c1cd",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/items?q=<string>&id=<string>&kind=<string>&status=<string>&mapping_status=<string>&min_matching_score=<number>&filter_set=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "items"
+                      ],
+                      "query": [
+                        {
+                          "description": "Free-text search filter. For best results, use the payroll platform or employer's full name.\n",
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by Item ID.\nMultiple Item IDs can also be searched at once using either method:\n\n1. `/v2/items?id=item_000000001,item_000000002`\n2. `/v2/items?id=item_000000001&id=item_000000002`\n",
+                          "key": "id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `kind` value.",
+                          "key": "kind",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `status` value.\n\nMultiple `status` values can also be searched at once using either method:\n\n1. `/v2/items?status=healthy,issues`\n2. `/v2/items?status=healthy&status=issues`\n\nFiltering by both `healthy` and `issues` will return all Items that currently support new payroll connections.\n",
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by `mapping_status` value.\n\nMultiple `mapping_status` values can also be searched at once using either method:\n\n1. `/v2/items?mapping_status=verified,mapped`\n2. `/v2/items?mapping_status=verified&mapping_status=mapped`\n",
+                          "key": "mapping_status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Only returns items with a [matching_score](/api-reference/items#object-matching_score) greater than or equal to this value.\n`min_matching_score` should be used together with the `q` \"free-text search\" query parameter.\n",
+                          "key": "min_matching_score",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Filter by Item filter ID.",
+                          "key": "filter_set",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of Item objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"gig\",\n      \"known_limitations\": \"<string>\",\n      \"status\": \"unavailable\",\n      \"status_details\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"is_grouping\": \"<boolean>\",\n      \"mapping_status\": \"verified\",\n      \"matching_score\": \"<string>\",\n      \"features\": {\n        \"data_retrieval\": {\n          \"refresh_frequency\": \"<string>\"\n        },\n        \"field_coverage\": {\n          \"identities\": {},\n          \"paystubs\": {},\n          \"payroll_documents\": {},\n          \"deposit_destinations\": {},\n          \"shifts\": {},\n          \"gigs\": {},\n          \"vehicles\": {},\n          \"ratings\": {}\n        },\n        \"direct_deposit_switch\": {\n          \"card\": {\n            \"supported\": \"<boolean>\",\n            \"max_allocations\": \"<string>\"\n          },\n          \"deposit_account\": {\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"supported\": \"<boolean>\",\n            \"max_allocations\": \"<string>\",\n            \"amount_allocation\": \"<boolean>\",\n            \"percent_allocation\": \"<boolean>\",\n            \"amount_precision\": \"<string>\",\n            \"percent_precision\": \"<string>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"employer\",\n      \"known_limitations\": \"<string>\",\n      \"status\": \"unavailable\",\n      \"status_details\": \"<string>\",\n      \"logo_url\": \"<string>\",\n      \"is_grouping\": \"<boolean>\",\n      \"mapping_status\": \"unmapped\",\n      \"matching_score\": \"<string>\",\n      \"features\": {\n        \"data_retrieval\": {\n          \"refresh_frequency\": \"<string>\"\n        },\n        \"field_coverage\": {\n          \"identities\": {},\n          \"paystubs\": {},\n          \"payroll_documents\": {},\n          \"deposit_destinations\": {},\n          \"shifts\": {},\n          \"gigs\": {},\n          \"vehicles\": {},\n          \"ratings\": {}\n        },\n        \"direct_deposit_switch\": {\n          \"card\": {\n            \"supported\": \"<boolean>\",\n            \"max_allocations\": \"<string>\"\n          },\n          \"deposit_account\": {\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"supported\": \"<boolean>\",\n            \"max_allocations\": \"<string>\",\n            \"amount_allocation\": \"<boolean>\",\n            \"percent_allocation\": \"<boolean>\",\n            \"amount_precision\": \"<string>\",\n            \"percent_precision\": \"<string>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:35.000Z",
+                  "updatedAt": "2026-07-28T01:05:35.000Z",
+                  "uid": "35240-a9ff1799-c898-4117-a679-a3174c47c1cd"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:35.000Z",
+              "updatedAt": "2026-07-28T01:05:35.000Z",
+              "uid": "35240-cc409bf1-4452-46da-af83-5e1c45f69e7a"
+            }
+          ],
+          "id": "263ab3fe-c19e-473d-bacf-0c31fa27f6c9",
+          "createdAt": "2026-07-28T01:05:35.000Z",
+          "updatedAt": "2026-07-28T01:05:35.000Z",
+          "uid": "35240-263ab3fe-c19e-473d-bacf-0c31fa27f6c9"
+        }
+      ],
+      "id": "ec769977-6b7a-4ca6-b157-ea3eb93098cd",
+      "createdAt": "2026-07-28T01:05:35.000Z",
+      "updatedAt": "2026-07-28T01:05:35.000Z",
+      "uid": "35240-ec769977-6b7a-4ca6-b157-ea3eb93098cd"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

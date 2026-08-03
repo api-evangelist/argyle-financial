@@ -1,0 +1,409 @@
+{
+  "info": {
+    "_postman_id": "182e783a-868b-4d49-b166-cd8886422e64",
+    "name": "Argyle API Accounts User Uploads API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:53.000Z",
+    "updatedAt": "2026-07-28T01:05:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-182e783a-868b-4d49-b166-cd8886422e64"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "user-uploads",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a user upload",
+                  "id": "007459ed-df91-4443-9403-0b84585295cc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-uploads/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-uploads",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f8dd8c1b-b506-499a-8692-de93089ccd4c",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the user upload object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a user upload object."
+                  },
+                  "response": [
+                    {
+                      "id": "eada53a3-cb31-4b38-a0f8-250f10c2d231",
+                      "name": "A user upload object.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/user-uploads/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "user-uploads",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"document_type\": \"<string>\",\n  \"file_url\": \"<string>\",\n  \"file_name\": \"<string>\",\n  \"metadata\": {\n    \"employment\": {},\n    \"ocr_data\": {},\n    \"ocr_authenticity\": {},\n    \"ocr_authenticity_score\": \"<integer>\"\n  },\n  \"processing\": {\n    \"classification\": \"unauthorized\",\n    \"ocr\": \"in_progress\",\n    \"authenticity\": \"idle\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:05:53.000Z",
+                      "updatedAt": "2026-07-28T01:05:53.000Z",
+                      "uid": "35240-eada53a3-cb31-4b38-a0f8-250f10c2d231"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:53.000Z",
+                  "updatedAt": "2026-07-28T01:05:53.000Z",
+                  "uid": "35240-007459ed-df91-4443-9403-0b84585295cc"
+                }
+              ],
+              "id": "f28ab65a-3ebd-4303-a5e1-b996f8fbef25",
+              "createdAt": "2026-07-28T01:05:53.000Z",
+              "updatedAt": "2026-07-28T01:05:53.000Z",
+              "uid": "35240-f28ab65a-3ebd-4303-a5e1-b996f8fbef25"
+            },
+            {
+              "name": "Upload a document",
+              "id": "1f6d24c1-019a-42c1-9546-5b1a8792184f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) ID of the user object.",
+                      "key": "user",
+                      "value": "<uuid>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) The type of document. (This can only be one of paystubs,W-2,1099,proof-of-identity,proof-of-address,miscellaneous)",
+                      "key": "document_type",
+                      "value": "miscellaneous",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Link to the document to be uploaded.\n\nMax of 1 document per POST request.\n",
+                      "key": "upload",
+                      "type": "file",
+                      "value": null
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/user-uploads",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user-uploads"
+                  ]
+                },
+                "description": "Upload a document via the API."
+              },
+              "response": [
+                {
+                  "id": "eebb3b2e-eefb-4641-82ee-4f6b8b5cda0d",
+                  "name": "A user upload object.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) ID of the user object.",
+                          "key": "user",
+                          "value": "<uuid>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The type of document. (This can only be one of paystubs,W-2,1099,proof-of-identity,proof-of-address,miscellaneous)",
+                          "key": "document_type",
+                          "value": "miscellaneous",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Link to the document to be uploaded.\n\nMax of 1 document per POST request.\n",
+                          "key": "upload",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-uploads",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-uploads"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"account\": \"<uuid>\",\n  \"document_type\": \"<string>\",\n  \"file_url\": \"<string>\",\n  \"file_name\": \"<string>\",\n  \"metadata\": {\n    \"employment\": {},\n    \"ocr_data\": {},\n    \"ocr_authenticity\": {},\n    \"ocr_authenticity_score\": \"<integer>\"\n  },\n  \"processing\": {\n    \"classification\": \"unauthorized\",\n    \"ocr\": \"in_progress\",\n    \"authenticity\": \"idle\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:05:53.000Z",
+                  "updatedAt": "2026-07-28T01:05:53.000Z",
+                  "uid": "35240-eebb3b2e-eefb-4641-82ee-4f6b8b5cda0d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:53.000Z",
+              "updatedAt": "2026-07-28T01:05:53.000Z",
+              "uid": "35240-1f6d24c1-019a-42c1-9546-5b1a8792184f"
+            },
+            {
+              "name": "List all user uploads",
+              "id": "597f11d4-3edd-4283-bf21-e1ddab3854e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/user-uploads?account=<uuid>&user=<uuid>&document_type=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user-uploads"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by `document_type`.",
+                      "key": "document_type",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of user upload objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all user upload objects."
+              },
+              "response": [
+                {
+                  "id": "9114542d-bfd0-45f4-8e89-ac462a6f719a",
+                  "name": "A paginated list of user upload objects.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-uploads?account=<uuid>&user=<uuid>&document_type=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-uploads"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by `document_type`.",
+                          "key": "document_type",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of user upload objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"document_type\": \"<string>\",\n      \"file_url\": \"<string>\",\n      \"file_name\": \"<string>\",\n      \"metadata\": {\n        \"employment\": {},\n        \"ocr_data\": {},\n        \"ocr_authenticity\": {},\n        \"ocr_authenticity_score\": \"<integer>\"\n      },\n      \"processing\": {\n        \"classification\": \"idle\",\n        \"ocr\": \"failed\",\n        \"authenticity\": \"failed\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"document_type\": \"<string>\",\n      \"file_url\": \"<string>\",\n      \"file_name\": \"<string>\",\n      \"metadata\": {\n        \"employment\": {},\n        \"ocr_data\": {},\n        \"ocr_authenticity\": {},\n        \"ocr_authenticity_score\": \"<integer>\"\n      },\n      \"processing\": {\n        \"classification\": \"unauthorized\",\n        \"ocr\": \"failed\",\n        \"authenticity\": \"unauthorized\"\n      },\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:53.000Z",
+                  "updatedAt": "2026-07-28T01:05:53.000Z",
+                  "uid": "35240-9114542d-bfd0-45f4-8e89-ac462a6f719a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:53.000Z",
+              "updatedAt": "2026-07-28T01:05:53.000Z",
+              "uid": "35240-597f11d4-3edd-4283-bf21-e1ddab3854e3"
+            }
+          ],
+          "id": "05b01cad-aee7-4d4f-b9ee-29aa37cb868f",
+          "createdAt": "2026-07-28T01:05:53.000Z",
+          "updatedAt": "2026-07-28T01:05:53.000Z",
+          "uid": "35240-05b01cad-aee7-4d4f-b9ee-29aa37cb868f"
+        }
+      ],
+      "id": "383b078f-e9cb-499e-87c9-e8707d13c700",
+      "createdAt": "2026-07-28T01:05:53.000Z",
+      "updatedAt": "2026-07-28T01:05:53.000Z",
+      "uid": "35240-383b078f-e9cb-499e-87c9-e8707d13c700"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "info": {
+    "_postman_id": "feb377ab-45bf-422f-b3ea-de7a5aeb01f1",
+    "name": "Argyle API Accounts Employments API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:50.000Z",
+    "updatedAt": "2026-07-28T01:04:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-feb377ab-45bf-422f-b3ea-de7a5aeb01f1"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "employments",
+          "item": [
+            {
+              "name": "List all employments",
+              "id": "b042e87a-4c93-4810-9b96-62faa026052d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/employments?user=<uuid>&account=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "employments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by account ID.",
+                      "key": "account",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of employment objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all employment objects."
+              },
+              "response": [
+                {
+                  "id": "e46628f4-de6a-4f59-847d-7f256278f974",
+                  "name": "A list of employment objects.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/employments?user=<uuid>&account=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "employments"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by account ID.",
+                          "key": "account",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of employment objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"employer\": \"<string>\",\n      \"employment_status\": \"inactive\",\n      \"origin\": \"acquired\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"account\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"created_at\": \"<dateTime>\",\n      \"employer\": \"<string>\",\n      \"employment_status\": \"inactive\",\n      \"origin\": \"retrieved\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:51.000Z",
+                  "updatedAt": "2026-07-28T01:04:51.000Z",
+                  "uid": "35240-e46628f4-de6a-4f59-847d-7f256278f974"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:51.000Z",
+              "updatedAt": "2026-07-28T01:04:51.000Z",
+              "uid": "35240-b042e87a-4c93-4810-9b96-62faa026052d"
+            }
+          ],
+          "id": "75bf8a5f-cae9-4897-88cf-dd4c362fcbb7",
+          "createdAt": "2026-07-28T01:04:51.000Z",
+          "updatedAt": "2026-07-28T01:04:51.000Z",
+          "uid": "35240-75bf8a5f-cae9-4897-88cf-dd4c362fcbb7"
+        }
+      ],
+      "id": "df762f76-dd78-4264-b88c-7364b1dcde4b",
+      "createdAt": "2026-07-28T01:04:51.000Z",
+      "updatedAt": "2026-07-28T01:04:51.000Z",
+      "uid": "35240-df762f76-dd78-4264-b88c-7364b1dcde4b"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

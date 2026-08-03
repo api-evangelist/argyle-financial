@@ -1,0 +1,464 @@
+{
+  "info": {
+    "_postman_id": "2db4ceb2-9bff-4a70-bddc-aa5a8d8dcf61",
+    "name": "Argyle API Accounts Reports API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:45.000Z",
+    "updatedAt": "2026-07-28T01:05:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2db4ceb2-9bff-4a70-bddc-aa5a8d8dcf61"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "{type}",
+              "item": [
+                {
+                  "name": "Generate a report",
+                  "id": "10433831-5db8-467c-acbf-d24f279f88d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": \"<uuid>\",\n  \"metadata\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/reports/:type",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "reports",
+                        ":type"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ab95b0dc-5b07-4b90-9649-b246e7c65301",
+                          "key": "type",
+                          "value": "voie-mortgage",
+                          "description": "(Required) The type of report to generate.\n\n- `voie` - Verification of Income and Employment\n- `voe` - Verification of Employment\n- `voie-mortgage` - Verification of Income and Employment, integrated with Fannie Mae's Desktop Underwriter (DU) validation service and Freddie Mac's asset and income modeler (AIM)\n- `voe-mortgage` - Verification of Employment, integrated with Fannie Mae's Desktop Underwriter (DU) validation service and Freddie Mac's asset and income modeler (AIM)\n\nVisit our [Day 1 Certainty and AIM guide](/integrations/d1c-aim/verifications#requesting-verification-reports) for more information on mortgage reports.\n"
+                        }
+                      ]
+                    },
+                    "description": "Generates a new report and returns a report object.\n\n<Warning>There is a daily limit of 10 reports per user to prevent excessive report generation due to accidental client-side errors.</Warning>\n\nIf the daily report limit is reached, deleting a previously generated report from the same 24 hour period will allow another report to be generated.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "078ef45d-7a6a-4148-83a0-59490017925f",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": \"<uuid>\",\n  \"metadata\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/reports/:type",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "reports",
+                            ":type"
+                          ],
+                          "variable": [
+                            {
+                              "key": "type"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"reference_id\": \"<uuid>\",\n  \"generated_at\": \"<dateTime>\",\n  \"created_at\": \"<dateTime>\",\n  \"type\": \"voe\",\n  \"status\": \"generating\",\n  \"file_url\": \"<string>\",\n  \"json_url\": \"<string>\",\n  \"last_synced_at\": \"<dateTime>\",\n  \"accounts\": [\n    {\n      \"id\": \"<uuid>\",\n      \"item\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"item\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\"\n    }\n  ],\n  \"metadata\": {},\n  \"external_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:05:45.000Z",
+                      "updatedAt": "2026-07-28T01:05:45.000Z",
+                      "uid": "35240-078ef45d-7a6a-4148-83a0-59490017925f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:45.000Z",
+                  "updatedAt": "2026-07-28T01:05:45.000Z",
+                  "uid": "35240-10433831-5db8-467c-acbf-d24f279f88d4"
+                }
+              ],
+              "id": "7c0e90ba-5512-49f6-9e57-ad93716c510e",
+              "createdAt": "2026-07-28T01:05:45.000Z",
+              "updatedAt": "2026-07-28T01:05:45.000Z",
+              "uid": "35240-7c0e90ba-5512-49f6-9e57-ad93716c510e"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Retrieve a report",
+                  "id": "c09343e0-2c26-42ce-859f-15cb4674ac35",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/reports/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "reports",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2afb9326-0930-4f53-8bbf-ebd0dc67ff15",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the report object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a report object."
+                  },
+                  "response": [
+                    {
+                      "id": "6224cd8e-024a-4fc6-aa76-b0b264985084",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/reports/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "reports",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"reference_id\": \"<uuid>\",\n  \"generated_at\": \"<dateTime>\",\n  \"created_at\": \"<dateTime>\",\n  \"type\": \"voe\",\n  \"status\": \"generating\",\n  \"file_url\": \"<string>\",\n  \"json_url\": \"<string>\",\n  \"last_synced_at\": \"<dateTime>\",\n  \"accounts\": [\n    {\n      \"id\": \"<uuid>\",\n      \"item\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"item\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\"\n    }\n  ],\n  \"metadata\": {},\n  \"external_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:05:45.000Z",
+                      "updatedAt": "2026-07-28T01:05:45.000Z",
+                      "uid": "35240-6224cd8e-024a-4fc6-aa76-b0b264985084"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:45.000Z",
+                  "updatedAt": "2026-07-28T01:05:45.000Z",
+                  "uid": "35240-c09343e0-2c26-42ce-859f-15cb4674ac35"
+                },
+                {
+                  "name": "Delete a report",
+                  "id": "5642ecde-9468-4066-90a5-ddc6190ff7c4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/reports/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "reports",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f8b41708-e8b2-46c1-849f-e50bbbb225ba",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the report object to be deleted."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a report object.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "e0aeebf3-b487-4bc6-ab20-b73b802ecc5d",
+                      "name": "204 status code: No content.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/reports/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "reports",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:05:45.000Z",
+                      "updatedAt": "2026-07-28T01:05:45.000Z",
+                      "uid": "35240-e0aeebf3-b487-4bc6-ab20-b73b802ecc5d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:05:45.000Z",
+                  "updatedAt": "2026-07-28T01:05:45.000Z",
+                  "uid": "35240-5642ecde-9468-4066-90a5-ddc6190ff7c4"
+                }
+              ],
+              "id": "1ff0b96c-6eb7-4c14-b23b-62ac52d7abb2",
+              "createdAt": "2026-07-28T01:05:45.000Z",
+              "updatedAt": "2026-07-28T01:05:45.000Z",
+              "uid": "35240-1ff0b96c-6eb7-4c14-b23b-62ac52d7abb2"
+            },
+            {
+              "name": "List all reports",
+              "id": "c12d1aa9-97c9-4c8c-9057-bed533e4688c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/reports?user=<uuid>&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "reports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Number of report objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all report objects."
+              },
+              "response": [
+                {
+                  "id": "4b2d97c0-b9af-49e2-84e6-d508698b61e9",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/reports?user=<uuid>&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "reports"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Number of report objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.\n",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"reference_id\": \"<uuid>\",\n      \"generated_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"type\": \"voe\",\n      \"status\": \"generating\",\n      \"file_url\": \"<string>\",\n      \"json_url\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"id\": \"<uuid>\",\n          \"item\": \"<string>\",\n          \"last_synced_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"item\": \"<string>\",\n          \"last_synced_at\": \"<dateTime>\"\n        }\n      ],\n      \"metadata\": {},\n      \"external_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"reference_id\": \"<uuid>\",\n      \"generated_at\": \"<dateTime>\",\n      \"created_at\": \"<dateTime>\",\n      \"type\": \"voie\",\n      \"status\": \"generated\",\n      \"file_url\": \"<string>\",\n      \"json_url\": \"<string>\",\n      \"last_synced_at\": \"<dateTime>\",\n      \"accounts\": [\n        {\n          \"id\": \"<uuid>\",\n          \"item\": \"<string>\",\n          \"last_synced_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<uuid>\",\n          \"item\": \"<string>\",\n          \"last_synced_at\": \"<dateTime>\"\n        }\n      ],\n      \"metadata\": {},\n      \"external_id\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:05:45.000Z",
+                  "updatedAt": "2026-07-28T01:05:45.000Z",
+                  "uid": "35240-4b2d97c0-b9af-49e2-84e6-d508698b61e9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:45.000Z",
+              "updatedAt": "2026-07-28T01:05:45.000Z",
+              "uid": "35240-c12d1aa9-97c9-4c8c-9057-bed533e4688c"
+            }
+          ],
+          "id": "9c1cce03-0158-4669-9b51-671e9e42119f",
+          "createdAt": "2026-07-28T01:05:45.000Z",
+          "updatedAt": "2026-07-28T01:05:45.000Z",
+          "uid": "35240-9c1cce03-0158-4669-9b51-671e9e42119f"
+        }
+      ],
+      "id": "27881c1e-b335-42a5-84b9-576c54633cfc",
+      "createdAt": "2026-07-28T01:05:45.000Z",
+      "updatedAt": "2026-07-28T01:05:45.000Z",
+      "uid": "35240-27881c1e-b335-42a5-84b9-576c54633cfc"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

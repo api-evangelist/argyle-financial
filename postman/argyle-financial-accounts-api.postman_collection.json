@@ -1,0 +1,444 @@
+{
+  "info": {
+    "_postman_id": "417df3ed-d308-467b-8063-779b1409f285",
+    "name": "Argyle API Accounts API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:48.000Z",
+    "updatedAt": "2026-07-28T01:04:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-417df3ed-d308-467b-8063-779b1409f285"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "accounts",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "disable-ongoing-refresh",
+                  "item": [
+                    {
+                      "name": "Disable account updates",
+                      "id": "9f841157-79e2-458e-af67-32a80445175b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/accounts/:id/disable-ongoing-refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "accounts",
+                            ":id",
+                            "disable-ongoing-refresh"
+                          ],
+                          "variable": [
+                            {
+                              "id": "319e0fcb-cdfe-40a0-9fb5-0ad3461dc0db",
+                              "key": "id",
+                              "value": "<uuid>",
+                              "description": "(Required) ID of the account object."
+                            }
+                          ]
+                        },
+                        "description": "Disables `ongoing_refresh` for an individual account.\n\nTo access this feature, reach out to our team for assistance.\n\n*   Link will display the [ongoing\\_refresh\\_disabled](/api-reference/account-connection-errors#ongoingrefreshdisabled) account connection error when users return to view this account.\n*   Changes the account's [`ongoing_refresh.status`](/api-reference/accounts#object-ongoing_refresh) value from `enabled` to `disabled` and causes the [`accounts.updated`](/api-reference/accounts-webhooks/updated) webhook to be sent.\n\n<br/>\n\nAfter `ongoing_refresh` is disabled:\n\n*   The specified account will no longer receive [data updates](/overview/ongoing-refresh).\n*   If the user returns to Link and [reconnects the account](/workflows/reconnecting-accounts#reconnecting-disconnected-accounts):\n    1.  The account will immediately be re-scanned and its data updated.\n    2.  The account will be billed as a new account connection.\n    3.  Ongoing refresh will be re-enabled for the account.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "a1e6ec78-8ee7-44df-846b-1526951f4bdb",
+                          "name": "200 status code: Request succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/accounts/:id/disable-ongoing-refresh",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "accounts",
+                                ":id",
+                                "disable-ongoing-refresh"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:04:48.000Z",
+                          "updatedAt": "2026-07-28T01:04:48.000Z",
+                          "uid": "35240-a1e6ec78-8ee7-44df-846b-1526951f4bdb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:04:48.000Z",
+                      "updatedAt": "2026-07-28T01:04:48.000Z",
+                      "uid": "35240-9f841157-79e2-458e-af67-32a80445175b"
+                    }
+                  ],
+                  "id": "12f2ff70-40f9-4ba6-8c26-c2a2d8b5afc1",
+                  "createdAt": "2026-07-28T01:04:48.000Z",
+                  "updatedAt": "2026-07-28T01:04:48.000Z",
+                  "uid": "35240-12f2ff70-40f9-4ba6-8c26-c2a2d8b5afc1"
+                },
+                {
+                  "name": "Retrieve an account",
+                  "id": "10af7d6b-e860-4ff4-b2ba-9c7b7fa0f49a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "92721ea3-5aa4-40c4-bb06-5d61bbfe7738",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the account object to be retrieved."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves an account object."
+                  },
+                  "response": [
+                    {
+                      "id": "76e612bf-cf1a-4ad4-aca9-aca9f32c253e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": \"<uuid>\",\n  \"employers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"item\": \"<string>\",\n  \"source\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"scanned_at\": \"<dateTime>\",\n  \"connection\": {\n    \"status\": \"error\",\n    \"error_code\": \"service_unavailable\",\n    \"error_message\": \"<string>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"direct_deposit_switch\": {\n    \"status\": \"success\",\n    \"error_code\": \"confirmation_timeout\",\n    \"error_message\": \"<string>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  \"availability\": {\n    \"shifts\": {\n      \"status\": \"sync_failed\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"gigs\": {\n      \"status\": \"sync_failed\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"paystubs\": {\n      \"status\": \"in_progress\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"payroll_documents\": {\n      \"status\": \"synced\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"identities\": {\n      \"status\": \"synced\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"ratings\": {\n      \"status\": \"synced\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"vehicles\": {\n      \"status\": \"synced\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"deposit_destinations\": {\n      \"status\": \"in_progress\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"user_forms\": {\n      \"status\": \"sync_failed\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    },\n    \"user_uploads\": {\n      \"status\": \"in_progress\",\n      \"updated_at\": \"<dateTime>\",\n      \"available_count\": \"<integer>\",\n      \"files_count\": \"<integer>\",\n      \"in_progress_count\": \"<integer>\",\n      \"available_from\": \"<dateTime>\",\n      \"available_to\": \"<dateTime>\"\n    }\n  },\n  \"ongoing_refresh\": {\n    \"status\": \"enabled\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:04:48.000Z",
+                      "updatedAt": "2026-07-28T01:04:48.000Z",
+                      "uid": "35240-76e612bf-cf1a-4ad4-aca9-aca9f32c253e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:48.000Z",
+                  "updatedAt": "2026-07-28T01:04:48.000Z",
+                  "uid": "35240-10af7d6b-e860-4ff4-b2ba-9c7b7fa0f49a"
+                },
+                {
+                  "name": "Delete an account",
+                  "id": "43222a99-90ba-4a34-a504-c92ddb117eee",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/accounts/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "accounts",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "299c2a75-c46d-4cc5-8f69-d76caca7ebda",
+                          "key": "id",
+                          "value": "<uuid>",
+                          "description": "(Required) ID of the account object to be deleted."
+                        }
+                      ]
+                    },
+                    "description": "Deletes an account object.\n\n<Warning>**Caution** - Deleting an account object will delete all resources associated with the account, such as paystubs or uploaded documents.</Warning>\n"
+                  },
+                  "response": [
+                    {
+                      "id": "81e94a15-4240-4092-90b9-6a909913a6be",
+                      "name": "204 status code: No content.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/accounts/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "accounts",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:04:48.000Z",
+                      "updatedAt": "2026-07-28T01:04:48.000Z",
+                      "uid": "35240-81e94a15-4240-4092-90b9-6a909913a6be"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:48.000Z",
+                  "updatedAt": "2026-07-28T01:04:48.000Z",
+                  "uid": "35240-43222a99-90ba-4a34-a504-c92ddb117eee"
+                }
+              ],
+              "id": "ec7f2aef-613f-4a2f-a123-70332a680976",
+              "createdAt": "2026-07-28T01:04:48.000Z",
+              "updatedAt": "2026-07-28T01:04:48.000Z",
+              "uid": "35240-ec7f2aef-613f-4a2f-a123-70332a680976"
+            },
+            {
+              "name": "List all accounts",
+              "id": "bdeb7612-6ce8-497b-8a69-29080580c07d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/accounts?user=<uuid>&item=<uuid>&ongoing_refresh_status=idle&limit=<integer>&cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by user ID.",
+                      "key": "user",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by Item ID.",
+                      "key": "item",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Filter by `status` of the `ongoing_refresh` object.",
+                      "key": "ongoing_refresh_status",
+                      "value": "idle"
+                    },
+                    {
+                      "description": "Number of account objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns a paginated list of all account objects."
+              },
+              "response": [
+                {
+                  "id": "013b0a20-4f82-4eb4-a656-3afd208e9d8e",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/accounts?user=<uuid>&item=<uuid>&ongoing_refresh_status=idle&limit=<integer>&cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by user ID.",
+                          "key": "user",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by Item ID.",
+                          "key": "item",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "Filter by `status` of the `ongoing_refresh` object.",
+                          "key": "ongoing_refresh_status",
+                          "value": "idle"
+                        },
+                        {
+                          "description": "Number of account objects returned [per page](/api-guide/overview#pagination). Default: 10. Maximum: 200.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The URL returned in `next` or `previous` used to retrieve another [page](/api-guide/overview#pagination) of results.",
+                          "key": "cursor",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"next\": \"<uri>\",\n  \"previous\": \"<uri>\",\n  \"results\": [\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"employers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"item\": \"<string>\",\n      \"source\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"scanned_at\": \"<dateTime>\",\n      \"connection\": {\n        \"status\": \"connecting\",\n        \"error_code\": \"unsupported_business_account\",\n        \"error_message\": \"<string>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      \"direct_deposit_switch\": {\n        \"status\": \"idle\",\n        \"error_code\": \"confirmation_expired\",\n        \"error_message\": \"<string>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      \"availability\": {\n        \"shifts\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"gigs\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"paystubs\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"payroll_documents\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"identities\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"ratings\": {\n          \"status\": \"synced\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"vehicles\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"deposit_destinations\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"user_forms\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"user_uploads\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        }\n      },\n      \"ongoing_refresh\": {\n        \"status\": \"enabled\"\n      }\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"user\": \"<uuid>\",\n      \"employers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"item\": \"<string>\",\n      \"source\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"scanned_at\": \"<dateTime>\",\n      \"connection\": {\n        \"status\": \"error\",\n        \"error_code\": \"unsupported_auth_type\",\n        \"error_message\": \"<string>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      \"direct_deposit_switch\": {\n        \"status\": \"success\",\n        \"error_code\": \"account_blocked\",\n        \"error_message\": \"<string>\",\n        \"updated_at\": \"<dateTime>\"\n      },\n      \"availability\": {\n        \"shifts\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"gigs\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"paystubs\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"payroll_documents\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"identities\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"ratings\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"vehicles\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"deposit_destinations\": {\n          \"status\": \"in_progress\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"user_forms\": {\n          \"status\": \"sync_failed\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        },\n        \"user_uploads\": {\n          \"status\": \"synced\",\n          \"updated_at\": \"<dateTime>\",\n          \"available_count\": \"<integer>\",\n          \"files_count\": \"<integer>\",\n          \"in_progress_count\": \"<integer>\",\n          \"available_from\": \"<dateTime>\",\n          \"available_to\": \"<dateTime>\"\n        }\n      },\n      \"ongoing_refresh\": {\n        \"status\": \"enabled\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:48.000Z",
+                  "updatedAt": "2026-07-28T01:04:48.000Z",
+                  "uid": "35240-013b0a20-4f82-4eb4-a656-3afd208e9d8e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:48.000Z",
+              "updatedAt": "2026-07-28T01:04:48.000Z",
+              "uid": "35240-bdeb7612-6ce8-497b-8a69-29080580c07d"
+            }
+          ],
+          "id": "11f66605-2e56-438a-89ab-f4175a7a6055",
+          "createdAt": "2026-07-28T01:04:48.000Z",
+          "updatedAt": "2026-07-28T01:04:48.000Z",
+          "uid": "35240-11f66605-2e56-438a-89ab-f4175a7a6055"
+        }
+      ],
+      "id": "73b7f871-eb57-4e8f-bd30-161fdb964704",
+      "createdAt": "2026-07-28T01:04:48.000Z",
+      "updatedAt": "2026-07-28T01:04:48.000Z",
+      "uid": "35240-73b7f871-eb57-4e8f-bd30-161fdb964704"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

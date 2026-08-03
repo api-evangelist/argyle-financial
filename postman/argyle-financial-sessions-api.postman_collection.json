@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "6714bc35-fd37-436d-88a3-587a4c1a5d50",
+    "name": "Argyle API Accounts Sessions API",
+    "description": "Accounts are payroll connections made through Link.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:05:45.000Z",
+    "updatedAt": "2026-07-28T01:05:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6714bc35-fd37-436d-88a3-587a4c1a5d50"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "sessions",
+          "item": [
+            {
+              "name": "Create a session",
+              "id": "7088bdc4-e382-4769-b497-73e9ecba5814",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"verification\": \"<uuid>\",\n  \"configuration\": {\n    \"experience\": \"<uuid>\",\n    \"single_use_url\": \"<boolean>\",\n    \"redirect_url\": \"<string>\",\n    \"flow_id\": \"<string>\",\n    \"items\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"language\": \"ZH\",\n    \"mobile_app\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/sessions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "sessions"
+                  ]
+                },
+                "description": "Create a connection session and return a `link` URL that launches the frontend experience.\n\nSession links expire after one hour. A new session link can be created at any time by creating another session for the active verification.\n\n<Note>This endpoint is for payroll and banking verifications only.</Note>"
+              },
+              "response": [
+                {
+                  "id": "e903c70a-e24c-4810-9a55-0db7f3324058",
+                  "name": "New Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"verification\": \"<uuid>\",\n  \"configuration\": {\n    \"experience\": \"<uuid>\",\n    \"single_use_url\": \"<boolean>\",\n    \"redirect_url\": \"<string>\",\n    \"flow_id\": \"<string>\",\n    \"items\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"language\": \"ZH\",\n    \"mobile_app\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/sessions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "sessions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"verification\": \"<uuid>\",\n  \"configuration\": {\n    \"experience\": \"<uuid>\",\n    \"single_use_url\": \"<boolean>\",\n    \"redirect_url\": \"<string>\",\n    \"flow_id\": \"<string>\",\n    \"items\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"language\": \"ZH\",\n    \"mobile_app\": \"<boolean>\"\n  },\n  \"link\": \"<string>\",\n  \"data_source\": \"payroll\"\n}",
+                  "createdAt": "2026-07-28T01:05:46.000Z",
+                  "updatedAt": "2026-07-28T01:05:46.000Z",
+                  "uid": "35240-e903c70a-e24c-4810-9a55-0db7f3324058"
+                }
+              ],
+              "createdAt": "2026-07-28T01:05:46.000Z",
+              "updatedAt": "2026-07-28T01:05:46.000Z",
+              "uid": "35240-7088bdc4-e382-4769-b497-73e9ecba5814"
+            }
+          ],
+          "id": "af3d585d-d11d-49d1-8311-eb529654db90",
+          "createdAt": "2026-07-28T01:05:46.000Z",
+          "updatedAt": "2026-07-28T01:05:46.000Z",
+          "uid": "35240-af3d585d-d11d-49d1-8311-eb529654db90"
+        }
+      ],
+      "id": "ce420be4-c60b-43ca-a8e6-14dee1430b71",
+      "createdAt": "2026-07-28T01:05:46.000Z",
+      "updatedAt": "2026-07-28T01:05:46.000Z",
+      "uid": "35240-ce420be4-c60b-43ca-a8e6-14dee1430b71"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
