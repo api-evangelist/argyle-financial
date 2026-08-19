@@ -1,0 +1,145 @@
+{
+  "item": [
+    {
+      "id": "9d0f4ba2-ec7b-4269-98b7-a964627938ed",
+      "name": "User Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cec7056c-d84b-4df8-bd55-3d91d9f0c8d8",
+          "name": "Create a user token",
+          "request": {
+            "name": "Create a user token",
+            "description": {
+              "content": "Creates a new user token from the `id` of an existing user for direct embedded Link initializations.\n\n<Note>\n[Creating a new user](/api-reference/users#create) will also return a user token in the response.\n</Note>\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "user-tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1456d01c-73d7-4a45-a8cd-5482ee7e1edd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "user-tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxNDRhMTRkNJ04YzEzLTQzZGYtOTI4Ni01OWY4NjFkOWEyMDIiLCJleHAiOjE2NzgzOTUwMTEsImZpZCI6ImMyNzFhODRlLWM2MjQtNDNkYS05OGMyLTQzODZkNTk1OWQ4YiIsImlhdCI6MTY3ODM5MTQxMSwiaXNzIjoiYXJneWxlLWNvcmUtYXV0aC1kZXYiLCJqdGkiOiI4ZTk1MTBmNC00YzVlLTRlOTAtOTIyNy1kNjg2MTk3MmMxOTAiLCJzdWIiOiIwMTg2YzRiOC04ZmExLTYyYjMtNDlkZi05NGIzZTE4Y2E4YTciLCJ1c2VyX2lkIjoiMDE4NmM0YjgtOGZhMS02MmIzLTQ5ZGYtOTRiM2UxOGNhOGE3In0.oLrxtzfNHG1RZ85Z4q7VUiv2-kufXmMINJFHeRIjvWo\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13330ad2-0a42-4ae9-91bf-dfcc5bc6951b",
+    "name": "Argyle API Accounts User Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Accounts are payroll connections made through Link.",
+      "type": "text/plain"
+    }
+  }
+}
