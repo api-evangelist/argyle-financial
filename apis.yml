@@ -55,6 +55,13 @@ apis:
   - VOA
   - VOAI
   - Bank Accounts
+  - institutions
+  tags_raw:
+  - Banking
+  - Open Finance
+  - VOA
+  - VOAI
+  - Bank Accounts
   - Institutions
   properties:
   - type: Documentation
@@ -68,6 +75,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -518,6 +527,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -1118,6 +1129,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -1218,6 +1231,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
+  - Verification
+  tags_raw:
   - Verifications
   properties:
   - type: OpenAPI
@@ -1268,6 +1283,8 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
