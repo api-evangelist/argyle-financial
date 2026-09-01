@@ -67,7 +67,7 @@ apis:
   - VOA
   - VOAI
   - Bank Accounts
-  - institutions
+  - Institutions
   tags_raw:
   - Banking
   - Open Finance
@@ -1243,7 +1243,7 @@ apis:
   humanURL: https://docs.argyle.com/api-reference/users
   baseURL: https://api.argyle.com/v2
   tags:
-  - Verifications
+  - Verification
   tags_raw:
   - Verifications
   properties:
